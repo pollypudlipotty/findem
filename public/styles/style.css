@@ -1,0 +1,200 @@
+/*ALL*/
+
+body{
+    background-color: #004B84;
+}
+
+#navbar {
+    background-color: #004B84;
+    
+
+}
+
+
+#findemLogo{
+    width: 200px;
+}
+
+.titles {
+    text-transform: uppercase;
+    font-family: 'IBM Plex Mono';
+    color: white;
+    position: relative;
+    z-index: 1;
+    margin: 40px;
+    
+    &:before {
+        border-top: 2px solid white;
+        content:"";
+        margin: 0 auto; 
+        position: absolute; 
+        top: 50%; left: 0; right: 0; bottom: 0;
+        width: 95%;
+        z-index: -1;
+    }    
+}
+
+.titles > span { 
+    background: #004B84; /*szöveg háttere*/ 
+    padding: 0 15px; 
+}
+
+.line{
+    width: 100%;
+    color: white;
+    margin: 30px auto; 
+    position: center; 
+    background-color: white;
+    opacity: 1;
+
+}
+
+.footerContact{
+    color: white;
+    a{
+        text-decoration: none;
+        color: white;
+    }
+}
+
+
+.footerItems{
+    text-decoration: none;
+    list-style: none;
+    color: white;
+    margin: 30px;
+    
+}
+
+
+
+.footerPics{
+    max-width: 100%;
+}
+
+
+.logo{
+    max-width: 150px;
+}
+
+
+
+/*Index*/
+
+
+.card-body{
+    background-color: #077877;
+    color: white;
+    min-height: 280px;
+
+}
+
+.card-title{
+    padding-bottom: 20px;
+}
+
+.card-subtitle{
+    color: white!important;
+    margin: 10px;
+}
+
+.btnReserve{
+    border: solid 1px white;
+    padding: 10px;
+    margin-top: 20px;
+    text-decoration: none;
+    color: white;
+}
+
+.btnReserve:hover{
+    color: #077877;
+    background-color: white;
+    border: 1px solid #077877;
+}
+
+.categoriesOnHomePage{
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+
+.serviceCategories{
+    max-width: 150px;
+    border: 1px solid white;
+
+}
+
+.btn-primary{
+    background-color: #077877;
+    border: 1px solid white;
+}
+
+.btn-primary:hover{
+    color: #077877;
+    background-color: white!important;
+    border: 1px solid #077877!important;
+}
+
+.imgCarousel{
+    max-width: 1000px;
+    margin: auto;
+}
+
+/*freeDates*/
+
+.reservationTable{
+    border: 3px solid #077877;
+}
+
+.buttonReserve{
+    color: white;
+}
+
+/*aboutUs*/
+
+.aboutUs-logo{
+    max-width: 300px;
+}
+
+.aboutUsText{
+    color: white;
+    text-align: center;
+}
+
+
+/*registration*/
+
+#registration-logo{
+    max-width: 100px;
+}
+
+.registrationBox{
+    border: solid 2px white;
+    padding: 10px;
+    width: 400px;
+    background-color: #077877;
+    color: white;
+
+}
+
+h3{
+text-align: center;
+color: white;
+}
+
+.signIn-logo{
+    max-width: 90px;
+}
+
+/*contact*/
+
+.mail{
+    position: center;
+    margin: auto;
+    color: white;
+
+}
+
+/*signIn*/
+
+
+
