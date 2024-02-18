@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="/public/styles/style.css">
     <!-- BETŰTÍPUS -->
     <link href='https://fonts.googleapis.com/css?family=IBM Plex Mono' rel='stylesheet'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="/public/functions/functions.js"></script>
 </head>
 
 <body>
@@ -41,7 +43,7 @@
                         <a class="nav-link" href="/contact">Kapcsolat</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/registrate">Regisztráció</a>
+                        <a class="nav-link" href="/registration">Regisztráció</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/login">Bejelentkezés</a>

@@ -16,7 +16,7 @@ class Router
 
     private const ROUTES = [
         'home' => ['controller' => HomeController::class],
-        'registrate' => ['controller' => RegistrationController::class],
+        'registration' => ['controller' => RegistrationController::class],
         'login' => ['controller' => LoginController::class],
         'about_us' => ['controller' => AboutUsController::class],
         'contact' => ['controller' => ContactController::class],

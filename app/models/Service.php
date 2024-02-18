@@ -18,8 +18,7 @@ class Service
     public function loadCategories()
     {
         $this->dbConn->query("SELECT * FROM service_category");
-        $result = $this->dbConn->resultSet();
-        return $result;
+        return $this->dbConn->resultSet();
     }
 
     public function loadAvailableAppointments()

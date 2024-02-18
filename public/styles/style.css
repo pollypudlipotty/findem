@@ -173,7 +173,10 @@ body{
     width: 400px;
     background-color: #077877;
     color: white;
+}
 
+.provider_form {
+    display: none;
 }
 
 h3{
