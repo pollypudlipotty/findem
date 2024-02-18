@@ -50,6 +50,5 @@ class RegistrationController
             'companyAddress' => $_POST['company_address'],
             'companyDescription' => $_POST['company_description'],
         ]);
-
     }
 }

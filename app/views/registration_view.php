@@ -57,7 +57,7 @@
 
                 <div class="mb-3 provider_form">
                     <label for="company_name" class="form-label">Cég név:</label>
-                    <input type="email" class="form-control" id="company_name" name="company_name" >
+                    <input type="text" class="form-control" id="company_name" name="company_name" >
                 </div>
 
                 <div class="mb-3 provider_form">
@@ -73,7 +73,7 @@
 
                 <div class="mb-3 provider_form">
                     <label for="company_address" class="form-label">Cím:</label>
-                    <input type="email" class="form-control" id="company_address" name="company_address" >
+                    <input type="text" class="form-control" id="company_address" name="company_address" >
                 </div>
 
                 <div class="mb-3 provider_form">

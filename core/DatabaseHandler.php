@@ -76,4 +76,9 @@ class DatabaseHandler
         $this->execute();
         return $this->statement->fetch(PDO::FETCH_OBJ);
     }
+
+    public function lastInsertId(): bool|string
+    {
+        return $this->handler->lastInsertId();
+    }
 }
