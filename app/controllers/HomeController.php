@@ -19,10 +19,13 @@ class HomeController
         $services = $service->loadCategories();
         $appointments = $service->loadAvailableAppointments();
 
+        $message = Helper::setFlashMessage();
+
         $template = new Template(self::HOME_VIEW . '.php');
         $template->loadView([
             'services' => $services,
             'appointments' => $appointments,
+            'message' => $message,
         ]);
 
     }
