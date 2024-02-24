@@ -27,7 +27,15 @@ class HomeController
             'appointments' => $appointments,
             'message' => $message,
         ]);
+    }
 
+    public function sortCategories()
+    {
+        $categoryId = $_POST['categoryId'];
+
+        $service = new Service();
+        $appointments = $service->loadAvailableAppointmentsForCategory($categoryId);
+        exit(json_encode($appointments));
     }
 }
 
