@@ -16,30 +16,47 @@ class RegistrationController
         $service = new Service();
         $categories = $service->loadCategories();
 
+        $message = Helper::setFlashMessage();
+
         $template = new Template(self::REGISTRATION_VIEW . '.php');
         $template->loadView([
             'categories' => $categories,
+            'message' => $message,
         ]);
     }
 
-    public function userRegistration(): bool
+    public function userRegistration(): void
     {
-        if (!isset($_POST['email']) && !isset($_POST['last_name']) && !isset($_POST['first_name']) && !isset($_POST['pass1']) && !isset($_POST['pass2']) && $_POST['pass1'] !== $_POST['pass2']) {
-            Helper::redirectWithMessage(MESSAGES['error'], 'registration');
+        if (empty($_POST['email']) || empty($_POST['last_name']) || empty($_POST['first_name']) || empty($_POST['pass1']) || empty($_POST['pass2'])) {
+            Helper::redirectWithMessage(MESSAGES['missingData'], 'registration');
+        }
+
+
+        if ($_POST['pass1'] !== $_POST['pass2']) {
+            Helper::redirectWithMessage(MESSAGES['pwMatch'], 'registration');
         }
 
         $user = new User();
 
         if (!isset($_POST['provider_check'])) {
-            return $user->addNewUser([
+            if ($user->addNewUser([
                 'email' => $_POST['email'],
                 'lastName' => $_POST['last_name'],
                 'firstName' => $_POST['first_name'],
                 'pw' => $_POST['pass1'],
-            ]);
+            ])) {
+                Helper::redirectWithMessage(MESSAGES['successReg'], 'home');
+            }
+
+            Helper::redirectWithMessage(MESSAGES['error'],'registration');
         }
 
-        return $user->addNewServiceProvider([
+        if (empty($_POST['service_category']) || empty($_POST['company_name']) || empty($_POST['company_district']) || empty($_POST['company_address']) || empty($_POST['company_description'])) {
+            Helper::redirectWithMessage(MESSAGES['missingData'], 'registration');
+        }
+
+
+        if ($user->addNewServiceProvider([
             'email' => $_POST['email'],
             'lastName' => $_POST['last_name'],
             'firstName' => $_POST['first_name'],
@@ -49,6 +66,10 @@ class RegistrationController
             'companyDistrict' => $_POST['company_district'],
             'companyAddress' => $_POST['company_address'],
             'companyDescription' => $_POST['company_description'],
-        ]);
+        ])) {
+            Helper::redirectWithMessage(MESSAGES['successReg'], 'home');
+        }
+
+        Helper::redirectWithMessage(MESSAGES['error'],'registration');
     }
 }

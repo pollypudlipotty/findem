@@ -74,7 +74,7 @@ class DatabaseHandler
     public function single(): bool|array
     {
         $this->execute();
-        return $this->statement->fetch(PDO::FETCH_OBJ);
+        return $this->statement->fetch(PDO::FETCH_ASSOC);
     }
 
     public function lastInsertId(): bool|string

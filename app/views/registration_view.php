@@ -2,7 +2,6 @@
 
     <div class="container">
         <!--NAVBAR-->
-
         <!--REGISZTRÁCIÓ-->
         <div class="row">
             <h2 class="text-center m-b-4 titles"><span>Regisztráció<span></h2>
