@@ -2,6 +2,7 @@
 
 namespace app\models;
 
+use app\helpers\Helper;
 use core\DatabaseHandler;
 
 class User
@@ -15,6 +16,10 @@ class User
 
     public function addNewUser(array $userData): bool
     {
+        if (!$this->validateEmail($userData['email'])) {
+            Helper::redirectWithMessage($_SESSION['message'], 'registration');
+        }
+
         $userRoleID = '1';
         $this->dbConn->query("INSERT INTO user (role_id, first_name, last_name, email_address, password)
                                     VALUES (:role_id, :first_name, :last_name, :email_address, :password)");
@@ -29,8 +34,12 @@ class User
         return $this->dbConn->execute();
     }
 
-    public function addNewServiceProvider(array $userData)
+    public function addNewServiceProvider(array $userData): bool
     {
+        if (!$this->validateEmail($userData['email'])) {
+            Helper::redirectWithMessage($_SESSION['message'], 'registration');
+        }
+
         $userRoleID = '2';
         $this->dbConn->query("INSERT INTO user (role_id, first_name, last_name, email_address, password)
                                     VALUES (:role_id, :first_name, :last_name, :email_address, :password)");
@@ -58,5 +67,23 @@ class User
         }
 
         return false;
+    }
+
+    public function validateEmail(string $emailInput): bool
+    {
+        if (!filter_var($emailInput, FILTER_VALIDATE_EMAIL)) {
+            $_SESSION['message'] = MESSAGES['invalidEmail'];
+            return false;
+        }
+
+        $this->dbConn->query("SELECT * FROM user WHERE email_address = :email");
+        $this->dbConn->bind(':email', $emailInput);
+        $result = $this->dbConn->resultSet();
+
+        if ($result) {
+            $_SESSION['message'] = MESSAGES['duplicateEmail'];
+            return false;
+        }
+        return true;
     }
 }
