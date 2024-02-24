@@ -3,19 +3,18 @@
 
     <!--LEGKÖZELEBBI LEFOGLALHATÓ SZOLGÁLTATÁSOK-->
     <div class="container">
-        <div class="row gy-3">
+        <div class="row gy-3 category-sort">
 
             <?php foreach ($appointments as $appointment): ?>
 
             <div class="col-md-4">
                 <div class="card m-5">
                     <div class="card-body">
-                        <h5 class="card-title"><?php echo $appointment['service_name']; ?></h5>
-                        <h6 class="card-subtitle mb-2 text-body-secondary"><span>kategória: </span><?php echo $appointment['category_name']; ?></h6>
+                        <h5 class="card-title"><?php echo $appointment['category_name']; ?></h5>
+                        <hr>
                         <h6 class="card-subtitle mb-2 text-body-secondary"><span>időpont: </span><?php echo $appointment['appointmentTime']; ?></h6>
-                        <h6 class="card-subtitle mb-2 text-body-secondary"><span>helyszín: </span><?php echo $appointment['service_district'] . '. kerület, ' . $appointment['service_address']; ?></h6>
+                        <h6 class="card-subtitle mb-2 text-body-secondary"><span>kerület: </span><?php echo $appointment['service_district']; ?>.</h6>
                         <h6 class="card-subtitle mb-2 text-body-secondary"><span>megjegyzés: </span><?php echo $appointment['service_description']; ?></h6>
-                        <a href="#" class="btn btnReserve">Foglalás</a>
                     </div>
                 </div>
             </div>
@@ -34,7 +33,7 @@
         <div class="container categoriesOnHomePage">
             <div class="row justify-content-around">
                 <?php foreach ($services as $service): ?>
-                    <button class="btn btn-primary position-relative col m-2 serviceCategories"><?php echo $service['category_name']; ?></button>
+                    <button class="btn btn-primary position-relative col m-2 serviceCategories" onclick="sortCategories(<?php echo $service['category_id']; ?>);"><?php echo $service['category_name']; ?></button>
                 <?php endforeach; ?>
             </div>
         </div>
