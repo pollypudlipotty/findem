@@ -31,6 +31,11 @@ class HomeController
 
     public function sortCategories()
     {
+        if (!isset($_POST['categoryId']) || empty($_POST['categoryId'])) {
+            http_response_code(400);
+            exit();
+        }
+
         $categoryId = $_POST['categoryId'];
 
         $service = new Service();
