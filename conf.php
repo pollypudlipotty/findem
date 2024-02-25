@@ -7,4 +7,7 @@ const MESSAGES = [
     'successReg' => "A regisztráció sikeres volt.",
     'missingData' => "Hiányzó adatok.",
     'pwMatch' => "A jelszavak nem egyeznek.",
+    'noUser' => "A megadott email címhez nem tartozik felhasználó.",
+    'wrongPw' => "Hibás jelszó!",
+    'welcome' => "Üdvözlünk!",
 ];

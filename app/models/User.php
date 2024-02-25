@@ -4,6 +4,7 @@ namespace app\models;
 
 use app\helpers\Helper;
 use core\DatabaseHandler;
+use JetBrains\PhpStorm\NoReturn;
 
 class User
 {
@@ -85,5 +86,25 @@ class User
             return false;
         }
         return true;
+    }
+
+    #[NoReturn] public function login(string $email, string $pass): void
+    {
+        $this->dbConn->query("SELECT * FROM user WHERE email_address = :email");
+        $this->dbConn->bind(':email', $email);
+        $result = $this->dbConn->single();
+
+        if(!$result) {
+            Helper::redirectWithMessage(MESSAGES['noUser'], 'login');
+        }
+
+        if ($result['password'] !== $pass) {
+            Helper::redirectWithMessage(MESSAGES['wrongPw'], 'login');
+        }
+
+        $_SESSION['user'] = $result['user_id'];
+        $_SESSION['user_role'] = $result['role_id'];
+
+        Helper::redirectWithMessage(MESSAGES['welcome'], 'profile');
     }
 }

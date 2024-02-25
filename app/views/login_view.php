@@ -9,18 +9,14 @@
         </div>
 
         <div class="container registrationBox">
-            <form>
+            <form action="/login/userLogin" method="POST">
                 <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label">Felhasználónév:</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    <label for="email-l" class="form-label">E-mail cím:</label>
+                    <input type="email" class="form-control" id="email-l" name="email">
                 </div>
                 <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label">E-mail cím:</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                </div>
-                <div class="mb-3">
-                    <label for="exampleInputPassword1" class="form-label">Jelszó:</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1">
+                    <label for="pass" class="form-label">Jelszó:</label>
+                    <input type="password" class="form-control" id="pass" name="pass">
                 </div>
                 <button type="submit" class="btn btn-primary">Bejelentkezés</button>
             </form>
@@ -36,3 +32,4 @@
     </div>
 
 <?php include 'inc/footer.php'; ?>
+

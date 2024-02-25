@@ -7,6 +7,7 @@ use app\controllers\ContactController;
 use app\controllers\HomeController;
 use app\controllers\LoginController;
 use app\controllers\NotFoundController;
+use app\controllers\ProfileController;
 use app\controllers\RegistrationController;
 use ReflectionClass;
 
@@ -20,6 +21,7 @@ class Router
         'login' => ['controller' => LoginController::class],
         'about_us' => ['controller' => AboutUsController::class],
         'contact' => ['controller' => ContactController::class],
+        'profile' => ['controller' => ProfileController::class],
     ];
 
     private const NOT_FOUND = ['controller' => NotFoundController::class];
