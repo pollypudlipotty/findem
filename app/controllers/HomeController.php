@@ -3,7 +3,6 @@
 namespace app\controllers;
 
 use app\helpers\Helper;
-use app\models\Image;
 use app\models\Service;
 use core\Template;
 use JetBrains\PhpStorm\NoReturn;
