@@ -1,22 +1,22 @@
 <?php return array(
     'root' => array(
+        'name' => 'panni/findem',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
+        'reference' => 'a73927c702504c3198f55fb7c77ca71ebe35f950',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => 'b5952b1c33fbcb7a413e7eee6f4820bf307e7ad9',
-        'name' => 'panni/findem',
         'dev' => true,
     ),
     'versions' => array(
         'panni/findem' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
+            'reference' => 'a73927c702504c3198f55fb7c77ca71ebe35f950',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => 'b5952b1c33fbcb7a413e7eee6f4820bf307e7ad9',
             'dev_requirement' => false,
         ),
     ),

@@ -11,9 +11,9 @@
 
         <div class="container registrationBox">
             <form action="/registration/userRegistration" method="POST">
-
+                <div id="errorMessages"></div>
                 <div class="mb-3">
-                    <label for="email-r" class="form-label">E-mail cim:</label>
+                    <label for="email-r" class="form-label">E-mail cím:</label>
                     <input type="email" class="form-control" id="email-r" name="email" required>
                 </div>
 
@@ -32,7 +32,7 @@
                     <input type="password" class="form-control" id="pass1" name="pass1" required>
                 </div>
                 <div class="mb-3">
-                    <label for="pass2" class="form-label">Jelszó még egyszer:</label>
+                    <label for="pass2" class="form-label">Jelszó megerősítése:</label>
                     <input type="password" class="form-control" id="pass2" name="pass2" required>
                 </div>
 
