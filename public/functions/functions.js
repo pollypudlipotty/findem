@@ -52,7 +52,7 @@ $(document).ready(function() {
     });
 
     function validateField(field) {
-        var fieldValue = field.val().trim();
+        var fieldValue = (field.val() || '').trim();
         var fieldName = field.attr('name');
         var isValid = true;
         var errorMessage = '';
@@ -69,6 +69,15 @@ $(document).ready(function() {
                 var emailPattern = /^([a-zA-Z0-9_\.\-\+])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
                 if (!emailPattern.test(fieldValue)) {
                     errorMessage = 'Kérjük, egy valós e-mail címet írjon be';
+                    isValid = false;
+                }
+            }
+            
+            //Validation for names to only contain letters
+            if(fieldName === 'first_name' || fieldName === 'last_name') {
+                var namePattern =  /^[A-Za-z]+$/;
+                if (!namePattern.test(fieldValue)) {
+                    errorMessage = 'A nevek csak betűket tartalmazhatnak';
                     isValid = false;
                 }
             }
@@ -90,32 +99,42 @@ $(document).ready(function() {
                     isValid = false;
                 }
             }
-
+        }
             // Provider specific fields validation
-            if ($('#provider_check').is(':checked')) {
-                switch(fieldName) {
-                    case 'service_category':
-                    case 'company_name':
-                    case 'company_district':
-                    case 'company_address':
+        if ($('#provider_check').is(':checked')) {
+            switch(fieldName) {
+                case 'service_category':
+                case 'company_name':
+                case 'company_district':
+                case 'company_address':
                         if (fieldValue === '') {
                             errorMessage = 'Kérjük, töltse ki ezt a mezőt';
                             isValid = false;
                         }
                         break;
-                    case 'company_description':
+                case 'company_description':
                         if (fieldValue === '') {
                             errorMessage = 'Kérjük, mutassa be pár mondatban a céget';
                             isValid = false;
                         }
                         break;
-                }
             }
+            
+        }
+
+        // If field is pass1, show custom message on click
+        if (fieldName === 'pass1') {
+            field.off('click').on('click', function() {
+                $('#errorMessages').empty().append('<div class="alert alert-info">A jelszónak legalább 6 karakter hosszúnak kell lennie és tartalmaznia kell legalább egy nagybetűt, egy kisbetűt és egy számot.</div>');
+            });
         }
 
         if (!isValid) {
             showError(field, errorMessage);
+            return false;
         }
+
+        return true;
     }
 
     // Show error message
@@ -124,7 +143,7 @@ $(document).ready(function() {
         field.next('.invalid-feedback').text(message);
 
         // Append error message to #errorMessages container
-        $('#errorMessages').append('<div class="alert alert-danger">' + message + '</div>');
+        $('#errorMessages').append('<div class="alert alert-info">' + message + '</div>');
     }
 
     function hideError(field) {

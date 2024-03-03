@@ -10,30 +10,30 @@
              class="img-fluid mx-auto d-block">
 
         <div class="container registrationBox">
-            <form action="/registration/userRegistration" method="POST">
+            <form action="/registration/userRegistration" id="registrationForm" method="POST">
                 <div id="errorMessages"></div>
                 <div class="mb-3">
                     <label for="email-r" class="form-label">E-mail cím:</label>
-                    <input type="email" class="form-control" id="email-r" name="email" required>
+                    <input type="email" class="form-control" id="email-r" name="email">
                 </div>
 
                 <div class="mb-3">
                     <label for="last_name" class="form-label">Vezetéknév:</label>
-                    <input type="text" class="form-control" id="last_name" name="last_name" required>
+                    <input type="text" class="form-control" id="last_name" name="last_name">
                 </div>
 
                 <div class="mb-3">
                     <label for="first_name" class="form-label">Keresztnév:</label>
-                    <input type="text" class="form-control" id="first_name" name="first_name" required>
+                    <input type="text" class="form-control" id="first_name" name="first_name">
                 </div>
 
                 <div class="mb-3">
                     <label for="pass1" class="form-label">Jelszó:</label>
-                    <input type="password" class="form-control" id="pass1" name="pass1" required>
+                    <input type="password" class="form-control" id="pass1" name="pass1">
                 </div>
                 <div class="mb-3">
                     <label for="pass2" class="form-label">Jelszó megerősítése:</label>
-                    <input type="password" class="form-control" id="pass2" name="pass2" required>
+                    <input type="password" class="form-control" id="pass2" name="pass2">
                 </div>
 
                 <div class="mb-3 form-check">
