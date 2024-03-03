@@ -8,7 +8,9 @@ use app\controllers\HomeController;
 use app\controllers\LoginController;
 use app\controllers\NotFoundController;
 use app\controllers\ProfileController;
+use app\controllers\ProviderProfileController;
 use app\controllers\RegistrationController;
+use app\controllers\SeekerProfileController;
 use ReflectionClass;
 
 class Router
@@ -21,7 +23,9 @@ class Router
         'login' => ['controller' => LoginController::class],
         'about_us' => ['controller' => AboutUsController::class],
         'contact' => ['controller' => ContactController::class],
-        'profile' => ['controller' => ProfileController::class],
+        'seeker_profile' => ['controller' => SeekerProfileController::class],
+        'service_profile' => ['controller' => ProviderProfileController::class],
+
     ];
 
     private const NOT_FOUND = ['controller' => NotFoundController::class];

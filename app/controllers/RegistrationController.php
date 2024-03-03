@@ -22,6 +22,7 @@ class RegistrationController
         $template->loadView([
             'categories' => $categories,
             'message' => $message,
+            'nav' => Helper::setNav(),
         ]);
     }
 

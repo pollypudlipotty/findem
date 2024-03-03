@@ -17,6 +17,7 @@ class LoginController
         $template = new Template(self::LOGIN_VIEW . '.php');
         $template->loadView([
             'message' => $message,
+            'nav' => Helper::setNav(),
         ]);
     }
 

@@ -1,3 +1,8 @@
+<?php include 'inc/header.php'; ?>
+
+<?php include 'inc/' . $nav; ?>
+
+
 <div class="container">
       <div class="row gy-3">
         <div class="col-md-4">
@@ -37,3 +42,5 @@
         </div>
       </div>
     </div>
+
+<?php include 'inc/footer.php'; ?>
