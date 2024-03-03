@@ -1,9 +1,8 @@
 <?php include 'inc/header.php'; ?>
 
     <div class="container">
-        <!--NAVBAR-->
 
-        <!--REGISZTRÁCIÓ-->
+        <!--BEJELENTKEZÉS-->
         <div class="row">
             <h2 class="text-center m-b-4 titles"><span>Bejelentkezés<span></h2>
         </div>
@@ -32,4 +31,3 @@
     </div>
 
 <?php include 'inc/footer.php'; ?>
-

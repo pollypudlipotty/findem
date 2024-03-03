@@ -1,7 +1,6 @@
 <?php include 'inc/header.php'; ?>
 
     <div class="container">
-        <!--NAVBAR-->
         <!--REGISZTRÁCIÓ-->
         <div class="row">
             <h2 class="text-center m-b-4 titles"><span>Regisztráció<span></h2>
@@ -88,12 +87,12 @@
         <div class="container">
             <hr class="line">
         </div>
-        <img src="./img/signIn_logo.png" alt="Jelentkezz be!" class="img-fluid mx-auto d-block signIn-logo">
+        <img src="/public/images/signIn_logo.png" alt="Jelentkezz be!" class="img-fluid mx-auto d-block signIn-logo">
         <div class="container">
             <div class="row justify-content-center">
                 <h3>Van már fiókod?</h3>
                 <a href="/login">
-                    <button class="btn btn-primary position-relative col col-md-2">Bejelentkezés</button>
+                    <button class="btn btn-primary position-center col col-md-2">Bejelentkezés</button>
                 </a>
             </div>
         </div>
