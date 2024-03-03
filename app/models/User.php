@@ -94,7 +94,7 @@ class User
         $this->dbConn->bind(':email', $email);
         $result = $this->dbConn->single();
 
-        if(!$result) {
+        if (!$result) {
             Helper::redirectWithMessage(MESSAGES['noUser'], 'login');
         }
 
@@ -105,6 +105,10 @@ class User
         $_SESSION['user'] = $result['user_id'];
         $_SESSION['user_role'] = $result['role_id'];
 
-        Helper::redirectWithMessage(MESSAGES['welcome'], 'profile');
+        if ($_SESSION['role_id'] === 1) {
+            Helper::redirectWithMessage(MESSAGES['welcome'], 'seeker_profile');
+        }
+
+        Helper::redirectWithMessage(MESSAGES['welcome'], 'service_profile');
     }
 }

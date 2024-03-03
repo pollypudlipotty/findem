@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use app\helpers\Helper;
 use core\Template;
 
 class ContactController
@@ -11,6 +12,8 @@ class ContactController
     public function index(): void
     {
         $template = new Template(self::CONTACT_VIEW . '.php');
-        $template->loadView();
+        $template->loadView([
+            'nav' => Helper::setNav(),
+        ]);
     }
 }

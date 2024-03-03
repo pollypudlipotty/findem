@@ -1,5 +1,13 @@
 <?php include 'inc/header.php'; ?>
 
+<?php include 'inc/' . $nav; ?>
+
+<?php if (isset($message) && !empty($message)): ?>
+    <div class="alert alert-success text-center"><?php echo $message; ?></div>
+    <div class="container">
+        <hr class="line">
+    </div>
+<?php endif; ?>
 
     <!--LEGKÖZELEBBI LEFOGLALHATÓ SZOLGÁLTATÁSOK-->
     <div class="container">

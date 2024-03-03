@@ -1,5 +1,7 @@
 <?php include 'inc/header.php'; ?>
 
+<?php include 'inc/' . $nav; ?>
+
     <div class="container">
         <!--REGISZTRÁCIÓ-->
         <div class="row">
@@ -11,6 +13,11 @@
         <div class="container registrationBox">
             <form action="/registration/userRegistration" id="registrationForm" method="POST">
                 <div id="errorMessages"></div>
+
+                <?php if (isset($message) && !empty($message)): ?>
+                    <div class="alert alert-danger"><?php echo $message; ?></div>
+                <?php endif; ?>
+
                 <div class="mb-3">
                     <label for="email-r" class="form-label">E-mail cím:</label>
                     <input type="email" class="form-control" id="email-r" name="email">

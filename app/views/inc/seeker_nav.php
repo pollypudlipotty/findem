@@ -43,7 +43,7 @@
                         <a class="nav-link" href="/contact">Kapcsolat</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/account">Saját profil</a>
+                        <a class="nav-link" href="/seeker_profile">Saját profil</a>
                     </li>
                 </ul>
 
