@@ -139,7 +139,7 @@ body{
     margin: auto;
 }
 
-/*freeDates*/
+/*appointments*/
 
 .reservationTable{
     border: 3px solid #077877;
@@ -197,7 +197,19 @@ color: white;
 
 }
 
-/*signIn*/
+/*account*/
+
+#profil-logo {
+    max-width: 100px;
+}
+
+#accountOptionsBox {
+    border: solid 2px #077877;
+    padding: 10px;
+    width: 300px;
+    background-color: white;
+    color: white;    
+}
 
 
 
