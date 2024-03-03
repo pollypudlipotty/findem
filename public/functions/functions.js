@@ -72,10 +72,10 @@ $(document).ready(function() {
                     isValid = false;
                 }
             }
-            
+
             //Validation for names to only contain letters
             if(fieldName === 'first_name' || fieldName === 'last_name') {
-                var namePattern =  /^[A-Za-z]+$/;
+                var namePattern =  /^[A-Za-zÁáÉéÍíÓóÖöŐőÚúÜüŰű]+$/;
                 if (!namePattern.test(fieldValue)) {
                     errorMessage = 'A nevek csak betűket tartalmazhatnak';
                     isValid = false;
@@ -157,7 +157,15 @@ $(document).ready(function() {
         event.preventDefault();
 
         var isValid = true;
-        $('#registrationForm').find('input, select').each(function() {
+        var $inputsToValidate;
+
+        if ($('#provider_check').is(':checked')) {
+            $inputsToValidate = $('#registrationForm').find('input, select');
+        } else {
+            $inputsToValidate = $('#registrationForm').find('input, select').slice(0, 4);
+        }
+
+        $inputsToValidate.each(function() {
             if (!validateField($(this))) {
                 isValid = false;
             }
