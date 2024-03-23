@@ -2,6 +2,8 @@
 
 body{
     background-color: #004B84;
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
 }
 
 #navbar {
@@ -72,9 +74,13 @@ body{
     max-width: 100%;
 }
 
+.footer-links {
+    list-style: none; 
+}
 
-.logo{
+.mail_logo{
     max-width: 150px;
+    margin-bottom: 20px;
 }
 
 
@@ -153,6 +159,7 @@ body{
 
 .aboutUs-logo{
     max-width: 300px;
+    margin-bottom: 20px;
 }
 
 .aboutUsText{
@@ -165,6 +172,7 @@ body{
 
 #registration-logo{
     max-width: 100px;
+    margin-bottom: 20px;
 }
 
 .registrationBox{
@@ -180,12 +188,15 @@ body{
 }
 
 h3{
-text-align: center;
-color: white;
+    text-align: center;
+    color: white;
+    margin-bottom: 20px;
+
 }
 
 .signIn-logo{
     max-width: 90px;
+    margin-bottom: 20px;
 }
 
 /*contact*/
@@ -194,6 +205,7 @@ color: white;
     position: center;
     margin: auto;
     color: white;
+    text-align: center;
 
 }
 
@@ -201,6 +213,7 @@ color: white;
 
 #profil-logo {
     max-width: 100px;
+    margin-bottom: 20px;
 }
 
 #accountOptionsBox {
@@ -210,6 +223,16 @@ color: white;
     background-color: white;
     color: white;    
 }
+
+.container {
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.container.hide {
+    opacity: 0;
+}
+
 
 
 

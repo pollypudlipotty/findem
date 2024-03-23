@@ -22,7 +22,7 @@
     <nav class="navbar navbar-expand-lg bg-primary p-0" data-bs-theme="dark">
         <div id="navbar" class="container-fluid py-3">
             <a href="/home">
-                <img id="findemLogo" src="/public/images/findEM_logo2.png" alt="FindEM" class="img-fluid">
+                <img id="findemLogo" src="/public/images/findEM_logo2.png" alt="FindEM" class="img-fluid" onclick="redirectToPage()">
             </a>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -34,19 +34,19 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link" href="./freeDates.html">Szabad időpontok</a>
+                        <a class="nav-link" href="./freeDates.html" onclick="redirectToPage()">Szabad időpontok</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/about_us">Rólunk</a>
+                        <a class="nav-link" href="/about_us" onclick="redirectToPage()">Rólunk</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/contact">Kapcsolat</a>
+                        <a class="nav-link" href="/contact" onclick="redirectToPage()">Kapcsolat</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/registration">Regisztráció</a>
+                        <a class="nav-link" href="/registration" onclick="redirectToPage()">Regisztráció</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/login">Bejelentkezés</a>
+                        <a class="nav-link" href="/login" onclick="redirectToPage()">Bejelentkezés</a>
                     </li>
 
                 </ul>
