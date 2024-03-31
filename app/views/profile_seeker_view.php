@@ -11,8 +11,8 @@
         class="img-fluid mx-auto d-block">
     <div class="container" id="accountOptionsBox">
         <ul class="list-group">
-            <li class="list-group-item"><a href="">Profil adatok módosítása</a></li>
-            <li class="list-group-item"><a href="">Kijelentkezés</a></li>
+            <li class="list-group-item"><a href="/seeker_profile/updateProfile">Profil adatok módosítása</a></li>
+            <li class="list-group-item"><a href="/seeker_profile/logout">Kijelentkezés</a></li>
             <li class="list-group-item"><a href="">Profil törlése</a></li>
         </ul>
 

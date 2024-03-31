@@ -45,6 +45,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/seeker_profile">Saját profil</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/seeker_profile/logout">Kijelentkezés</a>
+                    </li>
                 </ul>
 
             </div>
