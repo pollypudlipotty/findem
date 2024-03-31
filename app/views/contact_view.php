@@ -1,5 +1,7 @@
 <?php include 'inc/header.php'; ?>
 
+<?php include 'inc/' . $nav; ?>
+
 <div class="container">
     <!--NAVBAR-->
 

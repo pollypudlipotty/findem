@@ -94,17 +94,54 @@ class User
         $this->dbConn->bind(':email', $email);
         $result = $this->dbConn->single();
 
-        if(!$result) {
-            Helper::redirectWithMessage(MESSAGES['noUser'], 'login');
-        }
-
-        if ($result['password'] !== $pass) {
-            Helper::redirectWithMessage(MESSAGES['wrongPw'], 'login');
+        if (!$result || $result['password'] !== $pass) {
+            Helper::redirectWithMessage(MESSAGES['loginError'], 'login');
         }
 
         $_SESSION['user'] = $result['user_id'];
         $_SESSION['user_role'] = $result['role_id'];
 
-        Helper::redirectWithMessage(MESSAGES['welcome'], 'profile');
+        if ($_SESSION['role_id'] === 1) {
+            Helper::redirectWithMessage(MESSAGES['welcome'] . ' ' . $result['first_name'] . '!', 'seeker_profile');
+        }
+
+        Helper::redirectWithMessage(MESSAGES['welcome'] . ' ' . $result['first_name'] . '!', 'service_profile');
+    }
+
+    public static function logout(): bool
+    {
+        if (isset($_SESSION['user'])) {
+            session_unset();
+            return true;
+        }
+
+        return false;
+    }
+
+    public function updatePassword(string $oldPassword, string $newPassword)
+    {
+        $this->dbConn->query("SELECT password FROM user WHERE user_id = :user_id");
+        $this->dbConn->bind(':user_id', $_SESSION['user']);
+        $result = $this->dbConn->single();
+
+        if ($oldPassword != $result['password']) {
+            Helper::redirectWithMessage(MESSAGES['wrongOldPw'], 'seeker_profile/updateProfile');
+        }
+
+        if ($oldPassword === $newPassword) {
+            Helper::redirectWithMessage(MESSAGES['samePwError'], 'seeker_profile/updateProfile');
+        }
+
+        $this->dbConn->query("UPDATE user SET  password = :password
+                                    WHERE user_id = :user_id");
+
+        $this->dbConn->bind(':password', $newPassword);
+        $this->dbConn->bind(':user_id', $_SESSION['user']);
+
+        if ($this->dbConn->execute()) {
+            return true;
+        }
+
+        return false;
     }
 }

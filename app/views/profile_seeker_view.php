@@ -1,5 +1,7 @@
 <?php include 'inc/header.php'; ?>
 
+<?php include 'inc/' . $nav; ?>
+
 <div class="container">
     <!--SAJÁT PROFIL és ADATOK MÓDOSÍTÁSA-->
     <div class="row">
@@ -9,8 +11,8 @@
         class="img-fluid mx-auto d-block">
     <div class="container" id="accountOptionsBox">
         <ul class="list-group">
-            <li class="list-group-item"><a href="">Profil adatok módosítása</a></li>
-            <li class="list-group-item"><a href="">Kijelentkezés</a></li>
+            <li class="list-group-item"><a href="/seeker_profile/updateProfile">Profil adatok módosítása</a></li>
+            <li class="list-group-item"><a href="/seeker_profile/logout">Kijelentkezés</a></li>
             <li class="list-group-item"><a href="">Profil törlése</a></li>
         </ul>
 
@@ -64,14 +66,14 @@
             </thead>
             <tbody>
                 <tr>
-                    <td>user-1</th>
+                    <td>user-1</td>
                     <td>service-1</td>
                     <td>time-1</td>
                     <td>place-1</td>
                     <td>comment-1</td>
                 </tr>
                 <tr>
-                    <td>user-2</th>
+                    <td>user-2</td>
                     <td>service-2</td>
                     <td>time-2</td>
                     <td>place-2</td>

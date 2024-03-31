@@ -23,4 +23,19 @@ class Helper
         unset($_SESSION['message']);
         return $message;
     }
+
+    public static function setNav(): string
+    {
+        if (isset($_SESSION['user_role'])) {
+            $nav = match ($_SESSION['user_role']) {
+                2 => "provider_nav.php",
+                1 => "seeker_nav.php",
+                default => "guest_nav.php",
+            };
+        } else {
+            $nav = "guest_nav.php";
+        }
+
+        return $nav;
+    }
 }

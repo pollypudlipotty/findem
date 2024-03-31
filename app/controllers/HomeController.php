@@ -25,6 +25,7 @@ class HomeController
             'services' => $services,
             'appointments' => $appointments,
             'message' => $message,
+            'nav' => Helper::setNav(),
         ]);
     }
 
