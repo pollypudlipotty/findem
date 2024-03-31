@@ -21,7 +21,6 @@ body{
     color: white;
     position: relative;
     z-index: 1;
-    margin: 40px;
     
     &:before {
         border-top: 2px solid white;
@@ -137,6 +136,16 @@ body{
 .imgCarousel{
     max-width: 1000px;
     margin: auto;
+}
+
+.joinUsPicture{
+    max-width: 200px;
+    margin-top: 100px;
+}
+
+#joinUsText{
+    color: white;
+    margin-top: 40px;
 }
 
 /*appointments*/

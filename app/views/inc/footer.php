@@ -34,7 +34,7 @@
             </div>
             <div class="col-xs-6 col-md-1">
                 <ul class="footer-links">
-                    <li><a href="./index.html"><img class="footerPics" src="/public/images/findEM_logo2.png" alt=""></a>
+                    <li><a href="./index.html"><img class="footerPics" src="/public/images/findem_logo.png" alt=""></a>
                     </li>
                 </ul>
             </div>
