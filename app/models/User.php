@@ -55,13 +55,14 @@ class User
             $lastInsertedId = $this->dbConn->lastInsertId();
 
             $this->dbConn->query("INSERT INTO service (service_provider_id, service_category_id, service_name, service_district, service_address, service_description)
-                                    VALUES (:service_provider_id, :service_category_id, :service_name, :service_district, :service_address, :service_description)");
+                                    VALUES (:service_provider_id, :service_category_id, :service_name, :service_district, :service_address, :service_housenumber, :service_description)");
 
             $this->dbConn->bind(':service_provider_id', $lastInsertedId);
             $this->dbConn->bind(':service_category_id', $userData['category']);
             $this->dbConn->bind(':service_name', $userData['companyName']);
             $this->dbConn->bind(':service_district', $userData['companyDistrict']);
             $this->dbConn->bind(':service_address', $userData['companyAddress']);
+            $this->dbConn->bind(':service_housenumber', $userData['companyHousenumber']);
             $this->dbConn->bind(':service_description', $userData['companyDescription']);
 
             return $this->dbConn->execute();
@@ -118,18 +119,18 @@ class User
         return false;
     }
 
-    public function updatePassword(string $oldPassword, string $newPassword)
+    public function updatePassword(string $oldPassword, string $newPassword, string $route): bool
     {
         $this->dbConn->query("SELECT password FROM user WHERE user_id = :user_id");
         $this->dbConn->bind(':user_id', $_SESSION['user']);
         $result = $this->dbConn->single();
 
         if ($oldPassword != $result['password']) {
-            Helper::redirectWithMessage(MESSAGES['wrongOldPw'], 'seeker_profile/updateProfile');
+            Helper::redirectWithMessage(MESSAGES['wrongOldPw'], $route . '/updateProfile');
         }
 
         if ($oldPassword === $newPassword) {
-            Helper::redirectWithMessage(MESSAGES['samePwError'], 'seeker_profile/updateProfile');
+            Helper::redirectWithMessage(MESSAGES['samePwError'], $route . '/updateProfile');
         }
 
         $this->dbConn->query("UPDATE user SET  password = :password
@@ -137,6 +138,33 @@ class User
 
         $this->dbConn->bind(':password', $newPassword);
         $this->dbConn->bind(':user_id', $_SESSION['user']);
+
+        if ($this->dbConn->execute()) {
+            return true;
+        }
+
+        return false;
+    }
+
+    public function updateServiceData(array $serviceData)
+    {
+        $this->dbConn->query("UPDATE service SET
+                    service_category_id = :service_category_id,
+                    service_name = :service_name,
+                    service_district = :service_district,
+                    service_address = :service_address,
+                    service_housenumber = :service_housenumber,
+                    service_description = :service_description
+                    WHERE service_provider_id = :user_id");
+
+        $this->dbConn->bind(':service_category_id', $serviceData['category']);
+        $this->dbConn->bind(':service_name', $serviceData['companyName']);
+        $this->dbConn->bind(':service_district', $serviceData['companyDistrict']);
+        $this->dbConn->bind(':service_address', $serviceData['companyAddress']);
+        $this->dbConn->bind(':service_housenumber', $serviceData['companyHousenumber']);
+        $this->dbConn->bind(':service_description', $serviceData['companyDescription']);
+        $this->dbConn->bind(':user_id', $_SESSION['user']);
+
 
         if ($this->dbConn->execute()) {
             return true;
