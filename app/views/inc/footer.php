@@ -5,41 +5,23 @@
     </div>
     <div class="container">
         <div class="row">
-            <div class="col-sm-12 col-md-4 footerContact">
-                <p>Kérdésed van?</p>
-                <p>Írj nekünk!</p>
-                <p><a href="mailto:contect@findem.hu">contact@findem.hu</a></p>
-
+            <div class="col-5 footerContact">
+                <h3 class="d-flex justify-content-center">Kérdésed van?</h3>
+                <h4 class="d-flex justify-content-center">Írj nekünk!</h4>
+                <a class="d-flex justify-content-center" href="mailto:contect@findem.hu">contact@findem.hu</a>
             </div>
-            <div class="col-xs-6 col-md-4">
-                <ul class="footer-links">
-                    <li><a class="footerItems" href="#">Az oldal tetejére</a></li>
-                    <li><a class="footerItems" href="#">Rólunk</a></li>
-                    <li><a class="footerItems" href="#">Q&A</a></li>
-                    <li><a class="footerItems" href="#">Adatvédelem</a></li>
-                </ul>
+            
+            <div class="d-flex flex-column col-3 footerLinks">
+                <div><a class="footerItems" href="/home">Az oldal tetejére</a></div>
+                <div><a class="footerItems" href="/about_us">Rólunk</a></div>
+                <div><a class="footerItems" href="/question_and_answer">Q&A</a></div>
+                <div><a class="footerItems" href="/data_protection">Adatvédelem</a></div>   
             </div>
-            <div class="footer-social-container col-xs-6 col-md-1">
-                <ul class="footer-links">
-                    <li><a href="https://www.facebook.com/"><img class="footerPics"
-                                                                 src="/public/images/facebook_logo.svg" alt=""></a></li>
-                </ul>
+            <div class="d-flex flex-column col-4 footerLinks">
+                <a class="footerItems justify-content-start" href="https://www.facebook.com/"><img src="/public/images/facebook_logo.svg" alt=""><span>   </span>Facebook</a>
+                <a class="footerItems justify-content-start" href="https://www.instagram.com/"><img src="/public/images/instagram_logo.svg" alt=""><span>   </span>Instagram</a>
+                <a class="footerItems justify-content-start" href="https://www.tiktok.com/"><img src="/public/images/tiktok_logo.svg" alt=""><span>   </span>TikTok</a>
             </div>
-            <div class="col-xs-6 col-md-1">
-                <ul class="footer-links">
-                    <li><a href="https://www.instagram.com/"><img class="footerPics"
-                                                                  src="/public/images/instagram_logo.svg" alt=""></a>
-                    </li>
-                </ul>
-            </div>
-            <div class="col-xs-6 col-md-1">
-                <ul class="footer-links">
-                    <li><a href="./index.html"><img class="footerPics" src="/public/images/findem_logo.png" alt=""></a>
-                    </li>
-                </ul>
-            </div>
-
-
         </div>
         <div class="container container-fluid ">
             <p class="footer-credit text-center text-white">all rights reserved©</p>

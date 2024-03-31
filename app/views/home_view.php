@@ -3,29 +3,38 @@
 <?php include 'inc/' . $nav; ?>
 
 <?php if (isset($message) && !empty($message)): ?>
-    <div class="alert alert-success text-center"><?php echo $message; ?></div>
-    <div class="container">
-        <hr class="line">
-    </div>
+            <div class="alert alert-success text-center"><?php echo $message; ?></div>
+            <div class="container">
+                <hr class="line">
+            </div>
 <?php endif; ?>
 
     <!--LEGKÖZELEBBI LEFOGLALHATÓ SZOLGÁLTATÁSOK-->
+
+    <div class="row col-12">
+        <div class="d-inline-flex justify-content-center">
+            <img id="servicesGif" src="/public/images/servicesGif.gif" alt="">
+        </div>
+        <div>
+        <h2 class="text-center m-b-4 titles"><span>Hamarosan lejáró ajánlatok<span></h2>
+        </div>
+    </div>
     <div class="container">
         <div class="row gy-3 category-sort">
 
             <?php foreach ($appointments as $appointment): ?>
 
-            <div class="col-md-4">
-                <div class="card m-5">
-                    <div class="card-body">
-                        <h5 class="card-title"><?php echo $appointment['category_name']; ?></h5>
-                        <hr>
-                        <h6 class="card-subtitle mb-2 text-body-secondary"><span>időpont: </span><?php echo $appointment['appointmentTime']; ?></h6>
-                        <h6 class="card-subtitle mb-2 text-body-secondary"><span>kerület: </span><?php echo $appointment['service_district']; ?>.</h6>
-                        <h6 class="card-subtitle mb-2 text-body-secondary"><span>megjegyzés: </span><?php echo $appointment['service_description']; ?></h6>
+                    <div class="col-md-4">
+                        <div class="card m-5">
+                            <div class="card-body">
+                                <h5 class="card-title"><?php echo $appointment['category_name']; ?></h5>
+                                <hr>
+                                <h6 class="card-subtitle mb-2 text-body-secondary"><span>időpont: </span><?php echo $appointment['appointmentTime']; ?></h6>
+                                <h6 class="card-subtitle mb-2 text-body-secondary"><span>kerület: </span><?php echo $appointment['service_district']; ?>.</h6>
+                                <h6 class="card-subtitle mb-2 text-body-secondary"><span>megjegyzés: </span><?php echo $appointment['service_description']; ?></h6>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
 
             <?php endforeach; ?>
 
@@ -41,7 +50,7 @@
         <div class="container categoriesOnHomePage">
             <div class="row justify-content-around">
                 <?php foreach ($services as $service): ?>
-                    <button class="btn btn-primary position-relative col m-2 serviceCategories" onclick="sortCategories(<?php echo $service['category_id']; ?>);"><?php echo $service['category_name']; ?></button>
+                            <button class="btn btn-primary position-relative col m-2 serviceCategories" onclick="sortCategories(<?php echo $service['category_id']; ?>);"><?php echo $service['category_name']; ?></button>
                 <?php endforeach; ?>
             </div>
         </div>
@@ -96,15 +105,15 @@
 <!-- CSATLAKOZZ-->
 
 
-<div class="d-flex justify-content-center">
-<div class="border">
+<div class="d-flex justify-content-center joinUSBox">
     <div>
-        <img src="/public/images/joinUs_logo.png" class="mx-auto d-block joinUsPicture" alt="Join US!">
+        <div>
+            <img src="/public/images/joinUs_logo.png" class="mx-auto d-block joinUsPicture" alt="Join US!">
+        </div>
+        <div>
+            <h3><a id="joinUsText" class="link-underline link-underline-opacity-0" href="/registration">Csatlakozz hozzánk és regisztálj!</a></h3>
+        </div>
     </div>
-    <div>
-        <h3><a id="joinUsText" class="link-underline link-underline-opacity-0" href="/registration_view.php">Csatlakozz hozzánk!</a></h3>
-    </div>
-</div>
 </div>
 
 

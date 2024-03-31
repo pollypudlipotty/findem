@@ -4,11 +4,13 @@
 
     <div class="container">
         <!--REGISZTRÁCIÓ-->
+        
+        <img id="registration-logo" src="/public/images/registration_logo.png" alt="Regisztráció"
+             class="img-fluid mx-auto d-block">
+
         <div class="row">
             <h2 class="text-center m-b-4 titles"><span>Regisztráció<span></h2>
         </div>
-        <img id="registration-logo" src="/public/images/registration_logo.png" alt="Regisztráció"
-             class="img-fluid mx-auto d-block">
 
         <div class="container registrationBox">
             <form action="/registration/userRegistration" id="registrationForm" method="POST">
@@ -91,16 +93,15 @@
 
             </form>
         </div>
-        <div class="container">
-            <hr class="line">
-        </div>
-        <img src="/public/images/signIn_logo.png" alt="Jelentkezz be!" class="img-fluid mx-auto d-block signIn-logo">
+        <img src="/public/images/signIn_logo.png" alt="Jelentkezz be!" class="img-fluid mx-auto d-block signIn-logo m-4">
         <div class="container">
             <div class="row justify-content-center">
                 <h3>Van már fiókod?</h3>
-                <a href="/login">
-                    <button class="btn btn-primary position-center col col-md-2">Bejelentkezés</button>
-                </a>
+                <div>
+                    <a class="d-flex justify-content-center" href="/login">
+                        <button class="btn btn-primary position-center col col-md-2 m-4">Bejelentkezés</button>
+                    </a>
+                </div>
             </div>
         </div>
     </div>
