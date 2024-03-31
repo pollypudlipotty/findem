@@ -12,7 +12,7 @@
     <div class="container" id="accountOptionsBox">
         <ul class="list-group">
             <li class="list-group-item"><a href="">Profil adatok módosítása</a></li>
-            <li class="list-group-item"><a href="">Kijelentkezés</a></li>
+            <li class="list-group-item"><a href="/service_profile/logout">Kijelentkezés</a></li>
             <li class="list-group-item"><a href="">Profil törlése</a></li>
         </ul>
 

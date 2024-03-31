@@ -25,7 +25,6 @@ class Router
         'contact' => ['controller' => ContactController::class],
         'seeker_profile' => ['controller' => SeekerProfileController::class],
         'service_profile' => ['controller' => ProviderProfileController::class],
-
     ];
 
     private const NOT_FOUND = ['controller' => NotFoundController::class];

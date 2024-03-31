@@ -29,6 +29,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/service_profile">Saját profil</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/service_profile/logout">Kijelentkezés</a>
+                    </li>
                 </ul>
 
             </div>
