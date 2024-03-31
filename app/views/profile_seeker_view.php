@@ -3,6 +3,13 @@
 <?php include 'inc/' . $nav; ?>
 
 <div class="container">
+
+    <div>
+        <?php if (isset($message) && !empty($message)): ?>
+            <div class="alert alert-success"><?php echo $message; ?></div>
+        <?php endif; ?>
+    </div>
+
     <!--SAJÁT PROFIL és ADATOK MÓDOSÍTÁSA-->
     <div class="row">
         <h2 class="text-center m-b-4 titles"><span>Saját profil<span></h2>

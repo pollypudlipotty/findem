@@ -86,4 +86,13 @@ class Service
 
         return $appointments;
     }
+
+    public function getServiceData(): bool|array
+    {
+        $this->dbConn->query("SELECT * FROM service
+                                    WHERE service_provider_id = :user_id");
+
+        $this->dbConn->bind(':user_id', $_SESSION['user']);
+        return $this->dbConn->single();
+    }
 }

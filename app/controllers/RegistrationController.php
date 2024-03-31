@@ -52,7 +52,7 @@ class RegistrationController
             Helper::redirectWithMessage(MESSAGES['error'],'registration');
         }
 
-        if (empty($_POST['service_category']) || empty($_POST['company_name']) || empty($_POST['company_district']) || empty($_POST['company_address']) || empty($_POST['company_description'])) {
+        if (empty($_POST['service_category']) || empty($_POST['company_name']) || empty($_POST['company_district']) || empty($_POST['company_street']) || empty($_POST['company_description']) || empty($_POST['company_housenumber'])) {
             Helper::redirectWithMessage(MESSAGES['missingData'], 'registration');
         }
 
@@ -65,7 +65,8 @@ class RegistrationController
             'category' => $_POST['service_category'],
             'companyName' => $_POST['company_name'],
             'companyDistrict' => $_POST['company_district'],
-            'companyAddress' => $_POST['company_address'],
+            'companyAddress' => $_POST['company_street'],
+            'companyHousenumber' => $_POST['company_housenumber'],
             'companyDescription' => $_POST['company_description'],
         ])) {
             Helper::redirectWithMessage(MESSAGES['successReg'], 'home');

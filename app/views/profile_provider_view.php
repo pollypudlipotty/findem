@@ -3,6 +3,13 @@
 <?php include 'inc/' . $nav; ?>
 
 <div class="container">
+
+    <div>
+        <?php if (isset($message) && !empty($message)): ?>
+            <div class="alert alert-success"><?php echo $message; ?></div>
+        <?php endif; ?>
+    </div>
+
     <!--SAJÁT PROFIL és ADATOK MÓDOSÍTÁSA-->
     <div class="row">
         <h2 class="text-center m-b-4 titles"><span>Saját profil<span></h2>
@@ -11,7 +18,7 @@
         class="img-fluid mx-auto d-block">
     <div class="container" id="accountOptionsBox">
         <ul class="list-group">
-            <li class="list-group-item"><a href="">Profil adatok módosítása</a></li>
+            <li class="list-group-item"><a href="/service_profile/updateProfile">Profil adatok módosítása</a></li>
             <li class="list-group-item"><a href="/service_profile/logout">Kijelentkezés</a></li>
             <li class="list-group-item"><a href="">Profil törlése</a></li>
         </ul>
