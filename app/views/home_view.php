@@ -34,7 +34,7 @@
 
     <!--KATEGÓRIÁK-->
     <div>
-        <div class="row">
+        <div class="row col-12">
             <h2 class="text-center m-b-4 titles"><span>Szolgáltatások<span></h2>
         </div>
 
@@ -50,7 +50,7 @@
 
 <!-- CAROUSEL-->
 
-<div id="carouselExampleCaptions" class="carousel slide">
+<div id="carouselExampleCaptions" class="carousel slide container-fluid">
     <div class="carousel-indicators">
         <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
                 aria-current="true" aria-label="Slide 1"></button>
@@ -61,24 +61,24 @@
     </div>
     <div class="carousel-inner">
         <div class="carousel-item active">
-            <img src="/public/images/community_logo.png" class="d-block w-100 imgCarousel" alt="...">
+            <img src="/public/images/carousel_registration.png" class="d-block imgCarousel" alt="...">
             <div class="carousel-caption d-none d-md-block">
-                <h5>First slide label</h5>
-                <p>Some representative placeholder content for the first slide.</p>
+                <h5>INGYENES REGISZTRÁCIÓ</h5>
+                <p>Könnyű és ingyenes regisztáció, amivel szolgáltatóként is pár kattintással csatlakozhatsz csapatunkhaoz.</p>
             </div>
         </div>
         <div class="carousel-item">
-            <img src="/public/images/community_logo.png" class="d-block w-100" alt="...">
+            <img src="/public/images/carousel_community.png" class="d-block imgCarousel" alt="...">
             <div class="carousel-caption d-none d-md-block">
-                <h5>Second slide label</h5>
-                <p>Some representative placeholder content for the second slide.</p>
+                <h5>NAGYSZERŰ KÖZÖSSÉG</h5>
+                <p>Csapatunk egyik célkitűzése a közösségépítés és hogy összehozzuk az embereket.</p>
             </div>
         </div>
         <div class="carousel-item">
-            <img src="/public/images/community_logo.png" class="d-block w-100" alt="...">
+            <img src="/public/images/carousel_services.png" class="d-block imgCarousel" alt="...">
             <div class="carousel-caption d-none d-md-block">
-                <h5>Third slide label</h5>
-                <p>Some representative placeholder content for the third slide.</p>
+                <h5>FOLYAMATOSAN BŐVÜLŐ SZOLGÁLTATÁSOK</h5>
+                <p>Kezdő vállalkozásként fontos számunkra a folyamatos fejlődés és a szakemberek minél szélesebb körének bevonása a csaopoatba.</p>
             </div>
         </div>
     </div>
@@ -91,5 +91,21 @@
         <span class="visually-hidden">Next</span>
     </button>
 </div>
+
+
+<!-- CSATLAKOZZ-->
+
+
+<div class="d-flex justify-content-center">
+<div class="border">
+    <div>
+        <img src="/public/images/joinUs_logo.png" class="mx-auto d-block joinUsPicture" alt="Join US!">
+    </div>
+    <div>
+        <h3><a id="joinUsText" class="link-underline link-underline-opacity-0" href="/registration_view.php">Csatlakozz hozzánk!</a></h3>
+    </div>
+</div>
+</div>
+
 
 <?php include 'inc/footer.php'; ?> 
