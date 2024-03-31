@@ -5,8 +5,8 @@
     <div class="container">
 
         <!--BEJELENTKEZÉS-->
-        <div class="row">
-            <h2 class="text-center m-b-4 titles"><span>Bejelentkezés<span></h2>
+        <div class="row justify-content-center">
+            <h2 class="text-center m-b-4 titles"><span>Bejelentkezés</span></h2>
         </div>
 
         <div class="container registrationBox">
@@ -30,8 +30,8 @@
         <div class="container">
             <div class="row justify-content-center">
                 <h3>Nincs még fiókod?</h3>
-                <a href="/registration">
-                    <button class="btn btn-primary position-relative col m-2">Regisztrálj!</button>
+                <br>
+                    <button class="btn btn-primary col col-md-2" onclick="redirectToPage('/registration')">Regisztrálj!</button>
                 </a>
             </div>
         </div>

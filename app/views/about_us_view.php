@@ -6,10 +6,10 @@
     <!--NAVBAR-->
 
     <!--RÓLUNK-->
-    <div class="row">
-        <h2 class="text-center m-b-4 titles"><span>Rólunk<span></h2>
+    <div class="row justify-content-center">
+        <h2 class="text-center m-b-4 titles"><span>Rólunk</span></h2>
     </div>
-    <img src="./img/aboutUs_logo.png" alt="Aout Us" class="img-fluid mx-auto d-block aboutUs-logo">
+    <img src="./public/images/aboutUs_logo.png" alt="About Us" class="img-fluid mx-auto d-block aboutUs-logo">
     <div class="container justify-content-center aboutUsText">
         <p>
             Üdvözölünk a szolgáltatásfoglaló weboldalunkon! Célunk, hogy összehozzuk az embereket és lehetővé tegyük

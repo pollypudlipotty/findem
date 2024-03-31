@@ -6,10 +6,10 @@
     <!--NAVBAR-->
 
     <!--KAPCSOLAT-->
-    <div class="row">
-        <h2 class="text-center m-b-4 titles"><span>Kapcsolat<span></h2>
+    <div class="row justify-content-center">
+        <h2 class="text-center m-b-4 titles"><span>Kapcsolat</span></h2>
     </div>
-    <img src="./img/mail_logo.png" alt="FindEM" class="img-fluid mx-auto d-block logo">
+    <img src="./public/images/mail_logo.png" alt="FindEM" class="img-fluid mx-auto d-block mail_logo">
 
     <div class="container">
         <h3>Írj nekünk!</h3>
