@@ -72,8 +72,9 @@ body{
 }
 
 
-.footer-credit{
+.footer-credit {
     margin: 30px;
+}
 
 .footer-links {
     list-style: none; 
@@ -262,7 +263,3 @@ h3{
 .container.hide {
     opacity: 0;
 }
-
-
-
-

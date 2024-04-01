@@ -102,7 +102,7 @@ class User
         $_SESSION['user'] = $result['user_id'];
         $_SESSION['user_role'] = $result['role_id'];
 
-        if ($_SESSION['role_id'] === 1) {
+        if ($_SESSION['user_role'] === 1) {
             Helper::redirectWithMessage(MESSAGES['welcome'] . ' ' . $result['first_name'] . '!', 'seeker_profile');
         }
 
