@@ -3,7 +3,7 @@
     <nav class="navbar navbar-expand-lg bg-primary p-0" data-bs-theme="dark">
         <div id="navbar" class="container-fluid py-3">
             <a href="/home">
-                <img id="findemLogo" src="/public/images/findEM_logo2.png" alt="FindEM" class="img-fluid">
+                <img id="findemLogo" src="/public/images/findem_logo.png" alt="FindEM" class="img-fluid">
             </a>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"

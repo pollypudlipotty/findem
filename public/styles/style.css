@@ -12,7 +12,6 @@ body{
 
 }
 
-
 #findemLogo{
     width: 200px;
 }
@@ -50,6 +49,8 @@ body{
 
 }
 
+/* FOOTER */
+
 .footerContact{
     color: white;
     a{
@@ -63,15 +64,16 @@ body{
     text-decoration: none;
     list-style: none;
     color: white;
-    margin: 30px;
-    
 }
-
 
 
 .footerPics{
     max-width: 100%;
 }
+
+
+.footer-credit{
+    margin: 30px;
 
 .footer-links {
     list-style: none; 
@@ -80,12 +82,17 @@ body{
 .mail_logo{
     max-width: 150px;
     margin-bottom: 20px;
+
 }
 
 
 
 /*Index*/
 
+#servicesGif{
+    max-width: 150px;
+    position: center;
+}
 
 .card-body{
     background-color: #077877;
@@ -145,13 +152,12 @@ body{
 }
 
 .joinUsPicture{
-    max-width: 200px;
-    margin-top: 100px;
+    max-width: 300px;
+    margin-top: 60px;
 }
 
 #joinUsText{
     color: white;
-    margin-top: 40px;
 }
 
 /*appointments*/
@@ -181,7 +187,8 @@ body{
 
 #registration-logo{
     max-width: 100px;
-    margin-bottom: 20px;
+    margin: 30px;
+
 }
 
 .registrationBox{
@@ -190,6 +197,7 @@ body{
     width: 400px;
     background-color: #077877;
     color: white;
+    margin-top: 30px;
 }
 
 .provider_form {
@@ -214,8 +222,21 @@ h3{
     position: center;
     margin: auto;
     color: white;
-    text-align: center;
+}
 
+
+.contactLogo{
+    max-width: 200px;
+    margin: 30px;
+}
+
+.mailLogo{
+    max-width: 50px;
+    margin: 30px;
+}
+
+#contactMail{
+    color: white;
 }
 
 /*account*/

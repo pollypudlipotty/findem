@@ -11,11 +11,11 @@
     </div>
 
     <!--SAJÁT PROFIL és ADATOK MÓDOSÍTÁSA-->
+    <img src="../../public/images/profil_logo.png" id="profil-logo" alt="Saját profil"
+        class="img-fluid mx-auto d-block">
     <div class="row">
         <h2 class="text-center m-b-4 titles"><span>Saját profil<span></h2>
     </div>
-    <img src="../../public/images/profil_logo.png" id="profil-logo" alt="Saját profil"
-        class="img-fluid mx-auto d-block">
     <div class="container" id="accountOptionsBox">
         <ul class="list-group">
             <li class="list-group-item"><a href="/seeker_profile/updateProfile">Profil adatok módosítása</a></li>
