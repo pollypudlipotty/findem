@@ -41,7 +41,7 @@ class SeekerProfileController
         ]);
     }
 
-    #[NoReturn] public function updatePassword()
+    #[NoReturn] public function updatePassword(): void
     {
         if(empty($_POST['oldPassword']) || empty($_POST['newPassword'])) {
             Helper::redirectWithMessage(MESSAGES['pwUpdateError'], 'seeker_profile/updateProfile');
@@ -49,7 +49,7 @@ class SeekerProfileController
 
         $user = new User();
 
-        if ($user->updatePassword($_POST['oldPassword'], $_POST['newPassword']))
+        if ($user->updatePassword($_POST['oldPassword'], $_POST['newPassword'], 'seeker_profile'))
         {
             Helper::redirectWithMessage(MESSAGES['pwUpdateSuccess'], 'seeker_profile');
         }

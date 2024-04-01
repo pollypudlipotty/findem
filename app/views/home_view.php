@@ -103,8 +103,7 @@
 
 
 <!-- CSATLAKOZZ-->
-
-
+      
 <div class="d-flex justify-content-center joinUSBox">
     <div>
         <div>
@@ -114,6 +113,7 @@
             <h3><a id="joinUsText" class="link-underline link-underline-opacity-0" href="/registration">Csatlakozz hozzánk és regisztálj!</a></h3>
         </div>
     </div>
+
 </div>
 
 

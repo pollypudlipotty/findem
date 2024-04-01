@@ -4,11 +4,11 @@
 
 <div class="container">
     <!--KAPCSOLAT-->
+
     <img src="/public/images/contactUs.png" alt="FindEM" class="img-fluid mx-auto d-block contactLogo">
     <div class="row">
         <h2 class="text-center m-b-4 titles"><span>Kapcsolat<span></h2>
     </div>
-
 
     <div class="container">
         <img src="/public/images/mail_logo.png" alt="FindEM" class="img-fluid mx-auto d-block mailLogo">

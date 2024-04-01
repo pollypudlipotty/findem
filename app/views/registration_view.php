@@ -4,12 +4,14 @@
 
     <div class="container">
         <!--REGISZTRÁCIÓ-->
+
         
         <img id="registration-logo" src="/public/images/registration_logo.png" alt="Regisztráció"
              class="img-fluid mx-auto d-block">
 
         <div class="row">
             <h2 class="text-center m-b-4 titles"><span>Regisztráció<span></h2>
+
         </div>
 
         <div class="container registrationBox">
@@ -51,8 +53,9 @@
                 </div>
 
                 <div class="mb-3 provider_form">
-                    <select class="form-control" id="service_category" name="service_category" >
-                        <option value="0" selected disabled>Kategória:</option>
+                <label for="company_district">Kategória:</label>
+                    <select class="form-control" id="service_category" name="service_category">
+                        <option value="0" selected disabled>Válasszon kategóriát</option>
 
                         <?php foreach ($categories as $category): ?>
 
@@ -63,13 +66,21 @@
                 </div>
 
                 <div class="mb-3 provider_form">
-                    <label for="company_name" class="form-label">Cég név:</label>
+                    <label for="company_name" class="form-label">Cég neve:</label>
                     <input type="text" class="form-control" id="company_name" name="company_name" >
+                </div>
+                
+                <div class="mb-3 provider_form">
+                    <label for="company_description" class="form-label">Leírás:</label>
+                    <textarea class="form-control" id="company_description" name="company_description"
+                              ></textarea>
                 </div>
 
                 <div class="mb-3 provider_form">
+                <h5>Cég címe</h5>
+                <label for="company_district">Kerület:</label>
                     <select class="form-control" id="company_district" name="company_district" >
-                        <option value="0" selected disabled>Kerület:</option>
+                        <option value="0" selected disabled>Válasszon kerületet</option>
                         <?php
                         for ($i = 1; $i < 24; $i++) {
                             echo "<option value='$i'>$i.</option>";
@@ -79,17 +90,16 @@
                 </div>
 
                 <div class="mb-3 provider_form">
-                    <label for="company_address" class="form-label">Cím:</label>
-                    <input type="text" class="form-control" id="company_address" name="company_address" >
+                    <label for="company_street" class="form-label">Közterület neve és típusa:</label>
+                    <input type="text" class="form-control" id="company_street" name="company_street" >
                 </div>
 
                 <div class="mb-3 provider_form">
-                    <label for="company_description" class="form-label">Leírás:</label>
-                    <textarea class="form-control" id="company_description" name="company_description"
-                              ></textarea>
+                    <label for="company_housenumber" class="form-label">Házszám:</label>
+                    <input type="text" class="form-control" id="company_housenumber" name="company_housenumber" >
                 </div>
 
-                <button type="submit" class="btn btn-primary">Regisztráció</button>
+                <button type="submit" class="btn btn-primary" onclick="redirectToPage('/login')">Regisztráció</button>
 
             </form>
         </div>
@@ -97,11 +107,13 @@
         <div class="container">
             <div class="row justify-content-center">
                 <h3>Van már fiókod?</h3>
+
                 <div>
                     <a class="d-flex justify-content-center" href="/login">
                         <button class="btn btn-primary position-center col col-md-2 m-4">Bejelentkezés</button>
                     </a>
                 </div>
+
             </div>
         </div>
     </div>

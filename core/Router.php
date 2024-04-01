@@ -7,11 +7,9 @@ use app\controllers\ContactController;
 use app\controllers\HomeController;
 use app\controllers\LoginController;
 use app\controllers\NotFoundController;
-use app\controllers\ProfileController;
 use app\controllers\ProviderProfileController;
 use app\controllers\RegistrationController;
 use app\controllers\SeekerProfileController;
-use ReflectionClass;
 
 class Router
 {
@@ -82,4 +80,3 @@ class Router
         $method = 'index';
     }
 }
-

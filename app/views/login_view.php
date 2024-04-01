@@ -5,10 +5,12 @@
     <div class="container">
 
         <!--BEJELENTKEZÉS-->
+
         <img id="registration-logo" src="/public/images/signIn_logo.png" alt="Bejelentkezés"
              class="img-fluid mx-auto d-block">
         <div class="row">
             <h2 class="text-center m-b-4 titles"><span>Bejelentkezés<span></h2>
+
         </div>
 
         <div class="container registrationBox">
@@ -33,11 +35,13 @@
             <div class="row justify-content-center">
             <img src="/public/images/registration_logo.png" alt="Jelentkezz be!" class="img-fluid mx-auto d-block signIn-logo m-4">
                 <h3>Nincs még fiókod?</h3>
+
                 <div>
                     <a class="d-flex justify-content-center" href="/registration">
                         <button class="btn btn-primary position-center col col-md-2 m-4">Regisztrálj!</button>
                     </a>
                 </div>
+
             </div>
         </div>
     </div>

@@ -3,6 +3,13 @@
 <?php include 'inc/' . $nav; ?>
 
 <div class="container">
+
+    <div>
+        <?php if (isset($message) && !empty($message)): ?>
+            <div class="alert alert-success"><?php echo $message; ?></div>
+        <?php endif; ?>
+    </div>
+
     <!--SAJÁT PROFIL és ADATOK MÓDOSÍTÁSA-->
     <img src="../../public/images/profil_logo.png" id="profil-logo" alt="Saját profil"
         class="img-fluid mx-auto d-block">

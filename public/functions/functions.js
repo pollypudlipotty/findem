@@ -42,7 +42,7 @@ function sortCategories(categoryId) {
 
 $(document).ready(function() {
     
-    $('#email-r, #last_name, #first_name, #pass1, #pass2, #service_category, #company_name, #company_district, #company_address, #company_description').on('blur', function() {
+    $('#email-r, #last_name, #first_name, #pass1, #pass2, #service_category, #company_name, #company_district, #company_street, #company_description, #company_housenumber').on('blur', function() {
         validateField($(this));
     });
 
@@ -106,7 +106,8 @@ $(document).ready(function() {
                 case 'service_category':
                 case 'company_name':
                 case 'company_district':
-                case 'company_address':
+                case 'company_street':
+                case 'company_housenumber':
                         if (fieldValue === '') {
                             errorMessage = 'Kérjük, töltse ki ezt a mezőt';
                             isValid = false;
@@ -120,6 +121,22 @@ $(document).ready(function() {
                         break;
             }
             
+        }
+
+        if(fieldName === 'company_street') {
+            var namePattern =  /^[A-Za-zÁáÉéÍíÓóÖöŐőÚúÜüŰű]+$/;
+            if (!namePattern.test(fieldValue)) {
+                errorMessage = 'Az utca neve csak betűket tartalmazhat';
+                isValid = false;
+            }
+        }
+
+        if(fieldName === 'company_housenumber') {
+            var housenumberPattern =  /^[1234567890]+$/;
+            if (!housenumberPattern.test(fieldValue)) {
+                errorMessage = 'A házszám csak számokat tartalmazhat';
+                isValid = false;
+            }
         }
 
         // If field is pass1, show custom message on click
@@ -178,3 +195,11 @@ $(document).ready(function() {
         }
     });
 });
+
+function redirectToPage(destinationPage) {
+    document.querySelector('.container').classList.add('hide');
+
+    setTimeout(function() {
+        window.location.href = destinationPage;
+    }, 500); 
+}

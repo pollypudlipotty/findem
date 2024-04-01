@@ -17,11 +17,13 @@
                 <div><a class="footerItems" href="/question_and_answer">Q&A</a></div>
                 <div><a class="footerItems" href="/data_protection">Adatvédelem</a></div>   
             </div>
+
             <div class="d-flex flex-column col-4 footerLinks">
                 <a class="footerItems justify-content-start" href="https://www.facebook.com/"><img src="/public/images/facebook_logo.svg" alt=""><span>   </span>Facebook</a>
                 <a class="footerItems justify-content-start" href="https://www.instagram.com/"><img src="/public/images/instagram_logo.svg" alt=""><span>   </span>Instagram</a>
                 <a class="footerItems justify-content-start" href="https://www.tiktok.com/"><img src="/public/images/tiktok_logo.svg" alt=""><span>   </span>TikTok</a>
             </div>
+          
         </div>
         <div class="container container-fluid ">
             <p class="footer-credit text-center text-white">all rights reserved©</p>
