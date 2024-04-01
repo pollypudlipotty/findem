@@ -15,12 +15,15 @@ class ProviderProfileController
 
     public function index(): void
     {
-        $message = Helper::setFlashMessage();
+        $service = new Service();
 
         $template = new Template(self::PROFILE_PROVIDER_VIEW . '.php');
         $template->loadView([
-            'message' => $message,
+            'message' => Helper::setFlashMessage(),
             'nav' => Helper::setNav(),
+            'freeAppointments' => $service->getFreeAppointmentsOfProvider(),
+            'upcomingAppointments' => $service->getUpcomingReservationsOfProvider(),
+            'pastAppointments' => $service->getPastReservationsOfProvider(),
         ]);
     }
 
@@ -83,5 +86,23 @@ class ProviderProfileController
         }
 
         Helper::redirectWithMessage(MESSAGES['error'], 'service_profile/updateProfile');
+    }
+
+    public function deleteAppointment()
+    {
+         if (empty($_POST['appointmentId'])) {
+            http_response_code(400);
+            exit();
+        }
+
+        $service = new Service();
+
+         if ($service->deleteAppointment($_POST['appointmentId'])) {
+             $appointments = $service->getFreeAppointmentsOfProvider();
+             exit(json_encode($appointments));
+         }
+
+         http_response_code(400);
+         exit();
     }
 }
