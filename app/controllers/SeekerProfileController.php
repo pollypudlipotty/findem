@@ -3,6 +3,7 @@
 namespace app\controllers;
 
 use app\helpers\Helper;
+use app\models\Service;
 use app\models\User;
 use core\Template;
 use JetBrains\PhpStorm\NoReturn;
@@ -14,12 +15,14 @@ class SeekerProfileController
 
     public function index(): void
     {
-        $message = Helper::setFlashMessage();
+        $service = new Service();
 
         $template = new Template(self::PROFILE_SEEKER_VIEW . '.php');
         $template->loadView([
-            'message' => $message,
+            'message' => Helper::setFlashMessage(),
             'nav' => Helper::setNav(),
+            'reservations' => $service->getReservationsOfUser(),
+            'pastReservations' => $service->getPastReservationsOfUser(),
         ]);
     }
 

@@ -40,14 +40,14 @@ function sortCategories(categoryId) {
     });
 }
 
-$(document).ready(function() {
-    
-    $('#email-r, #last_name, #first_name, #pass1, #pass2, #service_category, #company_name, #company_district, #company_street, #company_description, #company_housenumber').on('blur', function() {
+$(document).ready(function () {
+
+    $('#email-r, #last_name, #first_name, #pass1, #pass2, #service_category, #company_name, #company_district, #company_street, #company_description, #company_housenumber').on('blur', function () {
         validateField($(this));
     });
 
     // If provider
-    $('#provider_check').on('change', function() {
+    $('#provider_check').on('change', function () {
         $('.provider_form').toggle($(this).is(':checked'));
     });
 
@@ -74,8 +74,8 @@ $(document).ready(function() {
             }
 
             //Validation for names to only contain letters
-            if(fieldName === 'first_name' || fieldName === 'last_name') {
-                var namePattern =  /^[A-Za-zÁáÉéÍíÓóÖöŐőÚúÜüŰű]+$/;
+            if (fieldName === 'first_name' || fieldName === 'last_name') {
+                var namePattern = /^[A-Za-zÁáÉéÍíÓóÖöŐőÚúÜüŰű]+$/;
                 if (!namePattern.test(fieldValue)) {
                     errorMessage = 'A nevek csak betűket tartalmazhatnak';
                     isValid = false;
@@ -100,39 +100,39 @@ $(document).ready(function() {
                 }
             }
         }
-            // Provider specific fields validation
+        // Provider specific fields validation
         if ($('#provider_check').is(':checked')) {
-            switch(fieldName) {
+            switch (fieldName) {
                 case 'service_category':
                 case 'company_name':
                 case 'company_district':
                 case 'company_street':
                 case 'company_housenumber':
-                        if (fieldValue === '') {
-                            errorMessage = 'Kérjük, töltse ki ezt a mezőt';
-                            isValid = false;
-                        }
-                        break;
+                    if (fieldValue === '') {
+                        errorMessage = 'Kérjük, töltse ki ezt a mezőt';
+                        isValid = false;
+                    }
+                    break;
                 case 'company_description':
-                        if (fieldValue === '') {
-                            errorMessage = 'Kérjük, mutassa be pár mondatban a céget';
-                            isValid = false;
-                        }
-                        break;
+                    if (fieldValue === '') {
+                        errorMessage = 'Kérjük, mutassa be pár mondatban a céget';
+                        isValid = false;
+                    }
+                    break;
             }
-            
+
         }
 
-        if(fieldName === 'company_street') {
-            var namePattern =  /^[A-Za-zÁáÉéÍíÓóÖöŐőÚúÜüŰű]+$/;
+        if (fieldName === 'company_street') {
+            var namePattern = /^[A-Za-zÁáÉéÍíÓóÖöŐőÚúÜüŰű]+$/;
             if (!namePattern.test(fieldValue)) {
                 errorMessage = 'Az utca neve csak betűket tartalmazhat';
                 isValid = false;
             }
         }
 
-        if(fieldName === 'company_housenumber') {
-            var housenumberPattern =  /^[1234567890]+$/;
+        if (fieldName === 'company_housenumber') {
+            var housenumberPattern = /^[1234567890]+$/;
             if (!housenumberPattern.test(fieldValue)) {
                 errorMessage = 'A házszám csak számokat tartalmazhat';
                 isValid = false;
@@ -141,7 +141,7 @@ $(document).ready(function() {
 
         // If field is pass1, show custom message on click
         if (fieldName === 'pass1') {
-            field.off('click').on('click', function() {
+            field.off('click').on('click', function () {
                 $('#errorMessages').empty().append('<div class="alert alert-info">A jelszónak legalább 6 karakter hosszúnak kell lennie és tartalmaznia kell legalább egy nagybetűt, egy kisbetűt és egy számot.</div>');
             });
         }
@@ -170,7 +170,7 @@ $(document).ready(function() {
         $('#errorMessages').find('.alert').remove();
     }
 
-    $('#registrationForm').submit(function(event) {
+    $('#registrationForm').submit(function (event) {
         event.preventDefault();
 
         var isValid = true;
@@ -182,7 +182,7 @@ $(document).ready(function() {
             $inputsToValidate = $('#registrationForm').find('input, select').slice(0, 4);
         }
 
-        $inputsToValidate.each(function() {
+        $inputsToValidate.each(function () {
             if (!validateField($(this))) {
                 isValid = false;
             }
@@ -199,7 +199,45 @@ $(document).ready(function() {
 function redirectToPage(destinationPage) {
     document.querySelector('.container').classList.add('hide');
 
-    setTimeout(function() {
+    setTimeout(function () {
         window.location.href = destinationPage;
-    }, 500); 
+    }, 500);
+}
+
+function deleteAppointment(appointmentId) {
+
+    $.ajax({
+        type: "POST",
+        url: '/service_profile/deleteAppointment',
+        data: {appointmentId: appointmentId},
+        success: function (response) {
+            let parsedData = JSON.parse(response);
+            let htmlContent = '';
+
+            if (parsedData.length !== 0) {
+                for (let data of parsedData) {
+                    htmlContent += '<div class="col-md-4">\n' +
+                        '            <div class="card m-5">\n' +
+                        '               <div class="card-body">\n' +
+                        '                   <h6 class="card-subtitle mb-2 text-body-secondary"><span>időpont: </span>' + data.appointmentTime +
+                        '                   </h6>\n' +
+                        '                   <h6 class="card-subtitle mb-2 text-body-secondary"><span>ár: </span>' + data.appointment_fee + 'Ft</h6>\n' +
+                        '                       <button class="btn btnReserve"\n' +
+                        '                           onClick="deleteAppointment(' + data.appointment_id + ');">Törlés</button>\n' +
+                        '               </div>\n' +
+                        '              </div>\n' +
+                        '           </div>';
+                }
+            } else {
+                htmlContent += '<div class="text-center">' +
+                    '               <h4>Nincsenek meghírdetett szabad időpontjaid.</h4>\n' +
+                    '           </div>';
+            }
+
+            $('.free-appointments').html(htmlContent);
+        },
+        error: function () {
+            window.alert("Valami hiba történt.");
+        }
+    });
 }
