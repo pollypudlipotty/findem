@@ -1,5 +1,7 @@
 <?php include 'inc/header.php'; ?>
 
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <?php include 'inc/' . $nav; ?>
 
     <div class="container">
@@ -15,6 +17,7 @@
 
         <div class="container registrationBox">
             <form action="/login/userLogin" method="POST">
+            <div id="errorMessages"></div>
 
                 <?php if (isset($message) && !empty($message)): ?>
                     <div class="alert alert-danger"><?php echo $message; ?></div>

@@ -74,16 +74,30 @@ body{
 
 .footer-credit {
     margin: 30px;
+    margin-top: 20px;
+    font-size: 14px;
 }
+
 
 .footer-links {
     list-style: none; 
+    display: block;
+    margin-bottom: 10px;
 }
 
 .mail_logo{
     max-width: 150px;
     margin-bottom: 20px;
+    max-height: 100%;
 
+}
+
+@media (max-width: 767px) {
+    .site-footer .container,
+    .site-footer .container-fluid {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
 }
 
 
@@ -91,8 +105,10 @@ body{
 /*Index*/
 
 #servicesGif{
-    max-width: 150px;
+    max-width: 100%;
+    height: auto;
     position: center;
+    max-height: 200px;
 }
 
 .card-body{
@@ -148,13 +164,15 @@ body{
 }
 
 .imgCarousel{
-    max-width: 1000px;
-    margin: auto;
+    max-width: 100%;
+    height: auto;
+    max-height: 1000px;
 }
 
 .joinUsPicture{
-    max-width: 300px;
+    max-width: 100%;
     margin-top: 60px;
+    max-height: 300px;
 }
 
 #joinUsText{
@@ -176,6 +194,7 @@ body{
 .aboutUs-logo{
     max-width: 300px;
     margin-bottom: 20px;
+    max-height: 100%;
 }
 
 .aboutUsText{
@@ -189,6 +208,7 @@ body{
 #registration-logo{
     max-width: 100px;
     margin: 30px;
+    max-height: 100%;
 
 }
 
@@ -199,6 +219,17 @@ body{
     background-color: #077877;
     color: white;
     margin-top: 30px;
+    max-width: 100%;
+}
+
+.registrationBox input,
+.registrationBox select {
+    width: 100%;
+    max-width: 100%;
+}
+
+.registrationBox input[type="checkbox"] {
+    width:15px;
 }
 
 .provider_form {
@@ -229,11 +260,13 @@ h3{
 .contactLogo{
     max-width: 200px;
     margin: 30px;
+    max-height: 100%;
 }
 
 .mailLogo{
     max-width: 50px;
     margin: 30px;
+    max-height: 100%;
 }
 
 #contactMail{
@@ -245,6 +278,7 @@ h3{
 #profil-logo {
     max-width: 100px;
     margin-bottom: 20px;
+    max-height: 100%;
 }
 
 #accountOptionsBox {

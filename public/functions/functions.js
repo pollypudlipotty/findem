@@ -42,7 +42,7 @@ function sortCategories(categoryId) {
 
 $(document).ready(function () {
 
-    $('#email-r, #last_name, #first_name, #pass1, #pass2, #service_category, #company_name, #company_district, #company_street, #company_description, #company_housenumber').on('blur', function () {
+    $('#email-r, #email-l, #last_name, #first_name, #pass1, #pass2, #service_category, #company_name, #company_district, #company_street, #company_description, #company_housenumber').on('blur', function () {
         validateField($(this));
     });
 

@@ -1,5 +1,7 @@
 <?php include 'inc/header.php'; ?>
 
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
 <?php include 'inc/' . $nav; ?>
 
 <?php if (isset($message) && !empty($message)): ?>
@@ -59,7 +61,7 @@
 
 <!-- CAROUSEL-->
 
-<div id="carouselExampleCaptions" class="carousel slide container-fluid">
+<div id="carouselExampleCaptions" class="carousel slide container">
     <div class="carousel-indicators">
         <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
                 aria-current="true" aria-label="Slide 1"></button>
@@ -70,21 +72,21 @@
     </div>
     <div class="carousel-inner">
         <div class="carousel-item active">
-            <img src="/public/images/carousel_registration.png" class="d-block imgCarousel" alt="...">
+            <img src="/public/images/carousel_registration.png" class="d-block w-100" alt="...">
             <div class="carousel-caption d-none d-md-block">
                 <h5>INGYENES REGISZTRÁCIÓ</h5>
                 <p>Könnyű és ingyenes regisztáció, amivel szolgáltatóként is pár kattintással csatlakozhatsz csapatunkhaoz.</p>
             </div>
         </div>
         <div class="carousel-item">
-            <img src="/public/images/carousel_community.png" class="d-block imgCarousel" alt="...">
+            <img src="/public/images/carousel_community.png" class="d-block w-100" alt="...">
             <div class="carousel-caption d-none d-md-block">
                 <h5>NAGYSZERŰ KÖZÖSSÉG</h5>
                 <p>Csapatunk egyik célkitűzése a közösségépítés és hogy összehozzuk az embereket.</p>
             </div>
         </div>
         <div class="carousel-item">
-            <img src="/public/images/carousel_services.png" class="d-block imgCarousel" alt="...">
+            <img src="/public/images/carousel_services.png" class="d-block w-100" alt="...">
             <div class="carousel-caption d-none d-md-block">
                 <h5>FOLYAMATOSAN BŐVÜLŐ SZOLGÁLTATÁSOK</h5>
                 <p>Kezdő vállalkozásként fontos számunkra a folyamatos fejlődés és a szakemberek minél szélesebb körének bevonása a csaopoatba.</p>
@@ -100,6 +102,7 @@
         <span class="visually-hidden">Next</span>
     </button>
 </div>
+
 
 
 <!-- CSATLAKOZZ-->
