@@ -11,7 +11,7 @@
     <div class="row">
         <h2 class="text-center m-b-4 titles"><span>Rólunk<span></h2>
     </div>
-    <img src="./img/aboutUs_logo.png" alt="Aout Us" class="img-fluid mx-auto d-block aboutUs-logo">
+    <img src="public/images/Q&A_logo.png" alt="Q&A" class="img-fluid mx-auto d-block QALogo">
     <div class="container justify-content-center aboutUsText">
         <p>
             Üdvözölünk a szolgáltatásfoglaló weboldalunkon! Célunk, hogy összehozzuk az embereket és lehetővé tegyük

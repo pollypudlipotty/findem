@@ -10,6 +10,10 @@ use app\controllers\NotFoundController;
 use app\controllers\ProviderProfileController;
 use app\controllers\RegistrationController;
 use app\controllers\SeekerProfileController;
+use app\controllers\NewAppointmentController;
+use app\controllers\QuestionAndAnswerController;
+use app\controllers\DataProtectionController;
+use app\controllers\AppointmentsController;
 
 class Router
 {
@@ -23,6 +27,10 @@ class Router
         'contact' => ['controller' => ContactController::class],
         'seeker_profile' => ['controller' => SeekerProfileController::class],
         'service_profile' => ['controller' => ProviderProfileController::class],
+        'new_appointment' => ['controller' => NewAppointmentController::class],
+        'question_and_answer' => ['controller' => QuestionAndAnswerController::class],
+        'data_protection' => ['controller' => DataProtectionController::class],
+        'appointments' => ['controller' => AppointmentsController::class],
     ];
 
     private const NOT_FOUND = ['controller' => NotFoundController::class];
