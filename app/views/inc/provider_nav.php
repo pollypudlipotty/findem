@@ -18,7 +18,7 @@
                         <a class="nav-link" href="./freeDates.html" onclick="redirectToPage('/freeDates.html')">Szabad időpontok</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="./freeDates.html" onclick="redirectToPage('/freeDates.html')">Időpont feltöltés</a>
+                        <a class="nav-link" href="#" onclick="redirectToPage('/new_appointment')">Időpont feltöltés</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/about_us" onclick="redirectToPage('/about_us')">Rólunk</a>

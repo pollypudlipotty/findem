@@ -90,19 +90,29 @@ class ProviderProfileController
 
     public function deleteAppointment()
     {
-         if (empty($_POST['appointmentId'])) {
+        if (empty($_POST['appointmentId'])) {
             http_response_code(400);
             exit();
         }
 
         $service = new Service();
 
-         if ($service->deleteAppointment($_POST['appointmentId'])) {
-             $appointments = $service->getFreeAppointmentsOfProvider();
-             exit(json_encode($appointments));
-         }
+        if ($service->deleteAppointment($_POST['appointmentId'])) {
+            $appointments = $service->getFreeAppointmentsOfProvider();
+            exit(json_encode($appointments));
+        }
 
-         http_response_code(400);
-         exit();
+        http_response_code(400);
+        exit();
+    }
+
+    #[NoReturn] public function deleteProfile(): void
+    {
+        if (!empty($_SESSION['user'])) {
+           $user = new User();
+           $user->deleteProfile($_SESSION['user'], 'service_profile');
+        }
+
+        Helper::redirectWithMessage('', 'home');
     }
 }

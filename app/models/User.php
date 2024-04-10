@@ -172,4 +172,18 @@ class User
 
         return false;
     }
+
+    public function deleteProfile(string $userId, string $current_url)
+    {
+        $this->dbConn->query("DELETE FROM user WHERE user_id = :user_id");
+
+        $this->dbConn->bind(':user_id', $userId);
+
+        if ($this->dbConn->execute()) {
+            session_unset();
+            Helper::redirectWithMessage(MESSAGES['deleteProfileSuccess'], "home");
+        }
+
+        Helper::redirectWithMessage(MESSAGES['deleteProfileError'], $current_url);
+    }
 }
