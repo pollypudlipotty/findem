@@ -13,7 +13,7 @@
     </div>
 </div>
 <div id="dataProtection">
-  <h5>ADATKEZELÉSI TÁJÉKOZTATÓ</h6>
+  <h5>ADATKEZELÉSI TÁJÉKOZTATÓ</h5>
     <p>
       A findem.hu webcímen elérhető honlapot a FindEM Nonprofit Kft. üzemelteti.
       A FindEM Nonprofit Kft. ezúton tájékoztatja a honlap látogatóit a személyes adatokkal kapcsolatos adatkezelési
@@ -22,7 +22,7 @@
       és
       jogorvoslati lehetőségeiről.
     </p>
-    <h5>1. AZ ADATKEZELŐ</h6>
+    <h5>1. AZ ADATKEZELŐ</h5>
       <p>Cégnév: FindEM Kft.</p>
       <p>Székhely: 1065 Budapest, Révay utca 16.</p>
       <p>Nyilvántartó cégbíróság: Fővárosi Törvényszék Cégbírósága</p>
@@ -140,10 +140,10 @@
       <p>az adatkezelőnek már nincs szüksége a személyes adatokra adatkezelés céljából, de az adatbirtokos igényli
         azokat
         jogi igények előterjesztéséhez, érvényesítéséhez vagy védelméhez;</p>
-      <p>az adatbirtokos tiltakozott az adatkezelés ellen; ez esetben a korlátozás arra az időtartamra vonatkozik,</p>
+      <p>az adatbirtokos tiltakozott az adatkezelés ellen; ez esetben a korlátozás arra az időtartamra vonatkozik,
       amíg megállapításra nem kerül, hogy az adatkezelő jogos indokai elsőbbséget élveznek-e az adatbirtokos jogos
       indokaival szemben.</p>
-      </p>
+
       <h6>4.6 Az adathordozhatósághoz való jog</h6>
       <p>
         Az adatbirtokos jogosult arra, hogy a rá vonatkozó, általa egy adatkezelő rendelkezésére bocsátott személyes
@@ -176,6 +176,5 @@
       <p>Fax: +36 (1) 391-1410</p>
       <p>E-mail: ugyfelszolgalat@naih.hu</p>
       <p>Weboldal: http://naih.hu</p>
-</div>
 
 <?php include 'inc/footer.php'; ?>

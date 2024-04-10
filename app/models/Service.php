@@ -2,8 +2,10 @@
 
 namespace app\models;
 
+use app\helpers\Helper;
 use core\DatabaseHandler;
 use DateTime;
+use JetBrains\PhpStorm\NoReturn;
 use PDO;
 
 class Service
@@ -82,7 +84,13 @@ class Service
 
         foreach ($appointments as &$appointment) {
             $dateTime = DateTime::createFromFormat('H:i:s', $appointment['appointment_time']);
-            $dateTime->modify("+{$appointment['appointment_duration']} hours");
+
+            $durationHours = floor($appointment['appointment_duration']);
+            $durationMinutes = ($appointment['appointment_duration'] - $durationHours) * 60;
+
+            $dateTime->modify("+$durationHours hours");
+            $dateTime->modify("+$durationMinutes minutes");
+
             $resultTime = $dateTime->format('H:i:s');
             $appointmentTime = $appointment['appointment_date'] . ' ' . $appointment['appointment_time'] . '-' . $resultTime;
 
@@ -218,5 +226,28 @@ class Service
         $this->dbConn->bind(':user_id', $_SESSION['user']);
         $pastReservations = $this->dbConn->resultSet();
         return $this->calculateAppointmentTimeInArray($pastReservations);
+    }
+
+    #[NoReturn] public function addAppointment(array $appointmentData)
+    {
+        $this->dbConn->query("SELECT service_id FROM service WHERE service_provider_id = :user_id");
+        $this->dbConn->bind(':user_id', $_SESSION['user']);
+        $result = $this->dbConn->single();
+
+        $this->dbConn->query("INSERT INTO appointment (service_id, status_id, appointment_date, appointment_time, appointment_duration, appointment_fee)
+                                    VALUES (:service_id, :status_id, :appointment_date, :appointment_time, :appointment_duration, :appointment_fee)");
+
+        $this->dbConn->bind(':service_id', $result['service_id']);
+        $this->dbConn->bind(':status_id', 1);
+        $this->dbConn->bind(':appointment_date', $appointmentData['date']);
+        $this->dbConn->bind(':appointment_time', $appointmentData['start_time']);
+        $this->dbConn->bind(':appointment_duration', $appointmentData['duration']);
+        $this->dbConn->bind(':appointment_fee', $appointmentData['fee']);
+
+        if ($this->dbConn->execute()) {
+            Helper::redirectWithMessage(MESSAGES['appointmentAdded'], 'service_profile');
+        }
+
+        Helper::redirectWithMessage(MESSAGES['error'], 'new_appointment');
     }
 }

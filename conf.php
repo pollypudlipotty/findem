@@ -14,5 +14,12 @@ const MESSAGES = [
     'wrongOldPw' => "Régi jelszó hibás!",
     'samePwError' => "A régi és az új jelszavak nem egyezhetnek meg!",
     'pwUpdateSuccess' => "Jelszó sikeresen megváltoztatva.",
-    'serviceUpdateSuccess' => "Adatok sikeresen frissítve."
+    'serviceUpdateSuccess' => "Adatok sikeresen frissítve.",
+    'deleteProfileSuccess' => "A profilodat töröltük.",
+    'deleteProfileError' => "Hiba történt a profil törlése közben. \n Próbáld meg még egyszer!",
+    'invalidDate' => "A megadott dátum nem megfelelő.",
+    'invalidTime' => "Nem megfelelő az időpont formátuma.",
+    'invalidDuration' => "A hírdetés időtartama nem a megengedett tartományban van.",
+    'invalidFee' => "A szolgáltatás ára csak pozitív egész szám lehet!",
+    'appointmentAdded' => "Az időpont sikeresen feltöltve."
 ];

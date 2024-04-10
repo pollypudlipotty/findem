@@ -8,7 +8,7 @@
 
     <div>
         <?php if (isset($message) && !empty($message)): ?>
-            <div class="alert alert-success"><?php echo $message; ?></div>
+            <div class="alert alert-success"><?php echo htmlentities($message); ?></div>
         <?php endif; ?>
     </div>
 
@@ -20,9 +20,18 @@
     </div>
     <div class="container" id="accountOptionsBox">
         <ul class="list-group">
+
             <li class="list-group-item"><a href="#" onclick="redirectToPage('/seeker_profile/updateProfile')">Profil adatok módosítása</a></li>
-            <li class="list-group-item"><a href="#" onclick="redirectToPage('/seeker_profile/logout')">Kijelentkezés</a></li>
-            <li class="list-group-item"><a href="">Profil törlése</a></li>
+            <li class="list-group-item"><a href="#" onclick="redirectToPage('/seeker_profile/logout')">Kijelentkezés</a></li>   
+            <li class="list-group-item"><a href="#" onclick="displayProfileDel();">Profil törlése</a></li>
+            <li class="profile-del list-group-item">
+                <p>Biztosan törölni szeretnéd a profilodat?</p>
+                <div class="text-center">
+                    <a href="/seeker_profile/deleteProfile"><button class="btn btn-primary position-relative col m-2">Igen</button></a>
+                    <button class="btn btn-primary position-relative col m-2" onclick="displayProfileDel();">Nem</button>
+                </div>
+            </li>
+
         </ul>
 
     </div>
@@ -52,21 +61,21 @@
                             <div class="col-md-4">
                                 <div class="card m-5">
                                     <div class="card-body">
-                                        <h5 class="card-title"><?php echo $reservation['category_name']; ?></h5>
+                                        <h5 class="card-title"><?php echo htmlentities($reservation['category_name']); ?></h5>
                                         <h6 class="card-subtitle mb-2 text-body-secondary"><span>szolgáltató: </span>
-                                            <?php echo $reservation['service_name']; ?>
+                                            <?php echo htmlentities($reservation['service_name']); ?>
                                         </h6>
                                         <h6 class="card-subtitle mb-2 text-body-secondary"><span>helyszín: </span>
-                                            <?php echo $reservation['service_district'] . ' kerület, ' . $reservation['service_address'] . ' ' . $reservation['service_housenumber']; ?>
+                                            <?php echo htmlentities($reservation['service_district']) . ' kerület, ' . htmlentities($reservation['service_address']) . ' ' . htmlentities($reservation['service_housenumber']); ?>
                                         </h6>
                                         <h6 class="card-subtitle mb-2 text-body-secondary"><span>ár: </span>
-                                            <?php echo $reservation['appointment_fee']; ?>
+                                            <?php echo htmlentities($reservation['appointment_fee']); ?>
                                         </h6>
                                         <h6 class="card-subtitle mb-2 text-body-secondary"><span>kontakt: </span>
-                                            <?php echo $reservation['email_address']; ?>
+                                            <?php echo htmlentities($reservation['email_address']); ?>
                                         </h6>
                                         <h6 class="card-subtitle mb-2 text-body-secondary"><span>leírás: </span>
-                                            <?php echo $reservation['service_description']; ?>
+                                            <?php echo htmlentities($reservation['service_description']); ?>
                                         </h6>
                                     </div>
                                 </div>
@@ -101,11 +110,11 @@
                             <?php foreach ($pastReservations  as $reservation): ?>
 
                                 <tr>
-                                    <td><?php echo $reservation['category_name']; ?></td>
-                                    <td><?php echo $reservation['appointmentTime']; ?></td>
-                                    <td><?php echo $reservation['appointment_fee']; ?></td>
-                                    <td><?php echo $reservation['service_name']; ?></td>
-                                    <td><?php echo $reservation['email_address']; ?></td>
+                                    <td><?php echo htmlentities($reservation['category_name']); ?></td>
+                                    <td><?php echo htmlentities($reservation['appointmentTime']); ?></td>
+                                    <td><?php echo htmlentities($reservation['appointment_fee']); ?></td>
+                                    <td><?php echo htmlentities($reservation['service_name']); ?></td>
+                                    <td><?php echo htmlentities($reservation['email_address']); ?></td>
                                 </tr>
 
                             <?php endforeach; ?>

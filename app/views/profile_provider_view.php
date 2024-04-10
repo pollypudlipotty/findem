@@ -8,7 +8,7 @@
 
     <div>
         <?php if (isset($message) && !empty($message)): ?>
-            <div class="alert alert-success"><?php echo $message; ?></div>
+            <div class="alert alert-success"><?php echo htmlentities($message); ?></div>
         <?php endif; ?>
     </div>
 
@@ -20,9 +20,18 @@
          class="img-fluid mx-auto d-block">
     <div class="container" id="accountOptionsBox">
         <ul class="list-group">
+
             <li class="list-group-item"><a href="#" onclick="redirectToPage('/service_profile/updateProfile')">Profil adatok módosítása</a></li>
             <li class="list-group-item"><a href="#" onclick="redirectToPage('/service_profile/logout')">Kijelentkezés</a></li>
-            <li class="list-group-item"><a href="">Profil törlése</a></li>
+            <li class="list-group-item"><a href="#" onclick="displayProfileDel();">Profil törlése</a></li>
+
+            <li class="profile-del list-group-item">
+                <p>Biztosan törölni szeretnéd a profilodat?</p>
+                <div class="text-center">
+                    <a href="/service_profile/deleteProfile"><button class="btn btn-primary position-relative col m-2">Igen</button></a>
+                    <button class="btn btn-primary position-relative col m-2" onclick="displayProfileDel();">Nem</button>
+                </div>
+
         </ul>
 
     </div>
@@ -52,13 +61,13 @@
                                 <div class="card m-5">
                                     <div class="card-body">
                                         <h6 class="card-subtitle mb-2 text-body-secondary"><span>időpont: </span>
-                                            <?php echo $appointment['appointmentTime']; ?>
+                                            <?php echo htmlentities($appointment['appointmentTime']); ?>
                                         </h6>
                                         <h6 class="card-subtitle mb-2 text-body-secondary"><span>ár: </span>
-                                            <?php echo $appointment['appointment_fee']; ?> Ft
+                                            <?php echo htmlentities($appointment['appointment_fee']); ?> Ft
                                         </h6>
                                         <button class="btn btnReserve"
-                                                onclick="deleteAppointment(<?php echo $appointment['appointment_id']; ?>);">
+                                                onclick="deleteAppointment(<?php echo htmlentities($appointment['appointment_id']); ?>);">
                                             Törlés
                                         </button>
                                     </div>
@@ -73,7 +82,7 @@
                 <!--ÚJ IDŐPONT-->
                 <div class="container">
                     <div class="row justify-content-center">
-                        <a href="/appointmentRegistration_view.php">
+                        <a href="/new_appointment">
                             <button class="btn btn-primary position-relative col m-2">Új időpont feltöltése</button>
                         </a>
                     </div>
@@ -97,23 +106,23 @@
 
                                 <?php else: ?>
 
-                                    <?php foreach ($upcomingAppointments  as $appointment): ?>
+                                    <?php foreach ($upcomingAppointments as $appointment): ?>
 
                                         <div class="col-md-4">
                                             <div class="card m-5">
                                                 <div class="card-body">
                                                     <h6 class="card-subtitle mb-2 text-body-secondary">
-                                                        <span>időpont: </span><?php echo $appointment['appointmentTime']; ?>
+                                                        <span>időpont: </span><?php echo htmlentities($appointment['appointmentTime']); ?>
                                                     </h6>
                                                     <h6 class="card-subtitle mb-2 text-body-secondary"><span>ár: </span>
-                                                        <?php echo $appointment['appointment_fee']; ?> Ft
+                                                        <?php echo htmlentities($appointment['appointment_fee']); ?> Ft
                                                     </h6>
                                                     <h6 class="card-subtitle mb-2 text-body-secondary">
                                                         <span>vendég neve: </span>
-                                                        <?php echo $appointment['last_name'] . ' ' . $appointment['first_name']; ?>
+                                                        <?php echo htmlentities($appointment['last_name']) . ' ' . htmlentities($appointment['first_name']); ?>
                                                     </h6>
                                                     <h6 class="card-subtitle mb-2 text-body-secondary">
-                                                        <span>vendég email cime: </span><?php echo $appointment['email_address']; ?>
+                                                        <span>vendég email cime: </span><?php echo htmlentities($appointment['email_address']); ?>
                                                     </h6>
                                                 </div>
                                             </div>
@@ -143,13 +152,13 @@
                                     </thead>
                                     <tbody>
 
-                                     <?php foreach ($pastAppointments  as $appointment): ?>
+                                    <?php foreach ($pastAppointments as $appointment): ?>
 
                                         <tr>
-                                            <td><?php echo $appointment['appointmentTime']; ?></td>
-                                            <td><?php echo $appointment['appointment_fee']; ?></td>
-                                            <td><?php echo $appointment['last_name'] . ' ' . $appointment['first_name']; ?></td>
-                                            <td><?php echo $appointment['email_address']; ?></td>
+                                            <td><?php echo htmlentities($appointment['appointmentTime']); ?></td>
+                                            <td><?php echo htmlentities($appointment['appointment_fee']); ?></td>
+                                            <td><?php echo htmlentities($appointment['last_name']) . ' ' . htmlentities($appointment['first_name']); ?></td>
+                                            <td><?php echo htmlentities($appointment['email_address']); ?></td>
                                         </tr>
 
                                     <?php endforeach; ?>

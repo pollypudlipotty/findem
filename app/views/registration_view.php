@@ -21,7 +21,7 @@
                 <div id="errorMessages"></div>
 
                 <?php if (isset($message) && !empty($message)): ?>
-                    <div class="alert alert-danger"><?php echo $message; ?></div>
+                    <div class="alert alert-danger"><?php echo htmlentities($message); ?></div>
                 <?php endif; ?>
 
                 <div class="mb-3">

@@ -6,7 +6,7 @@
 
 <div>
     <?php if (isset($message) && !empty($message)): ?>
-        <div class="alert alert-danger"><?php echo $message; ?></div>
+        <div class="alert alert-danger"><?php echo htmlentities($message); ?></div>
     <?php endif; ?>
     <form action="/seeker_profile/updatePassword" method="POST">
         <label for="oldPassword">Régi jelszó:</label>
