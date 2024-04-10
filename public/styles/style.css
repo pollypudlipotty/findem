@@ -275,12 +275,13 @@ h3{
 
 .QALogo{
     max-width: 100px;
+    max-height: 100%;
 }
 
 /* Adatvédelem */
 
 #dataProtection {
-color: white;
+    color: white;
 }
 
 

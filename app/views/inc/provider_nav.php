@@ -15,22 +15,22 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link" href="./freeDates.html">Szabad időpontok</a>
+                        <a class="nav-link" href="./freeDates.html" onclick="redirectToPage('/freeDates.html')">Szabad időpontok</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="./freeDates.html">Időpont feltöltés</a>
+                        <a class="nav-link" href="./freeDates.html" onclick="redirectToPage('/freeDates.html')">Időpont feltöltés</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/about_us">Rólunk</a>
+                        <a class="nav-link" href="/about_us" onclick="redirectToPage('/about_us')">Rólunk</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/contact">Kapcsolat</a>
+                        <a class="nav-link" href="/contact" onclick="redirectToPage('/contact')">Kapcsolat</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/service_profile">Saját profil</a>
+                        <a class="nav-link" href="/service_profile" onclick="redirectToPage('/service-profile')">Saját profil</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/service_profile/logout">Kijelentkezés</a>
+                        <a class="nav-link" href="/service_profile/logout" onclick="redirectToPage('/logout')">Kijelentkezés</a>
                     </li>
                 </ul>
 

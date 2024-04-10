@@ -113,7 +113,7 @@
             <img src="/public/images/joinUs_logo.png" class="mx-auto d-block joinUsPicture" alt="Join US!">
         </div>
         <div>
-            <h3><a id="joinUsText" class="link-underline link-underline-opacity-0" href="/registration">Csatlakozz hozzánk és regisztálj!</a></h3>
+            <h3><a id="joinUsText" class="link-underline link-underline-opacity-0" href="/registration" onclick="redirectToPage('/registration')">Csatlakozz hozzánk és regisztálj!</a></h3>
         </div>
     </div>
 
