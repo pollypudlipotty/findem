@@ -20,8 +20,8 @@
          class="img-fluid mx-auto d-block">
     <div class="container" id="accountOptionsBox">
         <ul class="list-group">
-            <li class="list-group-item"><a href="/service_profile/updateProfile" onclick="redirectToPage('/updateProfile')">Profil adatok módosítása</a></li>
-            <li class="list-group-item"><a href="/service_profile/logout" onclick="redirectToPage('/logout')">Kijelentkezés</a></li>
+            <li class="list-group-item"><a href="#" onclick="redirectToPage('/service_profile/updateProfile')">Profil adatok módosítása</a></li>
+            <li class="list-group-item"><a href="#" onclick="redirectToPage('/service_profile/logout')">Kijelentkezés</a></li>
             <li class="list-group-item"><a href="">Profil törlése</a></li>
         </ul>
 

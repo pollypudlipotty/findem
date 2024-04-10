@@ -20,8 +20,8 @@
     </div>
     <div class="container" id="accountOptionsBox">
         <ul class="list-group">
-            <li class="list-group-item"><a href="/seeker_profile/updateProfile" onclick="redirectToPage('/updateProfile')">Profil adatok módosítása</a></li>
-            <li class="list-group-item"><a href="/seeker_profile/logout" onclick="redirectToPage('/logout')">Kijelentkezés</a></li>
+            <li class="list-group-item"><a href="#" onclick="redirectToPage('/seeker_profile/updateProfile')">Profil adatok módosítása</a></li>
+            <li class="list-group-item"><a href="#" onclick="redirectToPage('/seeker_profile/logout')">Kijelentkezés</a></li>
             <li class="list-group-item"><a href="">Profil törlése</a></li>
         </ul>
 
