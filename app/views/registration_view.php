@@ -112,7 +112,7 @@
 
                 <div>
                     <a class="d-flex justify-content-center" href="/login">
-                        <button class="btn btn-primary position-center col col-md-2 m-4">Bejelentkezés</button>
+                        <button class="btn btn-primary position-center col col-md-2 m-4" onclick="redirectToPage('/login')">Bejelentkezés</button>
                     </a>
                 </div>
 

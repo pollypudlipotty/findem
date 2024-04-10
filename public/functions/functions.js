@@ -124,7 +124,7 @@ $(document).ready(function () {
         }
 
         if (fieldName === 'company_street') {
-            var namePattern = /^[A-Za-zÁáÉéÍíÓóÖöŐőÚúÜüŰű]+$/;
+            var namePattern = /^[A-Za-zÁáÉéÍíÓóÖöŐőÚúÜüŰű\s]+$/;
             if (!namePattern.test(fieldValue)) {
                 errorMessage = 'Az utca neve csak betűket tartalmazhat';
                 isValid = false;
@@ -160,7 +160,7 @@ $(document).ready(function () {
         field.next('.invalid-feedback').text(message);
 
         // Append error message to #errorMessages container
-        $('#errorMessages').append('<div class="alert alert-info">' + message + '</div>');
+        $('#errorMessages').append('<div class="alert alert-danger">' + message + '</div>');
     }
 
     function hideError(field) {
