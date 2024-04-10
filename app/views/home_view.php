@@ -15,7 +15,7 @@
 
     <div class="row col-12">
         <div class="d-inline-flex justify-content-center">
-            <img id="servicesGif" src="/public/images/servicesGif.gif" alt="">
+            <img class="servicesGif" src="/public/images/servicesGif.gif" alt="">
         </div>
         <div>
         <h2 class="text-center m-b-4 titles"><span>Hamarosan lejáró ajánlatok<span></h2>

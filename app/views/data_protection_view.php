@@ -6,13 +6,13 @@
 
 <div>
     <div class="d-inline-flex justify-content-center">
-        <img id="servicesGif" src="/public/images/dataProtection.png" alt="">
+        <img class="servicesGif" src="/public/images/dataProtection.png" alt="Adatvédelem">
     </div>
     <div class="row col-12">
     <h2 class="text-center m-b-4 titles"><span>Adatvédelem<span></h2>
     </div>
 </div>
-<div>
+<div id="dataProtection">
   <h5>ADATKEZELÉSI TÁJÉKOZTATÓ</h6>
     <p>
       A findem.hu webcímen elérhető honlapot a FindEM Nonprofit Kft. üzemelteti.

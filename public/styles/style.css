@@ -8,8 +8,6 @@ body{
 
 #navbar {
     background-color: #004B84;
-    
-
 }
 
 #findemLogo{
@@ -104,7 +102,7 @@ body{
 
 /*Index*/
 
-#servicesGif{
+.servicesGif{
     max-width: 100%;
     height: auto;
     position: center;
@@ -272,6 +270,19 @@ h3{
 #contactMail{
     color: white;
 }
+
+/* Q&A */
+
+.QALogo{
+    max-width: 100px;
+}
+
+/* Adatvédelem */
+
+#dataProtection {
+color: white;
+}
+
 
 /*account*/
 
