@@ -38,11 +38,11 @@
 
         <label for="company_name" class="form-label">Cég neve:</label>
         <input type="text" class="form-control" id="company_name" name="company_name"
-               value="<?= $serviceData['service_name']; ?>">
+               value="<?= htmlentities($serviceData['service_name']); ?>">
 
         <label for="company_description" class="form-label">Leírás:</label>
         <textarea class="form-control" id="company_description" name="company_description"
-        ><?php echo $serviceData['service_description']; ?></textarea>
+        ><?php echo htmlentities($serviceData['service_description']); ?></textarea>
 
         <label for="company_district">Kerület:</label>
         <select class="form-control" id="company_district" name="company_district">
@@ -58,15 +58,11 @@
         </select>
 
         <label for="company_street" class="form-label">Közterület neve és típusa:</label>
-        <input type="text" class="form-control" id="company_street" name="company_street" value="<?= $serviceData['service_address']; ?>">
+        <input type="text" class="form-control" id="company_street" name="company_street" value="<?= htmlentities($serviceData['service_address']); ?>">
 
          <label for="company_housenumber" class="form-label">Házszám:</label>
-        <input type="text" class="form-control" id="company_housenumber" name="company_housenumber" value="<?= $serviceData['service_housenumber']; ?>">
+        <input type="text" class="form-control" id="company_housenumber" name="company_housenumber" value="<?= htmlentities($serviceData['service_housenumber']); ?>">
 
         <button>Mentés</button>
     </form>
-
-
-
 </div>
-

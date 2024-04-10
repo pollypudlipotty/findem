@@ -8,7 +8,7 @@
         <!--Új időpont feltöltése-->
 
         
-        <img id="registration-logo" src="public/images/newAppointment_logo.png" alt="Új időpont feltöltése"
+        <img id="registration-logo" src="/public/images/newAppointment_logo.png" alt="Új időpont feltöltése"
              class="img-fluid mx-auto d-block">
 
         <div class="row">
@@ -17,79 +17,51 @@
         </div>
 
         <div class="container registrationBox">
-            <form action="/registration/userRegistration" id="registrationForm" method="POST">
+            <form action="/new_appointment/addNewAppointment" method="POST">
                 <div id="errorMessages"></div>
 
                 <?php if (isset($message) && !empty($message)): ?>
-                    <div class="alert alert-danger"><?php echo $message; ?></div>
+                    <div class="alert alert-danger"><?php echo htmlentities($message); ?></div>
                 <?php endif; ?>
 
 
                 <div class="mb-3">
-                    <label for="" class="form-label">Szolgáltatás megnevezése:</label>
-                    <input type="text" class="form-control" id="last_name" name="last_name">
+                    <label for="date" class="form-label">Dátum:</label>
+                    <input type="date" class="form-control" id="date" name="date" min="<?php echo date('Y-m-d', strtotime('+1 day')); ?>">
                 </div>
 
                 <div class="mb-3">
-                    <label for="last_name" class="form-label">Időpont:</label>
-                    <input type="text" class="form-control" id="last_name" name="last_name">
-                </div>
-
-                <div class="mb-3">
-                    <label for="last_name" class="form-label">Helyszín:</label>
-                    <input type="text" class="form-control" id="last_name" name="last_name">
-                </div>
-
-                <div class="mb-3">
-                    <label for="last_name" class="form-label">Megjegyzés:</label>
-                    <input type="text" class="form-control" id="last_name" name="last_name">
-                </div>
-
-                <div class="mb-3 provider_form">
-                <label for="company_district">Kategória:</label>
-                    <select class="form-control" id="service_category" name="service_category">
-                        <option value="0" selected disabled>Válasszon kategóriát</option>
-
-                        <?php foreach ($categories as $category): ?>
-
-                            <option value="<?= $category['category_id']; ?>"><?php echo $category['category_name']; ?></option>
-
-                        <?php endforeach; ?>
-                    </select>
-                </div>
-
-                <div class="mb-3 provider_form">
-                    <label for="company_name" class="form-label">Cég neve:</label>
-                    <input type="text" class="form-control" id="company_name" name="company_name" >
-                </div>
-                
-                <div class="mb-3 provider_form">
-                    <label for="company_description" class="form-label">Leírás:</label>
-                    <textarea class="form-control" id="company_description" name="company_description"
-                              ></textarea>
-                </div>
-
-                <div class="mb-3 provider_form">
-                <h5>Cég címe</h5>
-                <label for="company_district">Kerület:</label>
-                    <select class="form-control" id="company_district" name="company_district" >
-                        <option value="0" selected disabled>Válasszon kerületet</option>
+                    <label for="start_time" class="form-label">Kezdete:</label>
+                    <select name="start_time">
                         <?php
-                        for ($i = 1; $i < 24; $i++) {
-                            echo "<option value='$i'>$i.</option>";
+                        for ($hour = 7; $hour <= 22; $hour++) {
+                            for ($minute = 0; $minute <= 30; $minute += 30) {
+                                $time = sprintf('%02d:%02d', $hour, $minute);
+                                echo "<option value=\"$time\">$time</option>";
+                            }
                         }
                         ?>
                     </select>
+
                 </div>
 
-                <div class="mb-3 provider_form">
-                    <label for="company_street" class="form-label">Közterület neve és típusa:</label>
-                    <input type="text" class="form-control" id="company_street" name="company_street" >
+                <div class="mb-3">
+                    <label for="duration" class="form-label">Időtartama (perc):</label>
+                    <select name="duration">
+                        <?php
+                        for ($minute = 30; $minute <= 180; $minute += 30) {
+                            $hours = $minute / 60;
+                            echo "<option value=\"$hours\">$minute</option>";
+                        }
+                        ?>
+                    </select>
+
+
                 </div>
 
-                <div class="mb-3 provider_form">
-                    <label for="company_housenumber" class="form-label">Házszám:</label>
-                    <input type="text" class="form-control" id="company_housenumber" name="company_housenumber" >
+                <div class="mb-3">
+                    <label for="fee" class="form-label">Ára:</label>
+                    <input type="text" class="form-control" id="fee" name="fee">
                 </div>
 
                 <button type="submit" class="btn btn-primary" onclick="">Időpont feltöltése</button>

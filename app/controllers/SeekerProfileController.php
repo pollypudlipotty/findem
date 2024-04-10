@@ -59,4 +59,14 @@ class SeekerProfileController
 
         Helper::redirectWithMessage(MESSAGES['error'], 'seeker_profile/updateProfile');
     }
+
+    #[NoReturn] public function deleteProfile(): void
+    {
+        if (!empty($_SESSION['user'])) {
+            $user = new User();
+            $user->deleteProfile($_SESSION['user'], 'seeker_profile');
+        }
+
+        Helper::redirectWithMessage('', 'home');
+    }
 }

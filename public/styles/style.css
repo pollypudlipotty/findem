@@ -309,3 +309,8 @@ h3{
 .container.hide {
     opacity: 0;
 }
+
+
+.profile-del {
+    display: none;
+}

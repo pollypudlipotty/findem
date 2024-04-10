@@ -27,8 +27,8 @@ function sortCategories(categoryId) {
                         '            </div>';
                 }
             } else {
-                htmlContent += '<div class="text-center">' +
-                    '               <h3>Ebben a kategóriában éppen nincsen foglalható időpont.</h3>\n' +
+                htmlContent += '<div class="text-center my-5">' +
+                    '               <h4>Ebben a kategóriában éppen nincsen foglalható időpont.</h4>\n' +
                     '               <br><h5>Látogass vissza később!</h5>\n' +
                     '           </div>';
             }
@@ -240,4 +240,9 @@ function deleteAppointment(appointmentId) {
             window.alert("Valami hiba történt.");
         }
     });
+}
+
+function displayProfileDel() {
+    console.log('del')
+    $('.profile-del').toggle();
 }
