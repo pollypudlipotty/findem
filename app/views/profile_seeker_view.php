@@ -20,8 +20,9 @@
     </div>
     <div class="container" id="accountOptionsBox">
         <ul class="list-group">
-            <li class="list-group-item"><a href="/seeker_profile/updateProfile" onclick="redirectToPage('/updateProfile')">Profil adatok módosítása</a></li>
-            <li class="list-group-item"><a href="/seeker_profile/logout" onclick="redirectToPage('/logout')">Kijelentkezés</a></li>
+
+            <li class="list-group-item"><a href="#" onclick="redirectToPage('/seeker_profile/updateProfile')">Profil adatok módosítása</a></li>
+            <li class="list-group-item"><a href="#" onclick="redirectToPage('/seeker_profile/logout')">Kijelentkezés</a></li>   
             <li class="list-group-item"><a href="#" onclick="displayProfileDel();">Profil törlése</a></li>
             <li class="profile-del list-group-item">
                 <p>Biztosan törölni szeretnéd a profilodat?</p>
@@ -30,6 +31,7 @@
                     <button class="btn btn-primary position-relative col m-2" onclick="displayProfileDel();">Nem</button>
                 </div>
             </li>
+
         </ul>
 
     </div>

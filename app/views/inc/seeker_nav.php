@@ -21,8 +21,8 @@
     <!--NAVBAR AUTHORIZED-->
     <nav class="navbar navbar-expand-lg bg-primary p-0" data-bs-theme="dark">
         <div id="navbar" class="container-fluid py-3">
-            <a href="/home">
-                <img id="findemLogo" src="/public/images/findem_logo.png" alt="FindEM" class="img-fluid">
+            <a href="#">
+                <img id="findemLogo" src="/public/images/findem_logo.png" onclick="redirectToPage('/home')" alt="FindEM" class="img-fluid">
             </a>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -34,19 +34,19 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link" href="/appointments">Szabad időpontok</a>
+                        <a class="nav-link" href="#" onclick="redirectToPage('/appointments')">Szabad időpontok</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/about_us">Rólunk</a>
+                        <a class="nav-link" href="#" onclick="redirectToPage('/about_us')">Rólunk</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/contact">Kapcsolat</a>
+                        <a class="nav-link" href="#" onclick="redirectToPage('/contact')">Kapcsolat</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/seeker_profile">Saját profil</a>
+                        <a class="nav-link" href="#" onclick="redirectToPage('/seeker_profile')">Saját profil</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/seeker_profile/logout">Kijelentkezés</a>
+                        <a class="nav-link" href="#" onclick="redirectToPage('/seeker_profile/logout')">Kijelentkezés</a>
                     </li>
                 </ul>
 

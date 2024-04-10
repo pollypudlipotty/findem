@@ -20,16 +20,18 @@
          class="img-fluid mx-auto d-block">
     <div class="container" id="accountOptionsBox">
         <ul class="list-group">
-            <li class="list-group-item"><a href="/service_profile/updateProfile" onclick="redirectToPage('/updateProfile')">Profil adatok módosítása</a></li>
-            <li class="list-group-item"><a href="/service_profile/logout" onclick="redirectToPage('/logout')">Kijelentkezés</a></li>
+
+            <li class="list-group-item"><a href="#" onclick="redirectToPage('/service_profile/updateProfile')">Profil adatok módosítása</a></li>
+            <li class="list-group-item"><a href="#" onclick="redirectToPage('/service_profile/logout')">Kijelentkezés</a></li>
             <li class="list-group-item"><a href="#" onclick="displayProfileDel();">Profil törlése</a></li>
+
             <li class="profile-del list-group-item">
                 <p>Biztosan törölni szeretnéd a profilodat?</p>
                 <div class="text-center">
                     <a href="/service_profile/deleteProfile"><button class="btn btn-primary position-relative col m-2">Igen</button></a>
                     <button class="btn btn-primary position-relative col m-2" onclick="displayProfileDel();">Nem</button>
                 </div>
-            </li>
+
         </ul>
 
     </div>

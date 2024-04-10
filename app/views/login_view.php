@@ -31,7 +31,7 @@
                     <label for="pass" class="form-label">Jelszó:</label>
                     <input type="password" class="form-control" id="pass" name="pass">
                 </div>
-                <button type="submit" class="btn btn-primary" onclick="redirectToPage('/service_profile')">Bejelentkezés</button>
+                <button type="submit" class="btn btn-primary" href="#" onclick="redirectToPage('/service_profile')">Bejelentkezés</button>
             </form>
         </div>
         <div class="container">
@@ -40,7 +40,7 @@
                 <h3>Nincs még fiókod?</h3>
 
                 <div>
-                    <a class="d-flex justify-content-center" href="/registration">
+                    <a class="d-flex justify-content-center" href="#">
                         <button class="btn btn-primary position-center col col-md-2 m-4" onclick="redirectToPage('/registration')">Regisztrálj!</button>
                     </a>
                 </div>

@@ -111,7 +111,7 @@
                 <h3>Van már fiókod?</h3>
 
                 <div>
-                    <a class="d-flex justify-content-center" href="/login">
+                    <a class="d-flex justify-content-center" href="#">
                         <button class="btn btn-primary position-center col col-md-2 m-4" onclick="redirectToPage('/login')">Bejelentkezés</button>
                     </a>
                 </div>
