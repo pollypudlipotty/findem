@@ -14,18 +14,16 @@ class AppointmentsController
     public function index(): void
     {
         $service = new Service();
-        $appointments = $service->loadAvailableAppointments();
-        $services = $service->loadCategories();
 
         $template = new Template(self::APPOINTMENTS_VIEW . '.php');
         $template->loadView([
             'nav' => Helper::setNav(),
-            'appointments' => $appointments,
-            'services' => $services,
+            'appointments' => $service->loadAvailableAppointments(),
+            'services' => $service->loadCategories(),
         ]);
     }
 
-    #[NoReturn] public function reserveAppointment()
+    #[NoReturn] public function reserveAppointment(): void
     {
         if (empty($_POST['appointmentId']) || !isset($_SESSION['user'])) {
             Helper::redirectWithMessage('', 'home');
@@ -42,7 +40,7 @@ class AppointmentsController
         exit();
     }
 
-    #[NoReturn] public function sortCategories()
+    #[NoReturn] public function sortCategories(): void
     {
         if (empty($_POST['categoryId'])) {
             http_response_code(400);

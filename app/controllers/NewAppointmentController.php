@@ -6,6 +6,7 @@ use app\helpers\Helper;
 use app\models\Service;
 use core\Template;
 use DateTime;
+use JetBrains\PhpStorm\NoReturn;
 
 class NewAppointmentController
 {
@@ -20,7 +21,7 @@ class NewAppointmentController
         ]);
     }
 
-    public function addNewAppointment()
+    #[NoReturn] public function addNewAppointment()
     {
         if (empty($_POST['date']) || empty($_POST['start_time']) || empty($_POST['duration']) || empty($_POST['fee'])) {
            Helper::redirectWithMessage(MESSAGES['missingData'], 'new_appointment');

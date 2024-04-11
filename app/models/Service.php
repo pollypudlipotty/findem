@@ -6,11 +6,10 @@ use app\helpers\Helper;
 use core\DatabaseHandler;
 use DateTime;
 use JetBrains\PhpStorm\NoReturn;
-use PDO;
 
 class Service
 {
-    private $dbConn;
+    private DatabaseHandler $dbConn;
 
     public function __construct()
     {
@@ -114,6 +113,7 @@ class Service
             unset($appointment['appointment_time']);
             unset($appointment['appointment_duration']);
         }
+
         unset($appointment);
 
         return $appointments;
@@ -242,7 +242,7 @@ class Service
         return $this->calculateAppointmentTimeInArray($pastReservations);
     }
 
-    #[NoReturn] public function addAppointment(array $appointmentData)
+    #[NoReturn] public function addAppointment(array $appointmentData): void
     {
         $this->dbConn->query("SELECT service_id FROM service WHERE service_provider_id = :user_id");
         $this->dbConn->bind(':user_id', $_SESSION['user']);
@@ -265,7 +265,7 @@ class Service
         Helper::redirectWithMessage(MESSAGES['error'], 'new_appointment');
     }
 
-    public function reserveAppointment(int $appointmentId, int $userId)
+    public function reserveAppointment(int $appointmentId, int $userId): bool
     {
         $this->dbConn->query("INSERT INTO reservation (appointment_id, user_id) VALUES (:appointment_id, :user_id)");
 

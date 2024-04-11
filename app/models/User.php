@@ -86,6 +86,7 @@ class User
             $_SESSION['message'] = MESSAGES['duplicateEmail'];
             return false;
         }
+
         return true;
     }
 
@@ -173,7 +174,7 @@ class User
         return false;
     }
 
-    #[NoReturn] public function deleteProfile(string $userId, string $current_url)
+    #[NoReturn] public function deleteProfile(string $userId, string $current_url): void
     {
         $this->dbConn->query("DELETE FROM user WHERE user_id = :user_id");
 
@@ -187,7 +188,7 @@ class User
         Helper::redirectWithMessage(MESSAGES['deleteProfileError'], $current_url);
     }
 
-    public function getUserData()
+    public function getUserData(): bool|array
     {
         $this->dbConn->query("SELECT email_address, first_name, last_name
                                     FROM user where user_id = :user_id");

@@ -15,21 +15,16 @@ class HomeController
     {
         $service = new Service();
 
-        $services = $service->loadCategories();
-        $appointments = $service->loadAvailableAppointments(3);
-
-        $message = Helper::setFlashMessage();
-
         $template = new Template(self::HOME_VIEW . '.php');
         $template->loadView([
-            'services' => $services,
-            'appointments' => $appointments,
-            'message' => $message,
+            'services' => $service->loadCategories(),
+            'appointments' => $service->loadAvailableAppointments(3),
+            'message' => Helper::setFlashMessage(),
             'nav' => Helper::setNav(),
         ]);
     }
 
-    #[NoReturn] public function sortCategories()
+    #[NoReturn] public function sortCategories(): void
     {
         if (empty($_POST['categoryId'])) {
             http_response_code(400);
@@ -43,4 +38,3 @@ class HomeController
         exit(json_encode($appointments));
     }
 }
-
