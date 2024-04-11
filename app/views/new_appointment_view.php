@@ -64,7 +64,7 @@
                     <input type="text" class="form-control" id="fee" name="fee">
                 </div>
 
-                <button type="submit" class="btn btn-primary" onclick="">Időpont feltöltése</button>
+                <button type="submit" class="btn btn-primary" onclick="redirectToPage('')">Időpont feltöltése</button>
 
             </form>
         </div>

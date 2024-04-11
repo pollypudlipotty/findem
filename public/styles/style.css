@@ -96,6 +96,13 @@ body{
         padding-left: 15px;
         padding-right: 15px;
     }
+    .card-subtitle {
+            font-size: 4vw;
+        
+    }
+    .card-title {
+        font-size: 6vw;
+    }
 }
 
 
@@ -245,6 +252,30 @@ h3{
     max-width: 90px;
     margin-bottom: 20px;
 }
+
+/*login*/
+
+.loginForm{
+border: solid 2px white;
+    padding: 10px;
+    width: 400px;
+    background-color: #077877;
+    color: white;
+    margin-top: 30px;
+    max-width: 100%;
+}
+
+.loginForm input,
+.loginForm select {
+    width: 100%;
+    max-width: 100%;
+}
+
+.loginForm input[type="checkbox"] {
+    width:15px;
+}
+
+
 
 /*contact*/
 
