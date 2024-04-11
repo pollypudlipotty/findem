@@ -23,10 +23,12 @@ class Service
         return $this->dbConn->resultSet();
     }
 
-    public function loadAvailableAppointments(): array
+    public function loadAvailableAppointments(int $limit = null): array
     {
-        $this->dbConn->query("SELECT service_category.category_name,  appointment.appointment_date, appointment.appointment_time,
-                                            appointment.appointment_duration, service.service_district, service.service_description, service_category.category_id
+        $sql = "SELECT service_category.category_name, appointment.appointment_id, appointment.appointment_date,
+                        appointment.appointment_time, appointment.appointment_duration,  appointment.appointment_fee,
+                        service.service_district, service.service_address, service.service_housenumber, service.service_provider_id,
+                        service.service_description, service.service_name, service_category.category_id
                                     FROM appointment
                                         INNER JOIN service
                                             ON appointment.service_id=service.service_id
@@ -36,18 +38,25 @@ class Service
                                       AND (appointment.appointment_date > CURDATE()
                                             OR (appointment.appointment_date = CURDATE() 
 		                                        AND appointment.appointment_time > TIME(DATE_ADD(NOW(), INTERVAL 2 HOUR))))
-                                    ORDER BY appointment.appointment_date ASC
-                                    LIMIT 3");
+                                    ORDER BY appointment.appointment_date ASC";
+
+        if ($limit !== null) {
+            $sql .= " LIMIT $limit";
+        }
+
+        $this->dbConn->query($sql);
 
         $appointments = $this->dbConn->resultSet();
 
         return $this->calculateAppointmentTimeInArray($appointments);
     }
 
-    public function loadAvailableAppointmentsForCategory(int $categoryId): array
+    public function loadAvailableAppointmentsForCategory(int $categoryId, int $limit = null): array
     {
-        $this->dbConn->query("SELECT service_category.category_name,  appointment.appointment_date, appointment.appointment_time,
-                                            appointment.appointment_duration, service.service_district, service.service_description, service_category.category_id
+        $sql = "SELECT service_category.category_name, appointment.appointment_id, appointment.appointment_date,
+                        appointment.appointment_time, appointment.appointment_duration,  appointment.appointment_fee,
+                        service.service_district, service.service_address, service.service_housenumber, service.service_provider_id,
+                        service.service_description, service.service_name, service_category.category_id
                                     FROM appointment
                                         INNER JOIN service
                                             ON appointment.service_id=service.service_id
@@ -57,8 +66,13 @@ class Service
                                     AND (appointment.appointment_date > CURDATE()
                                             OR (appointment.appointment_date = CURDATE() 
 		                                        AND appointment.appointment_time > TIME(DATE_ADD(NOW(), INTERVAL 2 HOUR))))
-                                    ORDER BY appointment.appointment_date ASC
-                                    LIMIT 3");
+                                    ORDER BY appointment.appointment_date ASC";
+
+        if ($limit !== null) {
+            $sql .= " LIMIT $limit";
+        }
+
+        $this->dbConn->query($sql);
 
         $this->dbConn->bind(':categoryId', $categoryId);
 
@@ -249,5 +263,25 @@ class Service
         }
 
         Helper::redirectWithMessage(MESSAGES['error'], 'new_appointment');
+    }
+
+    public function reserveAppointment(int $appointmentId, int $userId)
+    {
+        $this->dbConn->query("INSERT INTO reservation (appointment_id, user_id) VALUES (:appointment_id, :user_id)");
+
+        $this->dbConn->bind(':appointment_id', $appointmentId);
+        $this->dbConn->bind(':user_id', $userId);
+
+        if ($this->dbConn->execute()) {
+            $this->dbConn->query("UPDATE appointment SET status_id = 2 WHERE appointment_id = :appointment_id");
+
+            $this->dbConn->bind(':appointment_id', $appointmentId);
+
+            if ($this->dbConn->execute()) {
+                return true;
+            }
+        }
+
+        return false;
     }
 }
