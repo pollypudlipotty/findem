@@ -13,7 +13,6 @@
 
         <div class="row">
             <h2 class="text-center m-b-4 titles"><span>Regisztráció<span></h2>
-
         </div>
 
         <div class="container registrationBox">

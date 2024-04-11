@@ -4,10 +4,10 @@
 
 <?php include 'inc/' . $nav; ?>
 
-<div>
-    <div class="d-inline-flex justify-content-center">
-        <img class="servicesGif" src="/public/images/dataProtection.png" alt="Adatvédelem">
+<div class="d-flex justify-content-center">
+        <img id="dataImage" src="/public/images/dataProtection.png" alt="Adatvédelem">
     </div>
+<div>
     <div class="row col-12">
     <h2 class="text-center m-b-4 titles"><span>Adatvédelem<span></h2>
     </div>
