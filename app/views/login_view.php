@@ -15,7 +15,7 @@
 
         </div>
 
-        <div class="container registrationBox">
+        <div class="container loginForm">
             <form action="/login/userLogin" method="POST">
             <div id="errorMessages"></div>
 

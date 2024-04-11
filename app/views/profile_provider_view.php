@@ -98,8 +98,8 @@
                 <!--ÚJ IDŐPONT-->
                 <div class="container">
                     <div class="row justify-content-center">
-                        <a href="/new_appointment">
-                            <button class="btn btn-primary position-relative col m-2">Új időpont feltöltése</button>
+                        <a href="#">
+                            <button class="btn btn-primary position-relative col m-2" onclick="redirectToPage('/new_appointment')">Új időpont feltöltése</button>
                         </a>
                     </div>
                 </div>

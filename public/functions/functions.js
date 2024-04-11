@@ -42,7 +42,7 @@ function sortCategoriesHome(categoryId) {
 
 $(document).ready(function () {
 
-    $('#email-r, #email-l, #last_name, #first_name, #pass1, #pass2, #service_category, #company_name, #company_district, #company_street, #company_description, #company_housenumber').on('blur', function () {
+    $('#email-r, #email-l, #last_name, #first_name, #pass, #pass1, #pass2, #service_category, #company_name, #company_district, #company_street, #company_description, #company_housenumber').on('blur', function () {
         validateField($(this));
     });
 
@@ -92,7 +92,7 @@ $(document).ready(function () {
             }
 
             // Password criteria validation
-            if (fieldName === 'pass1' || fieldName === 'pass2') {
+            if (fieldName === 'pass1' || fieldName === 'pass2' || fieldName === 'pass') {
                 var passwordPattern = /^(?=.*\d)(?=.*[A-Z])(?=.*[a-z])([a-zA-Z0-9]{6,10})+$/;
                 if (!passwordPattern.test(fieldValue)) {
                     errorMessage = 'A jelszó nem felel meg a követelményeknek (legalább 6 karakter, egy nagybetű, egy kisbetű és egy szám).';
@@ -196,6 +196,7 @@ $(document).ready(function () {
     });
 });
 
+// <--- TRANSITION --->
 function redirectToPage(destinationPage) {
     document.querySelector('.container').classList.add('hide');
 
