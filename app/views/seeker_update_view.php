@@ -13,6 +13,8 @@
         <input type="password" name="oldPassword">
         <label for="newPassword">Új jelszó</label>
         <input type="password" name="newPassword">
+        <label for="newPasswordAgain">Új jelszó ismét</label>
+        <input type="password" name="newPasswordAgain">
         <button>Mentés</button>
     </form>
 </div>

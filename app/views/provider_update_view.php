@@ -6,7 +6,7 @@
 
 <div>
     <?php if (isset($message) && !empty($message)): ?>
-        <div class="alert alert-danger"><?php echo $message; ?></div>
+        <div class="alert alert-danger"><?php echo htmlentities($message); ?></div>
     <?php endif; ?>
 </div>
 
@@ -17,6 +17,8 @@
         <input type="password" name="oldPassword">
         <label for="newPassword">Új jelszó</label>
         <input type="password" name="newPassword">
+        <label for="newPasswordAgain">Új jelszó ismét</label>
+        <input type="password" name="newPasswordAgain">
         <button>Mentés</button>
     </form>
 </div>

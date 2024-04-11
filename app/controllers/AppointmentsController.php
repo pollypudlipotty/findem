@@ -33,6 +33,7 @@ class AppointmentsController
 
         $service = new Service();
         if ($service->reserveAppointment($_POST['appointmentId'], $_SESSION['user'])) {
+            $_SESSION['message'] = MESSAGES['appointmentReserved'];
             http_response_code(204);
             exit();
         }

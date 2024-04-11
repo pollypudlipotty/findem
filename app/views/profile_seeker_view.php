@@ -65,6 +65,9 @@
                                         <h6 class="card-subtitle mb-2 text-body-secondary"><span>szolgáltató: </span>
                                             <?php echo htmlentities($reservation['service_name']); ?>
                                         </h6>
+                                        <h6 class="card-subtitle mb-2 text-body-secondary"><span>időpont: </span>
+                                            <?php echo htmlentities($reservation['appointmentTime']); ?>
+                                        </h6>
                                         <h6 class="card-subtitle mb-2 text-body-secondary"><span>helyszín: </span>
                                             <?php echo htmlentities($reservation['service_district']) . ' kerület, ' . htmlentities($reservation['service_address']) . ' ' . htmlentities($reservation['service_housenumber']); ?>
                                         </h6>
