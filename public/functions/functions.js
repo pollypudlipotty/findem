@@ -254,15 +254,15 @@ function reserveAppointment(appointmentId) {
         url: '/appointments/reserveAppointment',
         data: {appointmentId: appointmentId},
         success: function () {
-            window.alert("sikeres")
+            window.location.href = '/seeker_profile'
         },
         error: function() {
-            console.log('error')
+            window.alert("Valami hiba történt.")
         }
     })
 }
 
-function sortCategories(categoryId, userId) {
+function sortCategories(categoryId, userRole) {
      $.ajax({
         type: "POST",
         url: '/appointments/sortCategories',
@@ -289,7 +289,7 @@ function sortCategories(categoryId, userId) {
                                 <h6 class="card-subtitle mb-2 text-body-secondary">
                                     <span>megjegyzés: </span>${data.service_description}
                                 </h6>
-                                ${data.service_provider_id !== userId ?
+                                ${userRole === 1 ?
                         `<a href="#" class="btn btnReserve" onclick="reserveAppointment(${data.appointment_id});">Foglalás</a>` : ''}
                             </div>
                         </div>
