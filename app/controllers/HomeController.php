@@ -16,7 +16,7 @@ class HomeController
         $service = new Service();
 
         $services = $service->loadCategories();
-        $appointments = $service->loadAvailableAppointments();
+        $appointments = $service->loadAvailableAppointments(3);
 
         $message = Helper::setFlashMessage();
 
@@ -29,9 +29,9 @@ class HomeController
         ]);
     }
 
-    public function sortCategories()
+    #[NoReturn] public function sortCategories()
     {
-        if (!isset($_POST['categoryId']) || empty($_POST['categoryId'])) {
+        if (empty($_POST['categoryId'])) {
             http_response_code(400);
             exit();
         }
@@ -39,7 +39,7 @@ class HomeController
         $categoryId = $_POST['categoryId'];
 
         $service = new Service();
-        $appointments = $service->loadAvailableAppointmentsForCategory($categoryId);
+        $appointments = $service->loadAvailableAppointmentsForCategory($categoryId, 3);
         exit(json_encode($appointments));
     }
 }

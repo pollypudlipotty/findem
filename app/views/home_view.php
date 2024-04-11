@@ -67,7 +67,7 @@
         <div class="row justify-content-around">
             <?php foreach ($services as $service): ?>
                 <button class="btn btn-primary position-relative col m-2 serviceCategories"
-                        onclick="sortCategories(<?php echo $service['category_id']; ?>);"><?php echo htmlentities($service['category_name']); ?></button>
+                        onclick="sortCategoriesHome(<?php echo $service['category_id']; ?>);"><?php echo htmlentities($service['category_name']); ?></button>
             <?php endforeach; ?>
         </div>
     </div>

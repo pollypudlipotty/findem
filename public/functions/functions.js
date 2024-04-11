@@ -2,15 +2,15 @@ function loadProviderForm() {
     $('.provider_form').toggle();
 }
 
-function sortCategories(categoryId) {
+function sortCategoriesHome(categoryId) {
 
     $.ajax({
         type: "POST",
         url: '/home/sortCategories',
         data: {categoryId: categoryId},
         success: function (response) {
-            let parsedData = JSON.parse(response);
-            let htmlContent = '';
+            let parsedData = JSON.parse(response)
+            let htmlContent = ''
 
             if (parsedData.length !== 0) {
                 for (let data of parsedData) {
@@ -24,20 +24,20 @@ function sortCategories(categoryId) {
                         '                        <h6 class="card-subtitle mb-2 text-body-secondary"><span>megjegyzés: ' + data.service_description + '</h6>\n' +
                         '                    </div>\n' +
                         '                </div>\n' +
-                        '            </div>';
+                        '            </div>'
                 }
             } else {
                 htmlContent += '<div class="text-center my-5">' +
                     '               <h4>Ebben a kategóriában éppen nincsen foglalható időpont.</h4>\n' +
                     '               <br><h5>Látogass vissza később!</h5>\n' +
-                    '           </div>';
+                    '           </div>'
             }
-            $('.category-sort').html(htmlContent);
+            $('.category-sort').html(htmlContent)
         },
         error: function () {
-            window.alert("Valami hiba történt.");
+            window.alert("Valami hiba történt.")
         }
-    });
+    })
 }
 
 $(document).ready(function () {
@@ -245,4 +245,66 @@ function deleteAppointment(appointmentId) {
 function displayProfileDel() {
     console.log('del')
     $('.profile-del').toggle();
+}
+
+function reserveAppointment(appointmentId) {
+    console.log(appointmentId)
+    $.ajax({
+        type: "POST",
+        url: '/appointments/reserveAppointment',
+        data: {appointmentId: appointmentId},
+        success: function () {
+            window.alert("sikeres")
+        },
+        error: function() {
+            console.log('error')
+        }
+    })
+}
+
+function sortCategories(categoryId, userId) {
+     $.ajax({
+        type: "POST",
+        url: '/appointments/sortCategories',
+        data: {categoryId: categoryId},
+        success: function (response) {
+            let parsedData = JSON.parse(response)
+            let htmlContent = ''
+
+            if (parsedData.length !== 0) {
+                for (let data of parsedData) {
+                    htmlContent += `<div class="col-md-4">
+                        <div class="card m-5">
+                            <div class="card-body">
+                                <h5 class="card-title">${data.category_name}</h5>
+                                <h6 class="card-subtitle mb-2 text-body-secondary">
+                                    <span>szolgáltató: </span>${data.service_name}</h6>
+                                <h6 class="card-subtitle mb-2 text-body-secondary">
+                                    <span>időpont: </span>${data.appointmentTime}</h6>
+                                <h6 class="card-subtitle mb-2 text-body-secondary">
+                                    <span>helyszín: </span>${data.service_district}. kerület, ${data.service_address} ${data.service_housenumber}
+                                </h6>
+                                <h6 class="card-subtitle mb-2 text-body-secondary">
+                                    <span>ár: </span>${data.appointment_fee}</h6>
+                                <h6 class="card-subtitle mb-2 text-body-secondary">
+                                    <span>megjegyzés: </span>${data.service_description}
+                                </h6>
+                                ${data.service_provider_id !== userId ?
+                        `<a href="#" class="btn btnReserve" onclick="reserveAppointment(${data.appointment_id});">Foglalás</a>` : ''}
+                            </div>
+                        </div>
+                    </div>`
+                }
+            } else {
+                htmlContent += '<div class="text-center my-5">' +
+                    '               <h4>Ebben a kategóriában éppen nincsen foglalható időpont.</h4>\n' +
+                    '               <br><h5>Látogass vissza később!</h5>\n' +
+                    '           </div>'
+            }
+            $('.appointment-sort').html(htmlContent)
+        },
+        error: function () {
+            window.alert("Valami hiba történt.")
+        }
+    })
 }
