@@ -16,20 +16,36 @@
     <div class="row">
         <h2 class="text-center m-b-4 titles"><span>Saját profil<span></h2>
     </div>
-    <img src="../../public/images/profil_logo.png" id="profil-logo" alt="Saját profil"
-         class="img-fluid mx-auto d-block">
+    <div class="row">
+
+        <div class="col-6">
+            <img src="../../public/images/profil_logo.png" id="profil-logo" alt="Saját profil"
+                 class="img-fluid mx-auto d-block">
+        </div>
+        <div class="col-6 align-items-center text-center d-flex row">
+            <div class="row"><h5><?php echo $userData['email_address']; ?></h5></div>
+            <div class="row"><h5><?php echo $userData['last_name'] . ' ' . $userData['first_name']; ?></h5></div>
+        </div>
+
+    </div>
+
     <div class="container" id="accountOptionsBox">
         <ul class="list-group">
 
-            <li class="list-group-item"><a href="#" onclick="redirectToPage('/service_profile/updateProfile')">Profil adatok módosítása</a></li>
-            <li class="list-group-item"><a href="#" onclick="redirectToPage('/service_profile/logout')">Kijelentkezés</a></li>
+            <li class="list-group-item"><a href="#" onclick="redirectToPage('/service_profile/updateProfile')">Profil
+                    adatok módosítása</a></li>
+            <li class="list-group-item"><a href="#"
+                                           onclick="redirectToPage('/service_profile/logout')">Kijelentkezés</a></li>
             <li class="list-group-item"><a href="#" onclick="displayProfileDel();">Profil törlése</a></li>
 
             <li class="profile-del list-group-item">
                 <p>Biztosan törölni szeretnéd a profilodat?</p>
                 <div class="text-center">
-                    <a href="/service_profile/deleteProfile"><button class="btn btn-primary position-relative col m-2">Igen</button></a>
-                    <button class="btn btn-primary position-relative col m-2" onclick="displayProfileDel();">Nem</button>
+                    <a href="/service_profile/deleteProfile">
+                        <button class="btn btn-primary position-relative col m-2">Igen</button>
+                    </a>
+                    <button class="btn btn-primary position-relative col m-2" onclick="displayProfileDel();">Nem
+                    </button>
                 </div>
 
         </ul>
@@ -82,8 +98,8 @@
                 <!--ÚJ IDŐPONT-->
                 <div class="container">
                     <div class="row justify-content-center">
-                        <a href="/new_appointment">
-                            <button class="btn btn-primary position-relative col m-2">Új időpont feltöltése</button>
+                        <a href="#">
+                            <button class="btn btn-primary position-relative col m-2" onclick="redirectToPage('/new_appointment')">Új időpont feltöltése</button>
                         </a>
                     </div>
                 </div>

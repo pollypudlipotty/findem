@@ -5,8 +5,10 @@
 <?php include 'inc/' . $nav; ?>
 
 <div>
-    <?php if (isset($message) && !empty($message)): ?>
-                        <div class="alert alert-danger"><?php echo $message; ?></div>
+    <?php if (isset($message) && !empty($message)): ?>       
+
+        <div class="alert alert-danger"><?php echo htmlentities($message); ?></div>
+
     <?php endif; ?>
 </div>
 
@@ -14,6 +16,7 @@
 
 <div class="row">
         <h2 class="text-center m-b-4 titles"><span>Profil adatok módosítása<span></h2>
+
 </div>
 
 <div class="container justify-content-center">
@@ -26,6 +29,8 @@
                 <input type="password" name="oldPassword">
                 <label for="newPassword">Új jelszó:</label>
                 <input type="password" name="newPassword">
+                <label for="newPasswordAgain">Új jelszó ismét</label>
+                <input type="password" name="newPasswordAgain">
                 <div>
                     <button type="submit" class="btn btn-primary m-4 ms-0" onclick="">Mentés</button>
                 </div>

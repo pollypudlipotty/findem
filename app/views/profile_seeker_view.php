@@ -13,11 +13,23 @@
     </div>
 
     <!--SAJÁT PROFIL és ADATOK MÓDOSÍTÁSA-->
-    <img src="../../public/images/profil_logo.png" id="profil-logo" alt="Saját profil"
-         class="img-fluid mx-auto d-block">
     <div class="row">
         <h2 class="text-center m-b-4 titles"><span>Saját profil<span></h2>
     </div>
+
+    <div class="row">
+
+        <div class="col-6">
+            <img src="../../public/images/profil_logo.png" id="profil-logo" alt="Saját profil"
+                 class="img-fluid mx-auto d-block">
+        </div>
+        <div class="col-6 align-items-center text-center d-flex row">
+            <div class="row"><h5><?php echo $userData['email_address']; ?></h5></div>
+            <div class="row"><h5><?php echo $userData['last_name'] . ' ' . $userData['first_name']; ?></h5></div>
+        </div>
+
+    </div>
+
     <div class="container" id="accountOptionsBox">
         <ul class="list-group">
 
@@ -64,6 +76,9 @@
                                         <h5 class="card-title"><?php echo htmlentities($reservation['category_name']); ?></h5>
                                         <h6 class="card-subtitle mb-2 text-body-secondary"><span>szolgáltató: </span>
                                             <?php echo htmlentities($reservation['service_name']); ?>
+                                        </h6>
+                                        <h6 class="card-subtitle mb-2 text-body-secondary"><span>időpont: </span>
+                                            <?php echo htmlentities($reservation['appointmentTime']); ?>
                                         </h6>
                                         <h6 class="card-subtitle mb-2 text-body-secondary"><span>helyszín: </span>
                                             <?php echo htmlentities($reservation['service_district']) . ' kerület, ' . htmlentities($reservation['service_address']) . ' ' . htmlentities($reservation['service_housenumber']); ?>

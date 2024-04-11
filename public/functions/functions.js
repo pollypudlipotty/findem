@@ -2,15 +2,15 @@ function loadProviderForm() {
     $('.provider_form').toggle();
 }
 
-function sortCategories(categoryId) {
+function sortCategoriesHome(categoryId) {
 
     $.ajax({
         type: "POST",
         url: '/home/sortCategories',
         data: {categoryId: categoryId},
         success: function (response) {
-            let parsedData = JSON.parse(response);
-            let htmlContent = '';
+            let parsedData = JSON.parse(response)
+            let htmlContent = ''
 
             if (parsedData.length !== 0) {
                 for (let data of parsedData) {
@@ -24,25 +24,25 @@ function sortCategories(categoryId) {
                         '                        <h6 class="card-subtitle mb-2 text-body-secondary"><span>megjegyzés: ' + data.service_description + '</h6>\n' +
                         '                    </div>\n' +
                         '                </div>\n' +
-                        '            </div>';
+                        '            </div>'
                 }
             } else {
                 htmlContent += '<div class="text-center my-5">' +
                     '               <h4>Ebben a kategóriában éppen nincsen foglalható időpont.</h4>\n' +
                     '               <br><h5>Látogass vissza később!</h5>\n' +
-                    '           </div>';
+                    '           </div>'
             }
-            $('.category-sort').html(htmlContent);
+            $('.category-sort').html(htmlContent)
         },
         error: function () {
-            window.alert("Valami hiba történt.");
+            window.alert("Valami hiba történt.")
         }
-    });
+    })
 }
 
 $(document).ready(function () {
 
-    $('#email-r, #email-l, #last_name, #first_name, #pass1, #pass2, #service_category, #company_name, #company_district, #company_street, #company_description, #company_housenumber').on('blur', function () {
+    $('#email-r, #email-l, #last_name, #first_name, #pass, #pass1, #pass2, #service_category, #company_name, #company_district, #company_street, #company_description, #company_housenumber').on('blur', function () {
         validateField($(this));
     });
 
@@ -92,7 +92,7 @@ $(document).ready(function () {
             }
 
             // Password criteria validation
-            if (fieldName === 'pass1' || fieldName === 'pass2') {
+            if (fieldName === 'pass1' || fieldName === 'pass2' || fieldName === 'pass') {
                 var passwordPattern = /^(?=.*\d)(?=.*[A-Z])(?=.*[a-z])([a-zA-Z0-9]{6,10})+$/;
                 if (!passwordPattern.test(fieldValue)) {
                     errorMessage = 'A jelszó nem felel meg a követelményeknek (legalább 6 karakter, egy nagybetű, egy kisbetű és egy szám).';
@@ -196,6 +196,7 @@ $(document).ready(function () {
     });
 });
 
+// <--- TRANSITION --->
 function redirectToPage(destinationPage) {
     document.querySelector('.container').classList.add('hide');
 
@@ -245,4 +246,66 @@ function deleteAppointment(appointmentId) {
 function displayProfileDel() {
     console.log('del')
     $('.profile-del').toggle();
+}
+
+function reserveAppointment(appointmentId) {
+    console.log(appointmentId)
+    $.ajax({
+        type: "POST",
+        url: '/appointments/reserveAppointment',
+        data: {appointmentId: appointmentId},
+        success: function () {
+            window.location.href = '/seeker_profile'
+        },
+        error: function() {
+            window.alert("Valami hiba történt.")
+        }
+    })
+}
+
+function sortCategories(categoryId, userRole) {
+     $.ajax({
+        type: "POST",
+        url: '/appointments/sortCategories',
+        data: {categoryId: categoryId},
+        success: function (response) {
+            let parsedData = JSON.parse(response)
+            let htmlContent = ''
+
+            if (parsedData.length !== 0) {
+                for (let data of parsedData) {
+                    htmlContent += `<div class="col-md-4">
+                        <div class="card m-5">
+                            <div class="card-body">
+                                <h5 class="card-title">${data.category_name}</h5>
+                                <h6 class="card-subtitle mb-2 text-body-secondary">
+                                    <span>szolgáltató: </span>${data.service_name}</h6>
+                                <h6 class="card-subtitle mb-2 text-body-secondary">
+                                    <span>időpont: </span>${data.appointmentTime}</h6>
+                                <h6 class="card-subtitle mb-2 text-body-secondary">
+                                    <span>helyszín: </span>${data.service_district}. kerület, ${data.service_address} ${data.service_housenumber}
+                                </h6>
+                                <h6 class="card-subtitle mb-2 text-body-secondary">
+                                    <span>ár: </span>${data.appointment_fee}</h6>
+                                <h6 class="card-subtitle mb-2 text-body-secondary">
+                                    <span>megjegyzés: </span>${data.service_description}
+                                </h6>
+                                ${userRole === 1 ?
+                        `<a href="#" class="btn btnReserve" onclick="reserveAppointment(${data.appointment_id});">Foglalás</a>` : ''}
+                            </div>
+                        </div>
+                    </div>`
+                }
+            } else {
+                htmlContent += '<div class="text-center my-5">' +
+                    '               <h4>Ebben a kategóriában éppen nincsen foglalható időpont.</h4>\n' +
+                    '               <br><h5>Látogass vissza később!</h5>\n' +
+                    '           </div>'
+            }
+            $('.appointment-sort').html(htmlContent)
+        },
+        error: function () {
+            window.alert("Valami hiba történt.")
+        }
+    })
 }

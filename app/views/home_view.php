@@ -27,7 +27,7 @@
         <?php if (empty($appointments)): ?>
 
             <div class="text-center my-5">
-                <h4 class="text-center my-5">Nincsenek jelenleg aktív hírdetések.</h4>
+                <h4 class="text-center my-5">Nincsenek jelenleg aktív hirdetések.</h4>
                 <h5>Látogass vissza később!</h5>
             </div>
 
@@ -67,7 +67,7 @@
         <div class="row justify-content-around">
             <?php foreach ($services as $service): ?>
                 <button class="btn btn-primary position-relative col m-2 serviceCategories"
-                        onclick="sortCategories(<?php echo $service['category_id']; ?>);"><?php echo htmlentities($service['category_name']); ?></button>
+                        onclick="sortCategoriesHome(<?php echo $service['category_id']; ?>);"><?php echo htmlentities($service['category_name']); ?></button>
             <?php endforeach; ?>
         </div>
     </div>
@@ -106,7 +106,7 @@
             <div class="carousel-caption d-none d-md-block">
                 <h5>FOLYAMATOSAN BŐVÜLŐ SZOLGÁLTATÁSOK</h5>
                 <p>Kezdő vállalkozásként fontos számunkra a folyamatos fejlődés és a szakemberek minél szélesebb körének
-                    bevonása a csaopoatba.</p>
+                    bevonása a csapatba.</p>
             </div>
         </div>
     </div>

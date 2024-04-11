@@ -16,6 +16,7 @@ class SeekerProfileController
     public function index(): void
     {
         $service = new Service();
+        $user = new User();
 
         $template = new Template(self::PROFILE_SEEKER_VIEW . '.php');
         $template->loadView([
@@ -23,10 +24,11 @@ class SeekerProfileController
             'nav' => Helper::setNav(),
             'reservations' => $service->getReservationsOfUser(),
             'pastReservations' => $service->getPastReservationsOfUser(),
+            'userData' => $user->getUserData(),
         ]);
     }
 
-    #[NoReturn] public function logout()
+    #[NoReturn] public function logout(): void
     {
         if (User::logout()) {
             Helper::redirectWithMessage(MESSAGES['logout'], 'home');
@@ -46,8 +48,12 @@ class SeekerProfileController
 
     #[NoReturn] public function updatePassword(): void
     {
-        if(empty($_POST['oldPassword']) || empty($_POST['newPassword'])) {
+        if(empty($_POST['oldPassword']) || empty($_POST['newPassword']) || empty($_POST['newPasswordAgain'])) {
             Helper::redirectWithMessage(MESSAGES['pwUpdateError'], 'seeker_profile/updateProfile');
+        }
+
+        if ($_POST['newPassword'] !== $_POST['newPasswordAgain']) {
+            Helper::redirectWithMessage(MESSAGES['pwMatch'], 'seeker_profile/updateProfile');
         }
 
         $user = new User();

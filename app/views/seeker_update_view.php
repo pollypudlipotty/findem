@@ -4,6 +4,7 @@
 
 <?php include 'inc/' . $nav; ?>
 
+
 <img id="registration-logo" src="/public/images/registration_logo.png" alt="Regisztráció" class="img-fluid mx-auto d-block">
 
 <div class="row">
@@ -22,12 +23,15 @@
                 <input type="password" name="oldPassword">
                 <label for="newPassword">Új jelszó</label>
                 <input type="password" name="newPassword">
+                <label for="newPasswordAgain">Új jelszó ismét</label>
+                <input type="password" name="newPasswordAgain">
                 <div>
                     <button type="submit" class="btn btn-primary m-4 ms-0" onclick="">Mentés</button>
                 </div>
             </form>
         </div>
     </div>
+
 </div>
 
 

@@ -6,6 +6,7 @@ use app\helpers\Helper;
 use app\models\Service;
 use app\models\User;
 use core\Template;
+use JetBrains\PhpStorm\NoReturn;
 
 class RegistrationController
 {
@@ -14,24 +15,20 @@ class RegistrationController
     public function index(): void
     {
         $service = new Service();
-        $categories = $service->loadCategories();
-
-        $message = Helper::setFlashMessage();
 
         $template = new Template(self::REGISTRATION_VIEW . '.php');
         $template->loadView([
-            'categories' => $categories,
-            'message' => $message,
+            'categories' => $service->loadCategories(),
+            'message' => Helper::setFlashMessage(),
             'nav' => Helper::setNav(),
         ]);
     }
 
-    public function userRegistration(): void
+    #[NoReturn] public function userRegistration(): void
     {
         if (empty($_POST['email']) || empty($_POST['last_name']) || empty($_POST['first_name']) || empty($_POST['pass1']) || empty($_POST['pass2'])) {
             Helper::redirectWithMessage(MESSAGES['missingData'], 'registration');
         }
-
 
         if ($_POST['pass1'] !== $_POST['pass2']) {
             Helper::redirectWithMessage(MESSAGES['pwMatch'], 'registration');

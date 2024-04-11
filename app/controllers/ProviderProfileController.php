@@ -16,6 +16,7 @@ class ProviderProfileController
     public function index(): void
     {
         $service = new Service();
+        $user = new User();
 
         $template = new Template(self::PROFILE_PROVIDER_VIEW . '.php');
         $template->loadView([
@@ -24,10 +25,11 @@ class ProviderProfileController
             'freeAppointments' => $service->getFreeAppointmentsOfProvider(),
             'upcomingAppointments' => $service->getUpcomingReservationsOfProvider(),
             'pastAppointments' => $service->getPastReservationsOfProvider(),
+            'userData' => $user->getUserData(),
         ]);
     }
 
-    #[NoReturn] public function logout()
+    #[NoReturn] public function logout(): void
     {
         if (User::logout()) {
             Helper::redirectWithMessage(MESSAGES['logout'], 'home');
@@ -36,25 +38,27 @@ class ProviderProfileController
         Helper::redirectWithMessage('', 'home');
     }
 
-    public function updateProfile()
+    public function updateProfile(): void
     {
         $service = new Service();
-        $categories = $service->loadCategories();
-        $serviceData = $service->getServiceData();
 
         $template = new Template(self::PROVIDER_UPDATE_VIEW . '.php');
         $template->loadView([
             'message' => Helper::setFlashMessage(),
             'nav' => Helper::setNav(),
-            'categories' => $categories,
-            'serviceData' => $serviceData,
+            'categories' => $service->loadCategories(),
+            'serviceData' => $service->getServiceData(),
         ]);
     }
 
-    #[NoReturn] public function updatePassword()
+    #[NoReturn] public function updatePassword(): void
     {
-        if (empty($_POST['oldPassword']) || empty($_POST['newPassword'])) {
+        if (empty($_POST['oldPassword']) || empty($_POST['newPassword']) || empty($_POST['newPasswordAgain'])) {
             Helper::redirectWithMessage(MESSAGES['pwUpdateError'], 'service_profile/updateProfile');
+        }
+
+        if ($_POST['newPassword'] !== $_POST['newPasswordAgain']) {
+            Helper::redirectWithMessage(MESSAGES['pwMatch'], 'service_profile/updateProfile');
         }
 
         $user = new User();
@@ -88,7 +92,7 @@ class ProviderProfileController
         Helper::redirectWithMessage(MESSAGES['error'], 'service_profile/updateProfile');
     }
 
-    public function deleteAppointment()
+    #[NoReturn] public function deleteAppointment(): void
     {
         if (empty($_POST['appointmentId'])) {
             http_response_code(400);
