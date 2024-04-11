@@ -5,10 +5,17 @@
 <?php include 'inc/' . $nav; ?>
 
 <div>
-    <?php if (isset($message) && !empty($message)): ?>
+    <?php if (isset($message) && !empty($message)): ?>       
+
         <div class="alert alert-danger"><?php echo htmlentities($message); ?></div>
+
     <?php endif; ?>
 </div>
+
+<img id="registration-logo" src="/public/images/registration_logo.png" alt="Regisztráció" class="img-fluid mx-auto d-block">
+
+<div class="row">
+        <h2 class="text-center m-b-4 titles"><span>Profil adatok módosítása<span></h2>
 
 
 <div class="container registrationBox">
@@ -80,3 +87,4 @@
 </div>
 
 <?php include 'inc/footer.php'; ?>
+

@@ -4,6 +4,7 @@
 
 <?php include 'inc/' . $nav; ?>
 
+
 <div>
     <?php if (isset($message) && !empty($message)): ?>
         <div class="alert alert-danger"><?php echo htmlentities($message); ?></div>
