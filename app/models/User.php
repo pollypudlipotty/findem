@@ -146,7 +146,7 @@ class User
         return false;
     }
 
-    public function updateServiceData(array $serviceData)
+    public function updateServiceData(array $serviceData): bool
     {
         $this->dbConn->query("UPDATE service SET
                     service_category_id = :service_category_id,
@@ -173,7 +173,7 @@ class User
         return false;
     }
 
-    public function deleteProfile(string $userId, string $current_url)
+    #[NoReturn] public function deleteProfile(string $userId, string $current_url)
     {
         $this->dbConn->query("DELETE FROM user WHERE user_id = :user_id");
 
@@ -185,5 +185,14 @@ class User
         }
 
         Helper::redirectWithMessage(MESSAGES['deleteProfileError'], $current_url);
+    }
+
+    public function getUserData()
+    {
+        $this->dbConn->query("SELECT email_address, first_name, last_name
+                                    FROM user where user_id = :user_id");
+
+        $this->dbConn->bind(':user_id', $_SESSION['user']);
+        return $this->dbConn->single();
     }
 }

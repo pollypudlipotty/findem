@@ -16,6 +16,7 @@ class SeekerProfileController
     public function index(): void
     {
         $service = new Service();
+        $user = new User();
 
         $template = new Template(self::PROFILE_SEEKER_VIEW . '.php');
         $template->loadView([
@@ -23,10 +24,11 @@ class SeekerProfileController
             'nav' => Helper::setNav(),
             'reservations' => $service->getReservationsOfUser(),
             'pastReservations' => $service->getPastReservationsOfUser(),
+            'userData' => $user->getUserData(),
         ]);
     }
 
-    #[NoReturn] public function logout()
+    #[NoReturn] public function logout(): void
     {
         if (User::logout()) {
             Helper::redirectWithMessage(MESSAGES['logout'], 'home');

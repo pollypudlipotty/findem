@@ -16,6 +16,7 @@ class ProviderProfileController
     public function index(): void
     {
         $service = new Service();
+        $user = new User();
 
         $template = new Template(self::PROFILE_PROVIDER_VIEW . '.php');
         $template->loadView([
@@ -24,6 +25,7 @@ class ProviderProfileController
             'freeAppointments' => $service->getFreeAppointmentsOfProvider(),
             'upcomingAppointments' => $service->getUpcomingReservationsOfProvider(),
             'pastAppointments' => $service->getPastReservationsOfProvider(),
+            'userData' => $user->getUserData(),
         ]);
     }
 
