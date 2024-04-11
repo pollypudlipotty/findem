@@ -42,9 +42,10 @@ function sortCategoriesHome(categoryId) {
 
 $(document).ready(function () {
 
-    $('#email-r, #email-l, #last_name, #first_name, #pass, #pass1, #pass2, #service_category, #company_name, #company_district, #company_street, #company_description, #company_housenumber').on('blur', function () {
+    $('#email-r, #email-l, #last_name, #first_name, #oldPassword, #newPassword, #newPasswordAgain, #pass, #pass1, #pass2, #service_category, #company_name, #company_district, #company_street, #company_description, #company_housenumber').on('blur', function () {
         validateField($(this));
     });
+
 
     // If provider
     $('#provider_check').on('change', function () {
@@ -86,6 +87,14 @@ $(document).ready(function () {
             if (fieldName === 'pass2') {
                 var pass1Value = $('#pass1').val();
                 if (fieldValue !== pass1Value) {
+                    errorMessage = 'A jelszavak nem egyeznek.';
+                    isValid = false;
+                }
+            }
+
+            if (fieldName === 'newPassword') {
+                var newPAValue = $('#newPasswordAgain').val();
+                if (fieldValue !== newPAValue) {
                     errorMessage = 'A jelszavak nem egyeznek.';
                     isValid = false;
                 }

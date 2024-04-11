@@ -11,17 +11,25 @@
 </div>
 
 
-<div>
+<div class="container registrationBox">
     <form action="/service_profile/updatePassword" method="POST">
-        <label for="oldPassword">Régi jelszó:</label>
-        <input type="password" name="oldPassword">
-        <label for="newPassword">Új jelszó</label>
-        <input type="password" name="newPassword">
-        <label for="newPasswordAgain">Új jelszó ismét</label>
-        <input type="password" name="newPasswordAgain">
-        <button>Mentés</button>
+        <div id="errorMessages"></div>
+        <div class="mb-3">
+            <label for="oldPassword" class="form-label">Régi jelszó:</label>
+            <input type="password" class="form-control" id="oldPassword" name="oldPassword">
+        </div>
+        <div class="mb-3">
+            <label for="newPassword" class="form-label">Új jelszó:</label>
+            <input type="password" class="form-control" id="newPassword" name="newPassword">
+        </div>
+        <div class="mb-3">
+            <label for="newPasswordAgain" class="form-label">Új jelszó ismét:</label>
+            <input type="password" class="form-control" id="newPasswordAgain" name="newPasswordAgain">
+        </div>
+        <button type="submit" class="btn btn-primary" onclick="redirectToPage('/service_profile')">Mentés</button>
     </form>
 </div>
+
 
 <div>
     <form action="/service_profile/updateService" method="POST">
@@ -64,7 +72,11 @@
 
          <label for="company_housenumber" class="form-label">Házszám:</label>
         <input type="text" class="form-control" id="company_housenumber" name="company_housenumber" value="<?= htmlentities($serviceData['service_housenumber']); ?>">
-
-        <button>Mentés</button>
+        
+        <a class="d-flex justify-content-center" href="#">
+          <button class="btn btn-primary position-center col col-md-2 m-4" onclick="redirectToPage('/service_profile')">Mentés</button>
+        </a>
     </form>
 </div>
+
+<?php include 'inc/footer.php'; ?>
