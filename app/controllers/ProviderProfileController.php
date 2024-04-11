@@ -29,7 +29,7 @@ class ProviderProfileController
         ]);
     }
 
-    #[NoReturn] public function logout()
+    #[NoReturn] public function logout(): void
     {
         if (User::logout()) {
             Helper::redirectWithMessage(MESSAGES['logout'], 'home');
@@ -38,18 +38,16 @@ class ProviderProfileController
         Helper::redirectWithMessage('', 'home');
     }
 
-    public function updateProfile()
+    public function updateProfile(): void
     {
         $service = new Service();
-        $categories = $service->loadCategories();
-        $serviceData = $service->getServiceData();
 
         $template = new Template(self::PROVIDER_UPDATE_VIEW . '.php');
         $template->loadView([
             'message' => Helper::setFlashMessage(),
             'nav' => Helper::setNav(),
-            'categories' => $categories,
-            'serviceData' => $serviceData,
+            'categories' => $service->loadCategories(),
+            'serviceData' => $service->getServiceData(),
         ]);
     }
 

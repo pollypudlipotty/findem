@@ -24,4 +24,3 @@ class Template
         echo $this->render($data);
     }
 }
-
