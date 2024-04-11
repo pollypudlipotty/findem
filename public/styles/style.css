@@ -284,6 +284,10 @@ h3{
     color: white;
 }
 
+#dataImage {
+    max-height: 200px;
+}
+
 
 /*account*/
 
@@ -313,4 +317,17 @@ h3{
 
 .profile-del {
     display: none;
+}
+
+/* adatok módosítása  */
+
+.profilUpdate {
+color: white;
+background-color: #077877;
+border: solid 2px white;
+padding: 10px;
+}
+
+.updateLabel {
+    text-decoration: underline;
 }
