@@ -5,7 +5,6 @@
 <?php include 'inc/' . $nav; ?>
 
 <div class="container">
-    <!--NAVBAR-->
 
     <!--RÓLUNK-->
 

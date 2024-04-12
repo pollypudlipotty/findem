@@ -27,29 +27,28 @@
 
 
     <div class="row">
-        <div class="col-4"></div>
+        <div class="col-4 mt-3"></div>
         <div class="d-inline-flex justify-content-center col-4 mt-3">
             <img src="../../public/images/profil_logo.png" id="profil-logo" alt="Saját profil" class="img-fluid mx-auto d-block">
         </div>
-        <div class="col-4"></div>
+        <div class="col-4 mt-3"></div>
     </div>
 
     <div class="row">
-        <div class="col-4"></div>
-        <div class="col-4 align-items-center text-center d-flex row ms-3 userData mb-3 mt-3">
+        <div class="col-1 mb-3 mt-3"></div>
+        <div class="col-10 align-items-center text-center d-flex row userData mb-3 mt-3 justify-content-center">
                 <div class="row"><h5><?php echo $userData['email_address']; ?></h5></div>
                 <div class="row"><h5><?php echo $userData['last_name'] . ' ' . $userData['first_name']; ?></h5></div>
         </div>
-        <div class="col-4"></div>
+        <div class="col-1 mb-3 mt-3"></div>
     </div>
 
 
     <div class="container" id="accountOptionsBox">
         <ul class="list-group">
-
-            <li class="list-group-item"><a href="#" onclick="redirectToPage('/seeker_profile/updateProfile')">Profil adatok módosítása</a></li>
-            <li class="list-group-item"><a href="#" onclick="redirectToPage('/seeker_profile/logout')">Kijelentkezés</a></li>   
-            <li class="list-group-item"><a href="#" onclick="displayProfileDel();">Profil törlése</a></li>
+            <li class="list-group-item userOptionBox"><a class="userOptions" href="#" onclick="redirectToPage('/seeker_profile/updateProfile')">Profil adatok módosítása</a></li>
+            <li class="list-group-item userOptionBox"><a class="userOptions" href="#" onclick="redirectToPage('/seeker_profile/logout')">Kijelentkezés</a></li>   
+            <li class="list-group-item userOptionBox"><a class="userOptions" href="#" onclick="displayProfileDel();">Profil törlése</a></li>
             <li class="profile-del list-group-item">
                 <p>Biztosan törölni szeretnéd a profilodat?</p>
                 <div class="text-center">
@@ -77,7 +76,13 @@
 
                     <?php if (empty($reservations)): ?>
 
-                        <h4>Nincsenek aktív foglalásaid.</h4>
+                        <div class="row">
+                            <div class="col-0"></div>
+                            <div class="col-12 reservationText position-relative mt-3 mb-3">
+                                <h4>Nincsenek aktív foglalásaid.</h4>
+                            </div>
+                            <div class="col-0"></div>
+                        </div>
 
                     <?php else: ?>
 
@@ -85,7 +90,7 @@
 
 
                             <div class="col-md-4">
-                                <div class="card m-5">
+                                <div class="card h-100">
                                     <div class="card-body">
                                         <h5 class="card-title"><?php echo htmlentities($reservation['category_name']); ?></h5>
                                         <h6 class="card-subtitle mb-2 text-body-secondary"><span>szolgáltató: </span>
@@ -124,15 +129,14 @@
                 </div>
                 <div class="container">
                     <table class="table reservationTable">
-                        <thead>
-                        <tr>
-
-                            <th scope="col">Szolgáltatás típusa</th>
-                            <th scope="col">Időpont</th>
-                            <th scope="col">Ár</th>
-                            <th scope="col">Szolgáltató</th>
-                            <th scope="col">Kontakt</th>
-                        </tr>
+                        <thead class="reservations">
+                            <tr>
+                                <th scope="col">Szolgáltatás típusa</th>
+                                <th scope="col">Időpont</th>
+                                <th scope="col">Ár</th>
+                                <th scope="col">Szolgáltató</th>
+                                <th scope="col">Kontakt</th>
+                            </tr>
                         </thead>
                         <tbody>
 

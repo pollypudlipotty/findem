@@ -18,7 +18,7 @@
         <img class="servicesGif" src="/public/images/servicesGif.gif" alt="">
     </div>
     <div>
-        <h2 class="text-center m-b-4 titles"><span>Hamarosan lejáró ajánlatok<span></h2>
+        <h2 class="text-center m-b-4 titles mb-4"><span>Hamarosan lejáró ajánlatok<span></h2>
     </div>
 </div>
 <div class="container">
@@ -35,8 +35,8 @@
 
             <?php foreach ($appointments as $appointment): ?>
 
-                <div class="col-md-4">
-                    <div class="card m-5">
+                <div class="col-md-4 mb-4">
+                    <div class="card m-0 h-100">
                         <div class="card-body">
                             <h5 class="card-title"><?php echo htmlentities($appointment['category_name']); ?></h5>
                             <hr>

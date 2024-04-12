@@ -14,7 +14,7 @@
             <div class="d-flex flex-column col-md-3 footerLinks">
                 <div><a class="footerItems" href="/home">Az oldal tetejére</a></div>
                 <div><a class="footerItems" href="#" onclick="redirectToPage('/about_us')">Rólunk</a></div>
-                <div><a class="footerItems" href="#" onclick="redirectToPage('/question_and_answer')">Q&A</a></div>
+                <div><a class="footerItems" href="#" onclick="redirectToPage('/question_and_answer')">GYIK</a></div>
                 <div><a class="footerItems" href="#" onclick="redirectToPage('/data_protection')">Adatvédelem</a></div>   
             </div>
 
