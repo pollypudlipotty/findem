@@ -332,8 +332,9 @@ border: solid 2px white;
     border: solid 2px #077877;
     padding: 10px;
     width: 300px;
-    background-color: white;
+    background-color: #077877
     color: white;    
+    text-decoration: none;!important
 }
 
 .container {
@@ -361,4 +362,14 @@ padding: 10px;
 
 .updateLabel {
     text-decoration: underline;
+}
+
+#updatePassword {
+    border: none;
+}
+
+/* profil */
+
+.userData {
+    color: white;
 }

@@ -6,6 +6,14 @@
 
 <div class="container">
 
+    <div class="row">
+        <div class="col-4"></div>
+        <div class="d-inline-flex justify-content-center col-4">
+            <img class="servicesGif" src="/public/images/servicesGif.gif" alt="">
+        </div>
+        <div class="col-4"></div>
+    </div>
+
     <div>
         <?php if (isset($message) && !empty($message)): ?>
             <div class="alert alert-success"><?php echo htmlentities($message); ?></div>
@@ -17,18 +25,24 @@
         <h2 class="text-center m-b-4 titles"><span>Saját profil<span></h2>
     </div>
 
+
     <div class="row">
-
-        <div class="col-6">
-            <img src="../../public/images/profil_logo.png" id="profil-logo" alt="Saját profil"
-                 class="img-fluid mx-auto d-block">
+        <div class="col-4"></div>
+        <div class="d-inline-flex justify-content-center col-4 mt-3">
+            <img src="../../public/images/profil_logo.png" id="profil-logo" alt="Saját profil" class="img-fluid mx-auto d-block">
         </div>
-        <div class="col-6 align-items-center text-center d-flex row">
-            <div class="row"><h5><?php echo $userData['email_address']; ?></h5></div>
-            <div class="row"><h5><?php echo $userData['last_name'] . ' ' . $userData['first_name']; ?></h5></div>
-        </div>
-
+        <div class="col-4"></div>
     </div>
+
+    <div class="row">
+        <div class="col-4"></div>
+        <div class="col-4 align-items-center text-center d-flex row ms-3 userData mb-3 mt-3">
+                <div class="row"><h5><?php echo $userData['email_address']; ?></h5></div>
+                <div class="row"><h5><?php echo $userData['last_name'] . ' ' . $userData['first_name']; ?></h5></div>
+        </div>
+        <div class="col-4"></div>
+    </div>
+
 
     <div class="container" id="accountOptionsBox">
         <ul class="list-group">

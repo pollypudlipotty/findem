@@ -6,27 +6,41 @@
 
 <div class="container">
 
+<div class="row">
+        <div class="col-4"></div>
+        <div class="d-inline-flex justify-content-center col-4">
+            <img class="servicesGif" src="/public/images/servicesGif.gif" alt="">
+        </div>
+        <div class="col-4"></div>
+    </div>
+
     <div>
         <?php if (isset($message) && !empty($message)): ?>
             <div class="alert alert-success"><?php echo htmlentities($message); ?></div>
         <?php endif; ?>
     </div>
 
-    <!--SAJÁT PROFIL és ADATOK MÓDOSÍTÁSA-->
+<!--     SAJÁT PROFIL és ADATOK MÓDOSÍTÁSA -->
     <div class="row">
         <h2 class="text-center m-b-4 titles"><span>Saját profil<span></h2>
     </div>
+
+
     <div class="row">
-
-        <div class="col-6">
-            <img src="../../public/images/profil_logo.png" id="profil-logo" alt="Saját profil"
-                 class="img-fluid mx-auto d-block">
+        <div class="col-4"></div>
+        <div class="d-inline-flex justify-content-center col-4 mt-3">
+            <img src="../../public/images/profil_logo.png" id="profil-logo" alt="Saját profil" class="img-fluid mx-auto d-block">
         </div>
-        <div class="col-6 align-items-center text-center d-flex row">
-            <div class="row"><h5><?php echo $userData['email_address']; ?></h5></div>
-            <div class="row"><h5><?php echo $userData['last_name'] . ' ' . $userData['first_name']; ?></h5></div>
-        </div>
+        <div class="col-4"></div>
+    </div>
 
+    <div class="row">
+        <div class="col-4"></div>
+        <div class="col-4 align-items-center text-center d-flex row ms-3 userData mb-3 mt-3">
+                <div class="row"><h5><?php echo $userData['email_address']; ?></h5></div>
+                <div class="row"><h5><?php echo $userData['last_name'] . ' ' . $userData['first_name']; ?></h5></div>
+        </div>
+        <div class="col-4"></div>
     </div>
 
     <div class="container" id="accountOptionsBox">
@@ -96,13 +110,18 @@
 
                 </div>
                 <!--ÚJ IDŐPONT-->
+              
+              
                 <div class="container">
                     <div class="row justify-content-center">
-                        <a href="#">
+                        <div class="col-4"></div>
+                        <a class="col-4" href="#">
                             <button class="btn btn-primary position-relative col m-2" onclick="redirectToPage('/new_appointment')">Új időpont feltöltése</button>
                         </a>
+                        <div class="col-4"></div>
                     </div>
                 </div>
+
                 <div class="container">
                     <hr class="line">
                 </div>
@@ -157,7 +176,7 @@
                                 <h3>Korábbi foglalások</h3>
                             </div>
                             <div class="container">
-                                <table class="table reservationTable">
+                                <table class="table" table-striped table-success"" reservationTable>
                                     <thead>
                                     <tr>
                                         <th scope="col">Időpont</th>
@@ -171,7 +190,7 @@
                                     <?php foreach ($pastAppointments as $appointment): ?>
 
                                         <tr>
-                                            <td><?php echo htmlentities($appointment['appointmentTime']); ?></td>
+                                            <td class="tableBody"><?php echo htmlentities($appointment['appointmentTime']); ?></td>
                                             <td><?php echo htmlentities($appointment['appointment_fee']); ?></td>
                                             <td><?php echo htmlentities($appointment['last_name']) . ' ' . htmlentities($appointment['first_name']); ?></td>
                                             <td><?php echo htmlentities($appointment['email_address']); ?></td>
@@ -185,4 +204,5 @@
 
                         </div>
 
-                        <?php include 'inc/footer.php'; ?>
+
+<?php include 'inc/footer.php'; ?>

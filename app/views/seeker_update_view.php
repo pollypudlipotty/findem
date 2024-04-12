@@ -4,6 +4,9 @@
 
 <?php include 'inc/' . $nav; ?>
 
+<img id="registration-logo" src="/public/images/profilUpdate_logo.png" alt="Regisztráció" class="img-fluid mx-auto d-block">
+
+<h2 class="text-center m-b-4 titles"><span>Profil adatok módosítása<span></h2>
 
 <div>
     <?php if (isset($message) && !empty($message)): ?>
