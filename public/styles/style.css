@@ -190,6 +190,10 @@ body{
     border: 3px solid #077877;
 }
 
+.reservationTableItem {
+    background-color: #077877;!important
+}
+
 .buttonReserve{
     color: white;
 }
@@ -372,4 +376,35 @@ padding: 10px;
 
 .userData {
     color: white;
+}
+
+.userOptions {
+    color: white;
+    background-color: #077877;
+    border: none;
+    text-decoration: none;
+}
+
+.userOptionBox {
+    background-color: #077877;
+    border: 2px solid white;
+}
+
+.reservationText {
+    color: white;
+}
+
+.reservations {
+    color: white;
+}
+
+/* Q&A */
+
+.questionBox {
+    background-color: #077877;
+    color: white;
+}
+
+#accordionFlushExample {
+    border: 2px solid white;
 }
