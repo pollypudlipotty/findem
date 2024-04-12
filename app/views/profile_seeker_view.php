@@ -128,32 +128,34 @@
                     <h3>Korábbi foglalások</h3>
                 </div>
                 <div class="container">
-                    <table class="table reservationTable">
-                        <thead class="reservations">
-                            <tr>
-                                <th scope="col">Szolgáltatás típusa</th>
-                                <th scope="col">Időpont</th>
-                                <th scope="col">Ár</th>
-                                <th scope="col">Szolgáltató</th>
-                                <th scope="col">Kontakt</th>
-                            </tr>
-                        </thead>
-                        <tbody>
+                    <div class="row">
+                            <table class="table reservationTable col-12">
+                                <thead class="reservations">
+                                    <tr>
+                                        <th scope="col">Szolgáltatás típusa</th>
+                                        <th scope="col">Időpont</th>
+                                        <th scope="col">Ár</th>
+                                        <th scope="col">Szolgáltató</th>
+                                        <th scope="col">Kontakt</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
 
-                            <?php foreach ($pastReservations  as $reservation): ?>
+                                    <?php foreach ($pastReservations  as $reservation): ?>
 
-                                <tr>
-                                    <td><?php echo htmlentities($reservation['category_name']); ?></td>
-                                    <td><?php echo htmlentities($reservation['appointmentTime']); ?></td>
-                                    <td><?php echo htmlentities($reservation['appointment_fee']); ?></td>
-                                    <td><?php echo htmlentities($reservation['service_name']); ?></td>
-                                    <td><?php echo htmlentities($reservation['email_address']); ?></td>
-                                </tr>
+                                        <tr>
+                                            <td><?php echo htmlentities($reservation['category_name']); ?></td>
+                                            <td><?php echo htmlentities($reservation['appointmentTime']); ?></td>
+                                            <td><?php echo htmlentities($reservation['appointment_fee']); ?></td>
+                                            <td><?php echo htmlentities($reservation['service_name']); ?></td>
+                                            <td><?php echo htmlentities($reservation['email_address']); ?></td>
+                                        </tr>
 
-                            <?php endforeach; ?>
+                                    <?php endforeach; ?>
 
-                        </tbody>
-                    </table>
+                                </tbody>
+                            </table>
+                    </div>
                 </div>
 
 

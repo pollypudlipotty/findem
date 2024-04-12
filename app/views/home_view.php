@@ -28,7 +28,7 @@
 
             <div class="text-center my-5">
                 <h4 class="text-center my-5">Nincsenek jelenleg aktív hirdetések.</h4>
-                <h5>Látogass vissza később!</h5>
+                <h5">Látogass vissza később!</h5>
             </div>
 
         <?php else: ?>
