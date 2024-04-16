@@ -94,7 +94,7 @@
                 </div>
 
                 <div class="mb-3 provider_form">
-                    <label for="company_housenumber" class="form-label">Házszám:</label>
+                    <label for="company_housenumber" class="form-label">Házszám (Lépcsőház/Emelet/Ajtó):</label>
                     <input type="text" class="form-control" id="company_housenumber" name="company_housenumber" >
                 </div>
 

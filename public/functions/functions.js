@@ -141,9 +141,9 @@ $(document).ready(function () {
         }
 
         if (fieldName === 'company_housenumber') {
-            var housenumberPattern = /^[1234567890\s./]+$/;
+            var housenumberPattern = /^[\w\d\s./ÁáÉéÍíÓóÖöŐőÚúÜüŰű]+$/;
             if (!housenumberPattern.test(fieldValue)) {
-                errorMessage = 'A házszám csak számokat tartalmazhat';
+                errorMessage = 'Kérjük, érvényes házszámot adjon meg';
                 isValid = false;
             }
         }
