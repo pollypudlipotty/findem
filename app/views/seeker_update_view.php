@@ -1,7 +1,5 @@
 <?php include 'inc/header.php'; ?>
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <?php include 'inc/' . $nav; ?>
 
 <img id="registration-logo" src="/public/images/profilUpdate_logo.png" alt="Regisztráció" class="img-fluid mx-auto d-block">

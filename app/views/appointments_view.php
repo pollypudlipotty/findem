@@ -1,7 +1,5 @@
 <?php include 'inc/header.php'; ?>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <?php include 'inc/' . $nav; ?>
 
     <!-- Foglalható időpontok -->
@@ -30,7 +28,7 @@
             <?php if (empty($appointments)): ?>
 
                 <div class="text-center my-5">
-                    <h4 class="text-center my-5">Nincsenek jelenleg aktív hírdetések.</h4>
+                    <h4 class="text-center my-5">Nincsenek jelenleg aktív hirdetések.</h4>
                     <h5>Látogass vissza később!</h5>
                 </div>
 
