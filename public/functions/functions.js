@@ -133,7 +133,7 @@ $(document).ready(function () {
         }
 
         if (fieldName === 'company_street') {
-            var namePattern = /^[A-Za-zÁáÉéÍíÓóÖöŐőÚúÜüŰű\s]+$/;
+            var namePattern = /^[A-Za-zÁáÉéÍíÓóÖöŐőÚúÜüŰű\s.]+$/;
             if (!namePattern.test(fieldValue)) {
                 errorMessage = 'Az utca neve csak betűket tartalmazhat';
                 isValid = false;
@@ -141,7 +141,7 @@ $(document).ready(function () {
         }
 
         if (fieldName === 'company_housenumber') {
-            var housenumberPattern = /^[1234567890]+$/;
+            var housenumberPattern = /^[1234567890\s./]+$/;
             if (!housenumberPattern.test(fieldValue)) {
                 errorMessage = 'A házszám csak számokat tartalmazhat';
                 isValid = false;
