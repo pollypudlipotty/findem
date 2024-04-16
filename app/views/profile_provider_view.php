@@ -76,7 +76,7 @@
 
                     <?php if (empty($freeAppointments)): ?>
 
-                        <h4>Nincsenek meghirdetett szabad időpontjaid.</h4>
+                        <h4 class="nothingsHere m-4 ms-0">Nincsenek meghirdetett szabad időpontjaid.</h4>
 
                     <?php else: ?>
 
@@ -129,7 +129,7 @@
 
                     <?php if (empty($upcomingAppointments)): ?>
 
-                        <h4>Nincsenek lefoglalt időpontjaid.</h4>
+                        <h4 class="nothingsHere">Nincsenek lefoglalt időpontjaid.</h4>
 
                     <?php else: ?>
 

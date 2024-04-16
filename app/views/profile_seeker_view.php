@@ -77,7 +77,7 @@
                         <div class="row">
                             <div class="col-0"></div>
                             <div class="col-12 reservationText position-relative mt-3 mb-3">
-                                <h4>Nincsenek aktív foglalásaid.</h4>
+                                <h4 class="nothingsHere m-4">Nincsenek aktív foglalásaid.</h4>
                             </div>
                             <div class="col-0"></div>
                         </div>
