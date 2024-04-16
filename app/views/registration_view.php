@@ -50,7 +50,7 @@
                 <div class="mb-3 form-check">
                     <input type="checkbox" class="form-check-input" id="provider_check" name="provider_check"
                            onchange="loadProviderForm();">
-                    <label class="form-check-label" for="provider_check">Szolgáltatóként is regisztrálok!</label>
+                    <label class="form-check-label" for="provider_check">Szolgáltatóként regisztrálok!</label>
                 </div>
 
                 <div class="mb-3 provider_form">
@@ -100,7 +100,7 @@
                     <input type="text" class="form-control" id="company_housenumber" name="company_housenumber" >
                 </div>
 
-                <button type="submit" class="btn btn-primary" onclick="redirectToPage('/login')">Regisztráció</button>
+                <button type="submit" class="btn btn-primary">Regisztráció</button>
 
             </form>
         </div>
