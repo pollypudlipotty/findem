@@ -43,7 +43,7 @@ class RegistrationController
                 'firstName' => $_POST['first_name'],
                 'pw' => $_POST['pass1'],
             ])) {
-                Helper::redirectWithMessage(MESSAGES['successReg'], 'home');
+                Helper::redirectWithMessage(MESSAGES['welcome'] . ' ' . $_POST['first_name'] . '!', 'seeker_profile');
             }
 
             Helper::redirectWithMessage(MESSAGES['error'],'registration');
@@ -66,7 +66,7 @@ class RegistrationController
             'companyHousenumber' => $_POST['company_housenumber'],
             'companyDescription' => $_POST['company_description'],
         ])) {
-            Helper::redirectWithMessage(MESSAGES['successReg'], 'home');
+            Helper::redirectWithMessage(MESSAGES['welcome'] . ' ' . $_POST['first_name'] . '!', 'service_profile');
         }
 
         Helper::redirectWithMessage(MESSAGES['error'],'registration');

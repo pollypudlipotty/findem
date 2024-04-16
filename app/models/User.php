@@ -21,7 +21,7 @@ class User
             Helper::redirectWithMessage($_SESSION['message'], 'registration');
         }
 
-        $userRoleID = '1';
+        $userRoleID = 1;
         $this->dbConn->query("INSERT INTO user (role_id, first_name, last_name, email_address, password)
                                     VALUES (:role_id, :first_name, :last_name, :email_address, :password)");
 
@@ -32,7 +32,13 @@ class User
         $this->dbConn->bind(':email_address', $userData['email']);
         $this->dbConn->bind(':password', $userData['pw']);
 
-        return $this->dbConn->execute();
+        if ($this->dbConn->execute()) {
+            $_SESSION['user'] = $this->dbConn->lastInsertId();
+            $_SESSION['user_role'] = $userRoleID;
+            return true;
+        }
+
+        return false;
     }
 
     public function addNewServiceProvider(array $userData): bool
@@ -41,7 +47,7 @@ class User
             Helper::redirectWithMessage($_SESSION['message'], 'registration');
         }
 
-        $userRoleID = '2';
+        $userRoleID = 2;
         $this->dbConn->query("INSERT INTO user (role_id, first_name, last_name, email_address, password)
                                     VALUES (:role_id, :first_name, :last_name, :email_address, :password)");
 
@@ -65,7 +71,13 @@ class User
             $this->dbConn->bind(':service_housenumber', $userData['companyHousenumber']);
             $this->dbConn->bind(':service_description', $userData['companyDescription']);
 
-            return $this->dbConn->execute();
+            if ($this->dbConn->execute()) {
+                $_SESSION['user'] = $lastInsertedId;
+                $_SESSION['user_role'] = $userRoleID;
+                return true;
+            }
+
+            return false;
         }
 
         return false;
