@@ -13,6 +13,10 @@ class AppointmentsController
 
     public function index(): void
     {
+        if (!isset($_SESSION['user'])) {
+            Helper::redirectWithMessage('','not_found');
+        }
+
         $service = new Service();
 
         $template = new Template(self::APPOINTMENTS_VIEW . '.php');

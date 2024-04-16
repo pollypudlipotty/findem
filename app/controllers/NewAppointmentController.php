@@ -14,6 +14,10 @@ class NewAppointmentController
 
     public function index(): void
     {
+        if ($_SESSION['user_role'] !== 2) {
+            Helper::redirectWithMessage('', 'not_found');
+        }
+
         $template = new Template(self::NEW_APPOINTMENT_VIEW . '.php');
         $template->loadView([
             'nav' => Helper::setNav(),
@@ -21,8 +25,12 @@ class NewAppointmentController
         ]);
     }
 
-    #[NoReturn] public function addNewAppointment()
+    #[NoReturn] public function addNewAppointment(): void
     {
+        if ($_SESSION['user_role'] !== 2) {
+            Helper::redirectWithMessage('', 'not_found');
+        }
+
         if (empty($_POST['date']) || empty($_POST['start_time']) || empty($_POST['duration']) || empty($_POST['fee'])) {
            Helper::redirectWithMessage(MESSAGES['missingData'], 'new_appointment');
         }

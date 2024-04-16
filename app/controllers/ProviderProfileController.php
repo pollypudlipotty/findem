@@ -15,6 +15,10 @@ class ProviderProfileController
 
     public function index(): void
     {
+        if ($_SESSION['user_role'] !== 2) {
+            Helper::redirectWithMessage('', 'not_found');
+        }
+
         $service = new Service();
         $user = new User();
 
@@ -40,6 +44,10 @@ class ProviderProfileController
 
     public function updateProfile(): void
     {
+        if ($_SESSION['user_role'] !== 2) {
+            Helper::redirectWithMessage('', 'not_found');
+        }
+
         $service = new Service();
 
         $template = new Template(self::PROVIDER_UPDATE_VIEW . '.php');

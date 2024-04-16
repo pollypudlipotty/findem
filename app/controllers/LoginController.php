@@ -13,6 +13,10 @@ class LoginController
 
     public function index(): void
     {
+        if (isset($_SESSION['user'])) {
+            Helper::redirectWithMessage('', 'home');
+        }
+
         $template = new Template(self::LOGIN_VIEW . '.php');
         $template->loadView([
             'message' => Helper::setFlashMessage(),

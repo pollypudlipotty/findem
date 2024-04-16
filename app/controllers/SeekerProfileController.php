@@ -15,6 +15,10 @@ class SeekerProfileController
 
     public function index(): void
     {
+        if ($_SESSION['user_role'] !== 1) {
+            Helper::redirectWithMessage('', 'not_found');
+        }
+
         $service = new Service();
         $user = new User();
 
@@ -39,6 +43,10 @@ class SeekerProfileController
 
     public function updateProfile(): void
     {
+        if ($_SESSION['user_role'] !== 1) {
+            Helper::redirectWithMessage('', 'not_found');
+        }
+
         $template = new Template(self::SEEKER_UPDATE_VIEW . '.php');
         $template->loadView([
             'message' => Helper::setFlashMessage(),
@@ -48,6 +56,10 @@ class SeekerProfileController
 
     #[NoReturn] public function updatePassword(): void
     {
+        if ($_SESSION['user_role'] !== 1) {
+            Helper::redirectWithMessage('', 'not_found');
+        }
+
         if(empty($_POST['oldPassword']) || empty($_POST['newPassword']) || empty($_POST['newPasswordAgain'])) {
             Helper::redirectWithMessage(MESSAGES['pwUpdateError'], 'seeker_profile/updateProfile');
         }
