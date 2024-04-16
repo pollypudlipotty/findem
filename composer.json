@@ -9,7 +9,6 @@
         }
     },
     "require": {
-      "ext-pdo": "*",
-      //"php-webdriver/webdriver": "^1.1"
+      "ext-pdo": "*"
     }
 }
