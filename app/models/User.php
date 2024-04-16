@@ -54,7 +54,7 @@ class User
         if ($this->dbConn->execute()) {
             $lastInsertedId = $this->dbConn->lastInsertId();
 
-            $this->dbConn->query("INSERT INTO service (service_provider_id, service_category_id, service_name, service_district, service_address, service_description)
+            $this->dbConn->query("INSERT INTO service (service_provider_id, service_category_id, service_name, service_district, service_address, service_housenumber, service_description)
                                     VALUES (:service_provider_id, :service_category_id, :service_name, :service_district, :service_address, :service_housenumber, :service_description)");
 
             $this->dbConn->bind(':service_provider_id', $lastInsertedId);
