@@ -14,6 +14,10 @@ class RegistrationController
 
     public function index(): void
     {
+        if (isset($_SESSION['user'])) {
+            Helper::redirectWithMessage('', 'home');
+        }
+
         $service = new Service();
 
         $template = new Template(self::REGISTRATION_VIEW . '.php');

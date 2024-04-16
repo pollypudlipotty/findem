@@ -31,6 +31,7 @@ class Router
         'question_and_answer' => ['controller' => QuestionAndAnswerController::class],
         'data_protection' => ['controller' => DataProtectionController::class],
         'appointments' => ['controller' => AppointmentsController::class],
+        'not_found' => ['controller' => NotFoundController::class],
     ];
 
     private const NOT_FOUND = ['controller' => NotFoundController::class];
