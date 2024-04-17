@@ -14,7 +14,7 @@
 
     <div>
         <?php if (isset($message) && !empty($message)): ?>
-            <div class="alert alert-success"><?php echo htmlentities($message); ?></div>
+            <div class="alert alert-success"><?php echo $message; ?></div>
         <?php endif; ?>
     </div>
 

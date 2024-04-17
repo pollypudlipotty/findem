@@ -22,4 +22,7 @@ const MESSAGES = [
     'invalidFee' => "A szolgáltatás ára csak pozitív egész szám lehet!",
     'appointmentAdded' => "Az időpont sikeresen feltöltve.",
     'appointmentReserved' => "Sikeresen lefoglaltad az időpontot.",
+    'registrationSuccess' => "Sikeresen regisztráltál.",
+    'seekerMsg' => "Most már foglalhatsz is a szabad időpontok közül.",
+    'serviceMsg' => "Most már tölthetsz fel időpontokat.",
 ];
