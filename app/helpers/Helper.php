@@ -37,14 +37,5 @@ class Helper
         }
 
         return $nav;
-//        if ($_SESSION['user_role'] === '1' ) {
-//            return "seeker_nav.php";
-//        }
-//
-//        if ($_SESSION['user_role'] === '2' ) {
-//            return "provider_nav.php";
-//        }
-//
-//        return "guest_nav.php";
     }
 }
